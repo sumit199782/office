@@ -1,0 +1,161 @@
+{
+    "name": "responsivecards",
+    "description": "responsivecards",
+    "group": "Custom",
+    "attribute_definition_groups": [
+      {
+        "id": "responsivecards",
+        "name": "responsivecards",
+        "description": "This component will be used insert blocks.",
+        "attribute_definitions": [
+          {
+            "id": "topheadingred",
+            "name": "Top Heading",
+            "description": "Top Heading in Red Color.",
+            "type": "text",
+            "required": true
+          },{
+            "id": "topheading",
+            "name": "Top Heading",
+            "description": "Top Heading in Normal Color.",
+            "type": "text",
+            "required": true
+          },
+            {
+            "id": "cardsImageID1",
+            "name": "Product Image",
+            "description": "Insert Product Image.",
+            "type": "image",
+            "required": true
+          },
+          {
+            "id": "heading1",
+            "name": "Heading of Product",
+            "description": "Enter Heading of Product",
+            "type": "text",
+            "required": true
+          },
+          {
+            "id": "para1",
+            "name": "Paragraph",
+            "description": "Enter Description of Product.",
+            "type": "text",
+            "required": true
+          },
+          {
+            "id": "button1",
+            "name": "Shop Now Button Link",
+            "description": "Shop Now Button Link",
+            "type": "text",
+            "required": true
+          },
+          {
+            "id": "cardsImageID2",
+            "name": "Product Image",
+            "description": "Insert Product Image.",
+            "type": "image",
+            "required": true
+          },
+          {
+            "id": "heading2",
+            "name": "Heading of Product",
+            "description": "Enter Heading of Product",
+            "type": "text",
+            "required": true
+          },
+          {
+            "id": "para2",
+            "name": "Paragraph",
+            "description": "Enter Description of Product.",
+            "type": "text",
+            "required": true
+          },
+          {
+            "id": "cardsImageID3",
+            "name": "Product Image",
+            "description": "Insert Product Image.",
+            "type": "image",
+            "required": true
+          },
+          {
+            "id": "heading3",
+            "name": "Heading of Product",
+            "description": "Enter Heading of Product",
+            "type": "text",
+            "required": true
+          },
+          {
+            "id": "para3",
+            "name": "Paragraph",
+            "description": "Enter Description of Product.",
+            "type": "text",
+            "required": true
+          },
+          {
+            "id": "cardsImageID4",
+            "name": "Product Image",
+            "description": "Insert Product Image.",
+            "type": "image",
+            "required": true
+          },
+          {
+            "id": "heading4",
+            "name": "Heading of Product",
+            "description": "Enter Heading of Product",
+            "type": "text",
+            "required": true
+          },
+          {
+            "id": "para4",
+            "name": "Paragraph",
+            "description": "Enter Description of Product.",
+            "type": "text",
+            "required": true
+          },
+          {
+            "id": "cardsImageID5",
+            "name": "Product Image",
+            "description": "Insert Product Image.",
+            "type": "image",
+            "required": true
+          },
+          {
+            "id": "heading5",
+            "name": "Heading of Product",
+            "description": "Enter Heading of Product",
+            "type": "text",
+            "required": true
+          },
+          {
+            "id": "para5",
+            "name": "Paragraph",
+            "description": "Enter Description of Product.",
+            "type": "text",
+            "required": true
+          },
+          {
+            "id": "cardsImageID6",
+            "name": "Product Image",
+            "description": "Insert Product Image.",
+            "type": "image",
+            "required": true
+          },
+          {
+            "id": "heading6",
+            "name": "Heading of Product",
+            "description": "Enter Heading of Product",
+            "type": "text",
+            "required": true
+          },
+          {
+            "id": "para6",
+            "name": "Paragraph",
+            "description": "Enter Description of Product.",
+            "type": "text",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "region_definitions": []
+  }

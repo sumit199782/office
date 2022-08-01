@@ -1,0 +1,7 @@
+cartridges/app_storefront_base/cartridge/static/
+coverage/
+doc/
+bin/
+cartridges/int_paypal/cartridge/static/default/js/*.js
+cartridges/int_paypal/cartridge/static/default/js/*.map
+cartridges/paypal_credit_financing_options/cartridge/static/default/js/*.js

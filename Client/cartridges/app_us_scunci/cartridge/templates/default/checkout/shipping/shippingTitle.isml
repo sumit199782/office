@@ -1,0 +1,7 @@
+<div class="single-shipping dFlex justify-space-bw" data-shipment-summary="${shippingModel.UUID}">
+        <span class="summary-section-label shipping-addr-label">${Resource.msg('label.order.shipping.address', 'confirmation', null)}</span>
+        <iscomment> <isif condition="${pdict.order.orderNumber != null}"> </iscomment>
+                <a class="edit-button editButton" href="${URLUtils.url('Checkout-Begin','stage','shipping')}" > Edit </a>
+        <iscomment> </isif> </iscomment>
+</div>
+

@@ -1,0 +1,112 @@
+<isscript>
+
+    var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/FAQ.css');
+        assets.addJs('/js/FAQ.js');
+</isscript>
+<div class="main">
+    <div class="faq">
+        <p style="margin: 0; padding: 0;">
+            ${pdict.FAQ12}
+        </p>
+    </div>
+    <div class="main-num-div">
+        <div class="num">
+            <div class="num1">
+                <div class="num2">
+                    <p id="no1" class="pnumber">${pdict.FAQNumber1}</p>
+                    <p id="txt1" class="textnumber">${pdict.FAQHeading1}</p>
+                    <img id="but11" style="margin-left: 260px;" class="imgnumber2"
+                        src="${pdict.FAQarrowimage2.file.absURL}">
+                    <img id="but21" style="display:none; margin-left: 260px;" class="imgnumber1"
+                        src="${pdict.FAQarrowimage1.file.absURL}">
+
+                </div>
+                <div id="para1" style="display:none;" class="num3">
+                    <p>
+                        ${pdict.FAQDetails1}
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="num">
+            <div class="num1">
+                <div class="num2">
+                    <p id="no2" class="pnumber">${pdict.FAQNumber2}</p>
+                    <p id="txt2" class="textnumber">${pdict.FAQHeading2}</p>
+                    <img id="but12" class="imgnumber2" style="margin-left: 150px;"
+                        src="${pdict.FAQarrowimage2.file.absURL}">
+                    <img id="but22" class="imgnumber1" style="display:none; margin-left: 150px;"
+                        src="${pdict.FAQarrowimage1.file.absURL}">
+
+                </div>
+                <div id="para2" class="num3" style="display:none;">
+                    <p>
+                        ${pdict.FAQDetails2}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="num">
+            <div class="num1">
+                <div class="num2">
+                    <p id="no3" class="pnumber">${pdict.FAQNumber3}</p>
+                    <p id="txt3" class="textnumber">${pdict.FAQHeading3}</p>
+                    <img id="but13" class="imgnumber2" style="margin-left: 177px;"
+                        src="${pdict.FAQarrowimage2.file.absURL}">
+                    <img id="but23" class="imgnumber1" style="display:none; margin-left: 177px;"
+                        src="${pdict.FAQarrowimage1.file.absURL}">
+
+                </div>
+                <div id="para3" class="num3" style="display:none;">
+                    <p>
+                        ${pdict.FAQDetails3}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="num">
+            <div class="num1">
+                <div class="num2">
+                    <p id="no4" class="pnumber">${pdict.FAQNumber4}</p>
+                    <p id="txt4" class="textnumber">${pdict.FAQHeading4}</p>
+                    <img id="but14" class="imgnumber2" style="margin-left: 10px;"
+                        src="${pdict.FAQarrowimage2.file.absURL}">
+                    <img id="but24" class="imgnumber1" style="display:none; margin-left: 10px;"
+                        src="${pdict.FAQarrowimage1.file.absURL}">
+
+                </div>
+                <div id="para4" class="num3" style="display:none;">
+                    <p>
+                        ${pdict.FAQDetails4}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="num">
+            <div class="num1">
+                <div class="num2">
+                    <p id="no5" class="pnumber">${pdict.FAQNumber5}</p>
+                    <p id="txt5" class="textnumber">${pdict.FAQHeading5}</p>
+                    <img id="but15" class="imgnumber2" style="margin-left: 94px;"
+                        src="${pdict.FAQarrowimage2.file.absURL}">
+                    <img id="but25" class="imgnumber1" style="display:none; margin-left: 94px;"
+                        src="${pdict.FAQarrowimage1.file.absURL}">
+
+                </div>
+                <div id="para5" class="num3" style="display:none;">
+                    <p>
+                        ${pdict.FAQDetails5}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

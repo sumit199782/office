@@ -1,0 +1,108 @@
+
+
+/*  Removing left margin on PDP snippet */
+.p-w-r {
+    margin-left: 0;
+}
+
+/* Setting container width on PR Write page */
+#pr-write {
+    max-width: 37.5em;
+    margin: 0 auto;
+}
+
+/* Setting top margin on PR Snippet and PR Question Container */
+#pr-reviewsnippet,
+#pr-questionsnippet {
+    margin-bottom: 1.25em;
+}
+
+/* Removing top margin on PR review and write snippet */
+.p-w-r .pr-snippet-stars-reco-inline.pr-snippet-compact .pr-snippet-read-and-write {
+    margin-top: 0;
+}
+
+/* Overriding float on definition list items */
+#pr-review-snapshot dl dt,
+#pr-review-snapshot dl dd,
+.p-w-r .pr-qa-display-questionlist dt,
+.p-w-r .pr-qa-display-questionlist dd {
+    float: none;
+    margin-top: 0;
+}
+
+/* Overriding padding on PR snapshot ul */
+.p-w-r .pr-review-snapshot .pr-ratings-histogram {
+    padding: 0;
+}
+
+/* Overriding left padding on QA definition list  */
+.p-w-r .pr-qa-display-answer-link-container,
+.p-w-r .pr-qa-display-answer {
+    padding-left: 0;
+}
+
+/* Overriding bottom positioning on QA subscript  */
+.pr-qa-display-item-details .pr-subscript {
+    bottom: auto;
+}
+
+/* Overriding clear on Review details More Details */
+.p-w-r .pr-rd-review-tag {
+    clear: none;
+}
+
+/* Overriding float on Review tag definition list */
+.p-w-r .pr-rd-review-tag dt {
+    float: none;
+}
+
+/* Override display table cell on product tiles */
+.product-tile .p-w-r .pr-snippet-stars {
+    background: none;
+}
+.product-tile .p-w-r .pr-category-snippet__item {
+    display: block;
+    text-align: center;
+}
+.product-tile .p-w-r .pr-category-snippet__total.pr-category-snippet__item {
+    display: block;
+    text-align: center;
+}
+
+#pr-reviewdisplay .p-w-r .pr-review-snapshot {
+    background: none;
+}
+.p-w-r .pr-review-display .pr-review {
+    margin-left: 1.07em;
+}
+.p-w-r .pr-review-snapshot .pr-review-snapshot-block {
+    background: #fff;
+}
+.p-w-r .pr-review-display.pr-rd-display-desktop .pr-rd-main-footer {
+    margin: 0 1.07em;
+}
+
+.p-w-r .pr-accessible-btn.pr-btn-default {
+    color: #fff;
+    background-color: #00a1e0;
+    border-color: #00a1e0;
+    -webkit-appearance: initial;
+}
+
+.pwr-review-block {
+    min-height: 3.28em;
+}
+
+#pr-srw {
+    position: fixed;
+    top: 6.25em;
+}
+
+#pr-location-input {
+    display: none;
+}
+
+.pr-location-form-group {
+    display: none;
+}

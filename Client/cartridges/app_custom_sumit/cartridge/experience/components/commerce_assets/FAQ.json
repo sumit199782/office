@@ -1,0 +1,142 @@
+{
+    "name": "FAQ12",
+    "description": "FAQ",
+    "group": "Custom",
+    "attribute_definition_groups": [
+        {
+            "id": "FAQ12",
+            "name": "FAQ",
+            "description": "FAQ",
+            "attribute_definitions": [
+                {
+                    "id": "FAQ12",
+                    "name": "FAQ",
+                    "description": "FAQ",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "id": "FAQarrowimage1",
+                    "name": "FAQ Arrow Image 1",
+                    "description": "FAQ Arrow Image 1",
+                    "type": "image",
+                    "required": true
+                },
+                {
+                    "id": "FAQarrowimage2",
+                    "name": "FAQ Arrow Image 2",
+                    "description": "FAQ Arrow Image 2",
+                    "type": "image",
+                    "required": true
+                },
+                {
+                    "id": "FAQNumber1",
+                    "name": "FAQ Number 1",
+                    "description": "FAQ Number 1",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "id": "FAQHeading1",
+                    "name": "FAQ Heading 1",
+                    "description": "FAQ Heading 1",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "id": "FAQDetails1",
+                    "name": "FAQ Details 1",
+                    "description": "FAQ Details 1",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "id": "FAQNumber2",
+                    "name": "FAQ Number 2",
+                    "description": "FAQ Number 2",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "id": "FAQHeading2",
+                    "name": "FAQ Heading 2",
+                    "description": "FAQ Heading 2",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "id": "FAQDetails2",
+                    "name": "FAQ Details 2",
+                    "description": "FAQ Details 2",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "id": "FAQNumber3",
+                    "name": "FAQ Number 3",
+                    "description": "FAQ Number 3",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "id": "FAQHeading3",
+                    "name": "FAQ Heading 3",
+                    "description": "FAQ Heading 3",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "id": "FAQDetails3",
+                    "name": "FAQ Details 3",
+                    "description": "FAQ Details 3",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "id": "FAQNumber4",
+                    "name": "FAQ Number 4",
+                    "description": "FAQ Number 4",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "id": "FAQHeading4",
+                    "name": "FAQ Heading 4",
+                    "description": "FAQ Heading 4",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "id": "FAQDetails4",
+                    "name": "FAQ Details 4",
+                    "description": "FAQ Details 4",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "id": "FAQNumber5",
+                    "name": "FAQ Number 5",
+                    "description": "FAQ Number 5",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "id": "FAQHeading5",
+                    "name": "FAQ Heading 5",
+                    "description": "FAQ Heading 5",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "id": "FAQDetails5",
+                    "name": "FAQ Details 5",
+                    "description": "FAQ Details 5",
+                    "type": "text",
+                    "required": true
+                }
+
+            ]
+        }
+    ],
+    "region_definitions": []
+}

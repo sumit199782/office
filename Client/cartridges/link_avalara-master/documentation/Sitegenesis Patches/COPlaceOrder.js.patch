@@ -1,0 +1,43 @@
+--- COPlaceOrder_original.js	2020-02-27 13:04:45.000000000 +0530
++++ COPlaceOrder.js	2020-02-27 13:04:36.000000000 +0530
+@@ -108,10 +108,14 @@
+         return {};
+     }
+ 
++    var OrderNo = OrderMgr.createOrderNo(); // Avalara
++
+     Transaction.wrap(function () {
+         cart.calculate();
+     });
+ 
++    var basket = dw.order.BasketMgr.currentBasket;  // Avalara
++
+     var COBilling = app.getController('COBilling');
+ 
+     Transaction.wrap(function () {
+@@ -142,7 +146,7 @@
+ 
+     // Creates a new order. This will internally ReserveInventoryForOrder and will create a new Order with status
+     // 'Created'.
+-    var order = cart.createOrder();
++    var order = cart.createOrder(OrderNo);  // Avalara - add OrderNo param
+ 
+     if (!order) {
+         // TODO - need to pass BasketStatus to Cart-Show ?
+@@ -173,6 +177,16 @@
+ 
+     var orderPlacementStatus = Order.submit(order);
+     if (!orderPlacementStatus.error) {
++        // avalara
++        var avaconfig = JSON.parse(require('dw/system/Site').getCurrent().getCustomPreferenceValue('ATSettings'));
++        if (avaconfig.taxCalculation) {
++            session.privacy.NoCall = false;
++            session.privacy.finalCall = true;
++            session.privacy.OrderNo = OrderNo;
++            require('*/cartridge/scripts/app').getController('Avatax').CalculateTaxes(basket);
++            session.privacy.OrderNo = null;
++        }
++        // avalara
+         clearForms();
+     }
+     return orderPlacementStatus;

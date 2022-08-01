@@ -1,0 +1,9 @@
+<iscontent type="application/javascript"/>
+<isset name="libPR" value="${pdict.libPR}" scope="page">
+<iscache type="relative" hour="24">
+window.POWER_REVIEWS_CONFIG = {
+    locale: "${pdict.CurrentRequest.locale}",
+    merchant_group_id: "${libPR.getGroupId()}",
+    merchant_id: "${libPR.getMerchantId()}",
+    api_key: "${libPR.getApiKey()}",
+};

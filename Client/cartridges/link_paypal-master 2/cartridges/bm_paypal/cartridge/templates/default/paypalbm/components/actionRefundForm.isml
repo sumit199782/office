@@ -1,0 +1,75 @@
+<div id="paypal_refund_form" class="paypal_hide">
+    <form class="paypal_action_form paypalbm_content" action="${URLUtils.url('PaypalAdmin-Action')}">
+
+        <input type="hidden" name="methodName" value="DoRefundTransaction" />
+        <input type="hidden" name="transactionid" value="${transaction.transactionid}" />
+        <input type="hidden" name="refundtype" value="Partial" />
+        <input type="hidden" name="invNum" value="${transaction.invnum}" />
+        <input type="hidden" name="currencyCode" value="${transaction.currencycode}" />
+
+        <input type="hidden" name="orderNo" value="${transaction.order.orderNo}" />
+        <input type="hidden" name="orderToken" value="${transaction.order.orderToken}" />
+        <input type="hidden" name="isCustomOrder" value="${transaction.isCustomOrder}" />
+
+        <h2>${Resource.msg('transaction.refund.title', 'paypalbm', null)}</h2>
+
+        <div class="paypal_error_msg_box paypal_error_msg_box_amt_required"><p>${Resource.msg('forms.error.amt.required', 'paypalbm', null)}</p></div>
+        <div class="paypal_error_msg_box paypal_error_msg_box_amt_greaterzero"><p>${Resource.msg('forms.error.amt.greaterzero', 'paypalbm', null)}</p></div>
+        <div class="paypal_error_msg_box paypal_error_msg_box_amt_float"><p>${Resource.msg('forms.error.amt.float', 'paypalbm', null)}</p></div>
+
+        <table class="paypalbm_transaction_detail_table infobox w e s n">
+            <tr>
+                <isif condition="${!empty(transaction.captureID)}">
+                    <td class="infobox_title top">${Resource.msg('capture.detail.captureid', 'paypalbm', null)}:</td>
+                    <td class="infobox_item top">${transaction.captureID}</td>
+                <iselse>
+                    <td class="infobox_title top">${Resource.msg('transaction.detail.transactionid', 'paypalbm', null)}:</td>
+                    <td class="infobox_item top">${transaction.transactionid}</td>
+                </isif>
+            </tr>
+            <tr class="paypalbm_gray">
+                <td class="infobox_title top">${Resource.msg('transaction.detail.name', 'paypalbm', null)}:</td>
+                <td class="infobox_item top">${Resource.msgf('transaction.detail.customerformat', 'paypalbm', null, transaction.firstname, transaction.lastname)}</td>
+            </tr>
+            <tr>
+                <td class="infobox_title top">${Resource.msg('transaction.detail.email', 'paypalbm', null)}:</td>
+                <td class="infobox_item top">${transaction.email}</td>
+            </tr>
+            <tr class="paypalbm_gray">
+                <td class="infobox_title top">${Resource.msg('transaction.refund.originalpayment', 'paypalbm', null)}:</td>
+                <td class="infobox_item top">
+                ${Resource.msgf('transaction.detail.moneyformat', 'paypalbm', null, transaction.amt, transaction.currencycode)}
+                <isif condition="${!empty(transaction.capturedAmount)}">
+                    <span><i>${Resource.msg('capture.amount', 'paypalbm', null)}</i> ${transaction.capturedAmount}</span>
+                </isif>
+                <isif condition="${!empty(transaction.refundedAmount)}">
+                    <span><i>${Resource.msg('capture.refund', 'paypalbm', null)}</i> ${transaction.refundedAmount}</span>
+                </isif>
+                </td>
+            </tr>
+            <tr>
+                <td class="infobox_title top">${Resource.msg('transaction.refund.refundamount', 'paypalbm', null)}:</td>
+                <isset name="transactionAmount" value="${transaction.amt}" scope="page">
+                <isif condition="${!empty(transaction.capturedAmount)}">
+                    <td class="infobox_item top"><input type="text" name="amt" value="${transaction.restRefountAmount}" data-validation="required,float,greaterzero" /> ${transaction.currencycode}</td>
+                <iselse>
+                    <td class="infobox_item top"><input type="text" name="amt" value="${transaction.amt}" data-validation="required,float,greaterzero" /> ${transaction.currencycode}</td>
+                </isif>
+            </tr>
+            <tr class="paypalbm_gray">
+                <td class="infobox_title top">${Resource.msg('transaction.refund.invoicenumber', 'paypalbm', null)}:</td>
+                <td class="infobox_item top">${transaction.invnum}</td>
+            </tr>
+            <tr>
+                <td class="infobox_title top">
+                    ${Resource.msg('transaction.refund.note', 'paypalbm', null)}<br/>
+                    <i>${Resource.msg('transaction.optional', 'paypalbm', null)}</i>
+                </td>
+                <td class="infobox_item top">
+                    <textarea name="note" cols="50" rows="10" data-maxcount="255"></textarea>
+                    <p><b class="js_textarea_count">0</b> ${Resource.msg('forms.charectersleft', 'paypalbm', null)}</p>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>

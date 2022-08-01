@@ -1,0 +1,7 @@
+<isif condition="${pdict.paypal && pdict.paypal.pdpButtonEnabled && !pdict.paypal.paypalEmail}">
+    <div class="row paypal_pdp_button">
+        <div class="col-sm-12">
+            <isinclude template="paypal/pdp/paypalPdpContent"/>
+        </div>
+    </div>
+</isif>

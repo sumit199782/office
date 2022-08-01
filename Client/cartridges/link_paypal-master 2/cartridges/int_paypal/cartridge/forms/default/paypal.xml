@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19">
+    <field formid="paypalOrderID" type="string" mandatory="false" />
+    <field formid="savePaypalAccount" type="boolean" mandatory="false" />
+    <field formid="paypalActiveAccount" type="string" mandatory="false" />
+    <field formid="makeDefaultPaypalAccount" type="boolean" mandatory="false" />
+    <field formid="billingAgreementID" type="string" mandatory="false" />
+    <field formid="billingAgreementPayerEmail" type="string" mandatory="false" />
+    <field formid="usedPaymentMethod" type="string" mandatory="false" />
+</form>

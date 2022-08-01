@@ -1,0 +1,28 @@
+<div class="image-container">
+    <a href="${pdict.urls.product}">
+        <img class="tile-image image-1"
+             src="${product.images.large[3].url}"
+             alt="${product.productName}"
+             title="${product.images.large[3].title}"
+        />
+        <img class="tile-image image-2"
+             src="${product.images.large[0].url}"
+             alt="${product.productName}"
+             title="${product.images.large[0].title}"
+        />
+    </a>
+    <isif condition="${pdict.display.showQuickView !== false}">
+        <a class="quickview hidden-sm-down no-decoration" href="${pdict.urls.quickView}"
+           data-toggle="modal"
+           data-target="#quickViewModal"
+           title="${Resource.msgf('button.quickview', 'common', null, product.productName)}"
+           aria-label="${Resource.msgf('button.quickview', 'common', null, product.productName)}"
+        >
+            <iscomment> <div class="quick-view-link HelveticaNeueLTStd-Roman" style="font-size:11pt" > QUICK VIEW </div> </iscomment>
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-inverse fa-stack-2x"></i>
+                <i class="fa fa-search fa-stack-1x"></i>
+            </span>
+        </a>
+    </isif>
+</div>

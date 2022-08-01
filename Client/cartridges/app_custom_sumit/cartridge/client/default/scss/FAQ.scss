@@ -1,0 +1,70 @@
+.main {
+    display: flex;
+    margin-top: 100px;
+
+}
+
+.num {
+    display: flex;
+    padding-top: 16px !important;
+    padding-bottom: 24px !important;
+    border-bottom: 1px solid #848484;
+
+}
+
+.pnumber {
+    margin: 0;
+    color: #ff525c;
+    font-size: 48px;
+
+}
+
+.textnumber {
+    margin: 0;
+    color: #848484;
+    margin-left: 16px;
+    padding-top: 12px;
+    padding-left: 24px;
+    font-size: 24px;
+    margin-right: 300px;
+}
+
+.faq {
+
+    margin-left: 40px;
+    margin-right: 40px;
+    font-size: 48px;
+    font-family: Jeko ExtraBold,
+        sans-serif !important;
+    padding-top: 16px;
+    padding-bottom: 8px;
+}
+
+.imgnumber1 {
+    max-width: 100% !important;
+    height: 25px;
+    padding-top: 12px;
+}
+
+.imgnumber2 {
+    max-width: 100% !important;
+    height: 25px;
+    padding-top: 12px;
+}
+
+.num2 {
+    display: flex;
+}
+
+.num3 {
+    margin-left: 100px;
+    color: #848484;
+
+}
+
+.belowPara {}
+
+.main-num-div {
+    display: flex;
+    flex-direction: column;
+}

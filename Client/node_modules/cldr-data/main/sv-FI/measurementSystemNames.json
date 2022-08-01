@@ -1,0 +1,21 @@
+{
+  "main": {
+    "sv-FI": {
+      "identity": {
+        "version": {
+          "_number": "$Revision: 13133 $",
+          "_cldrVersion": "32"
+        },
+        "language": "sv",
+        "territory": "FI"
+      },
+      "localeDisplayNames": {
+        "measurementSystemNames": {
+          "metric": "SI-enheter",
+          "UK": "engelska enheter",
+          "US": "USA-enheter"
+        }
+      }
+    }
+  }
+}

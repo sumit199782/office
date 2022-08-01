@@ -1,0 +1,57 @@
+{
+
+	"email" : "autotesting101@test.ua",
+	"password" : "National!34",
+	
+	"BMLogin":"epam",
+	"BMPassword": "MasterPassword-5",
+	
+	"paypalEmail" : "epamtester@pptest.com",
+	"paypalPassword" : "epamtest",
+	
+	"paypalCreditEmail" : "ptest4@paypal.com",
+	"paypalCreditPassword" : "11111111", 
+
+	"paypalEmailCheck" : "ptest4@paypal.com",
+	"paypalPasswordCheck" : "11111111", 
+	
+	"firstName" : "Tania",
+	"lastName" : "Lieberman",
+	"addressOne" : "473 Wiseman Street",
+	"country" : "United States",
+	"state" : "Tennessee",
+	"city" : "Sevierville",
+	"zip" : "37862",
+	"phone" : "6505895223",
+	
+	"firstNameCheck" : "Joe",
+	"lastNameCheck" : "Rogan",
+	"addressOneCheck" : "1234 Fluffy drive",
+	"countryCheck" : "United States",
+	"stateCheck" : "California",
+	"cityCheck" : "Los Angeles",
+	"zipCheck" : "94077",
+	"phoneCheck" : "3202496830",
+	
+	"nameOnCard" : "Tania Lieberman",
+	"cardNumber" : "4111111111111111",
+	"cvv" : "111",
+	"expiration" : "12/25",
+
+	"nameOnCard2" : "Joe Rogan",
+	"cardNumber2" : "4111111111111111",
+	"cvv2" : "872",
+	"expiration2" : "01/22",
+	
+	"myAccountPage" : "https://paypal05-tech-prtnr-na06-dw.demandware.net/on/demandware.store/Sites-RefArchPP-Site/en_US/Account-Show" ,
+	"productPageTV" : "https://paypal05-tech-prtnr-na06-dw.demandware.net/s/RefArchPP/sony-ps3-consoleM.html",
+	"loginPage" : "https://paypal05-tech-prtnr-na06-dw.demandware.net/on/demandware.store/Sites-RefArchPP-Site/en_US/Login-Show",
+	"ecConfig" : "https://paypal05-tech-prtnr-na06-dw.demandware.net/on/demandware.store/Sites-Site/default/ViewApplication-BM?csrf_token=lwVTvuRpqe5hG-aQhL8Dut6GJwmCx7r4I4-VJ9cuCTICU09fD-Re7H6L1A1OA8_Xu6vhTSDS4DhkJRd7Qr7XM2Xwht3gNMnfIxeVE81BiL5-FFG32zXbriBB0sM9V2wJzYmFcD3PnpdvcastjEfEcv-o6zrciwH4jq8macO5LzmfVaDNAMg=#/?preference#site_preference_group_attributes!id!Paypal_Express_Checkout",
+	"customCashConfig" : "https://paypal05-tech-prtnr-na06-dw.demandware.net/on/demandware.store/Sites-Site/default/ViewCustomCaches-Start?SelectedMenuItem=operations&CurrentMenuItemId=operations&csrf_token=8q_R9AF2VQwBAuMqf0GYqCg1cwWbqluVX_g2aRUMataMoAPWzeoi69S3TcRsQNhWW6HZPFdO8TuaVJVf4MylrhSXBPI5SRkQREd52COCO9nz4J3suHrOPq0EHOKa3DW4mih_pQfMgbOQ8P3segHQ_kOZ7JhUrjU6wKg3h0qjkwN3Vmk2XsA%3d"
+
+
+	
+
+
+	
+}

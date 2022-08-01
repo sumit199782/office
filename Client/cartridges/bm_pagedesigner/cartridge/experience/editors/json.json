@@ -1,0 +1,12 @@
+{
+    "name": "JSON textarea",
+    "description": "This is a JSON textbox that validates the entered JSON",
+    "resources": {
+        "scripts": [
+            "/experience/editors/json.js"
+        ],
+        "styles": [
+            "https://cdnjs.cloudflare.com/ajax/libs/design-system/2.8.3/styles/salesforce-lightning-design-system.min.css"
+        ]
+    }
+}

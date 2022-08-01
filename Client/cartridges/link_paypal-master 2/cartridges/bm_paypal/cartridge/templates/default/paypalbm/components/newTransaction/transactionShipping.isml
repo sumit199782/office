@@ -1,0 +1,72 @@
+<div class="js_paypal_shipping">
+    <h2 class="paypal_new_transaction_title">${Resource.msg('transaction.newtransaction.shipping.title', 'paypalbm', null)}</h2>
+    <button class="js_paypal_toggle_button" data-hide="true" data-text-hide="Hide" data-text-show="Show">Hide</button>
+    <button class="js_paypal_disable_button" data-disable="false" data-text-enable="Enable" data-text-disable="Disable">Enable</button>
+    <table class="paypalbm_transaction_detail_table infobox w e s n" id="shippingInfo">
+        <tr class="paypalbm_gray">
+            <td class="infobox_title top">${Resource.msg('transaction.newtransaction.shipping.firstname', 'paypalbm', null)}</td>
+            <td class="infobox_item top">
+                <input type="text" class="biginput" data-general-validation="general" id="shippingFirstName" data-validation="required" disabled/>
+            </td>
+        </tr>
+        <tr>
+            <td class="infobox_title top">${Resource.msg('transaction.newtransaction.shipping.lastname', 'paypalbm', null)}</td>
+            <td class="infobox_item top">
+                <input type="text" class="biginput" data-general-validation="general" id="shippingLastName" data-validation="required" disabled/>
+            </td>
+        </tr>
+        <tr class="paypalbm_gray">
+            <td class="infobox_title top">${Resource.msg('transaction.newtransaction.shipping.address1', 'paypalbm', null)}</td>
+            <td class="infobox_item top">
+                <input type="text" class="biginput" data-general-validation="general" name="shiptoStreet" data-validation="required" disabled/>
+            </td>
+        </tr>
+        <tr>
+            <td class="infobox_title top">${Resource.msg('transaction.newtransaction.shipping.address2', 'paypalbm', null)}</td>
+            <td class="infobox_item top">
+                <input type="text" class="biginput" name="shiptoStreet2" disabled/>
+            </td>
+        </tr>
+        <tr class="paypalbm_gray">
+            <td class="infobox_title top">${Resource.msg('transaction.newtransaction.shipping.city', 'paypalbm', null)}</td>
+            <td class="infobox_item top">
+                <input type="text" class="biginput" data-general-validation="general" name="shiptoCity" data-validation="required" disabled/>
+            </td>
+        </tr>
+        <tr>
+            <td class="infobox_title top">${Resource.msg('transaction.newtransaction.shipping.phone', 'paypalbm', null)}</td>
+            <td class="infobox_item top">
+                <input type="text" class="biginput" data-general-validation="general" name="shiptoPhoneNum" disabled/>
+            </td>
+        </tr>
+        <tr class="paypalbm_gray">
+            <td class="infobox_title top">${Resource.msg('transaction.newtransaction.shipping.state', 'paypalbm', null)}</td>
+            <td class="infobox_item top">
+                <input type="text" name="shiptoState" data-general-validation="general" data-validation="required" disabled/>
+            </td>
+        </tr>
+        <tr>
+            <td class="infobox_title top">${Resource.msg('transaction.newtransaction.shipping.zip', 'paypalbm', null)}</td>
+            <td class="infobox_item top">
+                <input type="text" name="shiptoZip" data-general-validation="general" data-validation="required" disabled/>
+            </td>
+        </tr>
+        <tr class="paypalbm_gray">
+            <td class="infobox_title top">${Resource.msg('transaction.newtransaction.shipping.country', 'paypalbm', null)}</td>
+            <td class="infobox_item top">
+                <select name="shiptoCountry" disabled>
+                    <isloop items="${pdict.countries}" var="country" >
+                        <option value="${country.value}">${country.label}</option>
+                        </isloop>
+                    </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="infobox_title top">${Resource.msg('transaction.newtransaction.shipping.amt', 'paypalbm', null)}</td>
+            <td class="infobox_item top">
+                <input type="text" name="shippingamt" class="totalCount" data-validation="required,float" value="0" disabled/>
+                <span class="js_paypa_currency"><isprint value="${pdict.defaultCurrency}"/></span>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,558 @@
+<isdecorate template="common/layout/page">
+
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets');
+        assets.addJs('/js/productDetail.js');
+
+        assets.addCss('/css/productDetails.css');
+    </isscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://kenwheeler.github.io/slick/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://kenwheeler.github.io/slick/slick/slick-theme.css"/>
+
+    <script>
+        var $jq = jQuery.noConflict();
+        $jq(document).ready(function(){
+
+            $jq('.slider-nav').slick({
+                slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite:true,
+            dots: true,
+            focusOnSelect: true
+            });
+
+        });
+    </script>
+
+    
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <isset name="product" value="${pdict.product}" scope="page" />
+    <isset name="isQuickView" value="${false}" scope="page" />
+    <isset name="isProductSet" value="${pdict.product.productType === 'set'}" scope="page" />
+    <isobject object="${product.raw}" view="detail" />
+
+<iscomment> DESKTOP VIEW </iscomment>
+
+        <div class="container product-detail product-wrapper desktopView" data-pid="${product.id}">
+            <!--Breadcrumbs-->
+            <iscomment> <div class="row">
+                <div class="product-breadcrumb col ">
+                    <div class="row ">
+                        <div class="col" role="navigation" aria-label="Breadcrumb">
+                            <ol class="breadcrumb">
+                                <isloop items="${pdict.breadcrumbs}" var="breadcrumbValue" status="loopState">
+                                    <li class="breadcrumb-item">
+                                        <isif condition="${loopState.last}">
+                                            <a href="${breadcrumbValue.url}" aria-current="page">
+                                                ${breadcrumbValue.htmlValue}
+                                            </a>
+                                        <iselse>
+                                            <a href="${breadcrumbValue.url}">
+                                                ${breadcrumbValue.htmlValue}
+                                            </a>
+                                        </isif>
+                                    </li>
+                                </isloop>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div> </iscomment>
+            <div class="row">
+                <div class="primary-images col-12 col-sm-6">
+                    <div id="pdpCarousel-${product.id}" class="carousel slide" data-interval="0" data-prev="${Resource.msg('button.previous', 'common', null)}" data-next="${Resource.msg('button.next', 'common', null)}">
+                        <isif condition="${product.images['large'].length > 1}">
+                            <ol class="carousel-indicators" aria-hidden="true">
+                                <isloop items="${product.images['large']}" var="image" status="loopStatus">
+                                    <li data-target="${"#"}pdpCarousel-${product.id}" data-slide-to="${loopStatus.index}" class='<isif condition="${loopStatus.index == 0}">active</isif>'>
+                                    </li>
+                                </isloop>
+                            </ol>
+                        </isif>
+
+                        <div class="imageContainer" role="listbox">
+                            <isloop items="${product.images['large']}" var="image" status="loopStatus">
+                                <div class='imagess'>
+                                    <img src="${image.url}" class="d-block img-fluid" alt="${image.alt} image number ${image.index}" itemprop="image" />
+                                </div>
+                            </isloop>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6">
+                    <!-- Product Name -->
+                    <div class="row">
+                        <div class="col">
+                            <h1 class="product-name hidden-sm-down HelveticaNeueLTStd-Roman">${product.productName}</h1>
+                        </div>
+                    </div>
+
+
+                    <div class="attributes">
+
+                      <div class="prices-add-to-cart-actions">
+                            <div class="row">
+                                <!-- Prices -->
+                                <div class="prices">
+                                    <isset name="price" value="${product.price}" scope="page" />
+                                    <isinclude template="product/components/pricing/main" />
+                                </div>                                   
+                            </div>
+                        </div>
+
+                        <isinclude template="product/components/mainAttributes" />
+
+                    <div class="product-qty-addtocart">
+                        <div class="product-qty-ui number">
+                            <span class="qty  changequantity minus" onclick="btnMinus(this)" data-change='minus' rel="item-910" data-id="${product.ID}" >-</span>
+                            <input id="product-quantity" class="quantity-selected quantity-select ${product.ID} "  name="item[910]" type="text" value="1">
+                            <span class="qty changequantity plus" onclick="btnPlus(this)" data-change='plus' rel="item-910" data-id="${product.ID}" >+</span>
+                        </div>
+                        <iscomment> <div class="atc primary-btn primary-btn-border add-to-cart-global"  data-model="910" data-category="Skin Care + Beauty - Facial Brushes" data-image="910-smoothwrap-infinitipro-by-conair-dryer-main.png" data-price="59.99" data-title="Smoothwrap™ InfinitiPRO by Conair®" value="ADD TO CART" data-pid="${product.ID}" >ADD TO CART</div> </iscomment>
+                        
+                        <input type="hidden" class="add-to-cart-url" value="${pdict.addToCartUrl}">
+                        <button class="add-to-cart btn add-to-cart-globall HelveticaNeueLTStd-Roman"
+                                data-toggle="modal" data-target="#chooseBonusProductModal"
+                                data-pid="${product.id}"
+                                ${!product.readyToOrder || !product.available ? "disabled" : ""}>
+                            ${Resource.msg('button.addtocart', 'common', null)}
+                        </button>
+                        <iscomment> <span class="fa fa-heart-o wishlistIcon"></span> </iscomment>
+                    </div>
+
+                 <iscomment> <isif condition="${!product.variationAttributes}">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="simple-quantity">
+                                        <isinclude template="product/components/quantity" />
+                                    </div>
+                                </div>
+                            </div>
+                        </isif> </iscomment>
+
+                        <iscomment> <div class="product-options">
+                            <isif condition="${product.options && product.options.length > 0}">
+                                <isinclude template="product/components/options" />
+                            </isif>
+                        </div> </iscomment>
+
+                        <!-- Applicable Promotions -->
+                        <div class="row">
+                            <div class="col-12 promotions">
+                                <isinclude template="product/components/promotions" />
+                            </div>
+                        </div>
+
+                            <div class="descriptionn HelveticaNeueLTStd-Roman">
+                                <isif condition="${product.shortDescription}">
+                                <div class="col-sm-12 col-md-8 col-lg-9 value content accContent pro-desc" id="collapsible-description-${loopState && loopState.count ? loopState.count : '1'}">
+                                    <isprint value="${product.shortDescription}" encoding="off" />
+                                </div>
+                            </isif>
+                            </div>
+                            <iscomment> <div class="Product_Details">
+                                <div class="aaa">
+                                    <div class="pp">Product Details</div>
+                                    <button class="accordion btn1"></button>
+                                    <button class="accordion btn2"></button>
+
+                                </div>
+                                <div class="panel">
+                                    <isif condition="${product.longDescription}">
+                                        <div class="col-sm-12 col-md-8 col-lg-9 value content accContent" id="collapsible-details-${loopState && loopState.count ? loopState.count : '1'}">
+                                            <isprint value="${product.longDescription}" encoding="off" />
+                                        </div>
+                                    </isif>
+                                </div>
+                            </div> </iscomment>
+                            <iscomment> <isinclude template="product/components/descriptionAndDetails_bv" /> </iscomment>
+                            <isinclude template="product/components/productRating" />
+                            
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<iscomment> tablet view </iscomment>
+
+
+        <div class="container product-detail product-wrapper tabletView" data-pid="${product.id}">
+        
+            <div class="row">
+                <div class="primary-images col-12 col-sm-6">
+                    <div id="pdpCarousel-${product.id}" class="carousel slide" data-interval="0" data-prev="${Resource.msg('button.previous', 'common', null)}" data-next="${Resource.msg('button.next', 'common', null)}">
+                        <isif condition="${product.images['large'].length > 1}">
+                            <ol class="carousel-indicators" aria-hidden="true">
+                                <isloop items="${product.images['large']}" var="image" status="loopStatus">
+                                    <li data-target="${"#"}pdpCarousel-${product.id}" data-slide-to="${loopStatus.index}" class='<isif condition="${loopStatus.index == 0}">active</isif>'>
+                                    </li>
+                                </isloop>
+                            </ol>
+                        </isif>
+
+                        <div class="imageContainer" role="listbox">
+                            <isloop items="${product.images['large']}" var="image" status="loopStatus">
+                                <div class='imagess'>
+                                    <img src="${image.url}" class="d-block img-fluid" alt="${image.alt} image number ${image.index}" itemprop="image" />
+                                </div>
+                            </isloop>
+                        </div>
+                    </div>
+                </div>
+                <div class="contentP col-12 col-sm-6">
+                
+                    <!--Breadcrumbs-->
+                    <iscomment> <div class="row">
+                        <div class="product-breadcrumb col ">
+                            <div class="row ">
+                                <div class="col" role="navigation" aria-label="Breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <isloop items="${pdict.breadcrumbs}" var="breadcrumbValue" status="loopState">
+                                            <li class="breadcrumb-item">
+                                                <isif condition="${loopState.last}">
+                                                    <a href="${breadcrumbValue.url}" aria-current="page">
+                                                        ${breadcrumbValue.htmlValue}
+                                                    </a>
+                                                <iselse>
+                                                    <a href="${breadcrumbValue.url}">
+                                                        ${breadcrumbValue.htmlValue}
+                                                    </a>
+                                                </isif>
+                                            </li>
+                                        </isloop>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div> </iscomment>
+
+                    <!-- Product Name -->
+                    <div class="row nameWidth">
+                        <div class="col">
+                            <h1 class="product-name hidden-sm-down HelveticaNeueLTStd-Roman">${product.productName}</h1>
+                        </div>
+                        <iscomment> <span class="fa fa-heart-o wishlistIcon"></span> </iscomment>
+
+                    </div>
+
+                    <div class="descriptionn HelveticaNeueLTStd-Roman">
+                        <isif condition="${product.shortDescription}">
+                        <div class="col-sm-12 col-md-8 col-lg-9 value content accContent pro-desc" id="collapsible-description-${loopState && loopState.count ? loopState.count : '1'}">
+                            <isprint value="${product.shortDescription}" encoding="off" />
+                        </div>
+                    </isif>
+                    </div>
+                    <isinclude template="bv/display/pdpSummary"/>
+
+                <iscomment> <isinclude template="product/components/descriptionAndDetails" /> </iscomment>
+
+                    <div class="attributes">
+
+                      <div class="prices-add-to-cart-actions">
+                            <div class="row">
+                                <!-- Prices -->
+                                <div class="prices">
+                                    <isset name="price" value="${product.price}" scope="page" />
+                                    <isinclude template="product/components/pricing/main" />
+                                </div>                                   
+                            </div>
+                        </div>
+
+                        <isinclude template="product/components/mainAttributes" />
+
+                    <div class="product-qty-addtocart">
+                        <div class="product-qty-ui number">
+                            <span class="qty  changequantity minus" onclick="btnMinus(this)" data-change='minus' rel="item-910" data-id="${product.ID}" >-</span>
+                            <input id="product-quantity" class=" quantity-select quantity-selected ${product.ID} "  name="item[910]" type="text" value="1">
+                            <span class="qty changequantity plus" onclick="btnPlus(this)" data-change='plus' rel="item-910" data-id="${product.ID}" >+</span>
+                        </div>
+                        <iscomment> <div class="atc primary-btn primary-btn-border add-to-cart-global"  data-model="910" data-category="Skin Care + Beauty - Facial Brushes" data-image="910-smoothwrap-infinitipro-by-conair-dryer-main.png" data-price="59.99" data-title="Smoothwrap™ InfinitiPRO by Conair®" value="ADD TO CART" data-pid="${product.ID}" >ADD TO CART</div> </iscomment>
+                            <input type="hidden" class="add-to-cart-url" value="${pdict.addToCartUrl}">
+                            <button class="add-to-cart btn add-to-cart-globall HelveticaNeueLTStd-Roman"
+                                    data-toggle="modal" data-target="#chooseBonusProductModal"
+                                    data-pid="${product.id}"
+                                    ${!product.readyToOrder || !product.available ? "disabled" : ""}>
+                                ${Resource.msg('button.addtocart', 'common', null)}
+                            </button>                    </div>
+
+                 <iscomment> <isif condition="${!product.variationAttributes}">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="simple-quantity">
+                                        <isinclude template="product/components/quantity" />
+                                    </div>
+                                </div>
+                            </div>
+                        </isif> </iscomment>
+
+                        <iscomment> <div class="product-options">
+                            <isif condition="${product.options && product.options.length > 0}">
+                                <isinclude template="product/components/options" />
+                            </isif>
+                        </div> </iscomment>
+
+                        <!-- Applicable Promotions -->
+                        <div class="row">
+                            <div class="col-12 promotions">
+                                <isinclude template="product/components/promotions" />
+                            </div>
+                        </div>
+
+                            <iscomment> <div class="descriptionn HelveticaNeueLTStd-Roman 2nd-desc">
+                                <isif condition="${product.shortDescription}">
+                                <div class="col-sm-12 col-md-8 col-lg-9 value content accContent HelveticaNeueLTStd-Roman" id="collapsible-description-${loopState && loopState.count ? loopState.count : '1'}">
+                                    <isprint value="${product.shortDescription}" encoding="off" />
+                                </div>
+                            </isif>
+                            </div> </iscomment>
+                            <iscomment> <div class="Product_Details">
+                                <div class="aaa">
+                                    <div class="pp">Product Details</div>
+                                    <button class="accordion btn1"></button>
+                                    <button class="accordion btn2"></button>
+
+                                </div>
+                                <div class="panel">
+                                    <isif condition="${product.longDescription}">
+                                        <div class="col-sm-12 col-md-8 col-lg-9 value content accContent" id="collapsible-details-${loopState && loopState.count ? loopState.count : '1'}">
+                                            <isprint value="${product.longDescription}" encoding="off" />
+                                        </div>
+                                    </isif>
+                                </div>
+                            </div> </iscomment>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<iscomment> mobile view </iscomment>
+
+        <div class="container product-detail product-wrapper mobileView" data-pid="${product.id}">
+        
+            <div class="row mobileShow">
+                <div class="primary-images col-12 ">
+                    <div id="pdpCarousel-${product.id}" class="carousel slide" data-interval="0" data-prev="${Resource.msg('button.previous', 'common', null)}" data-next="${Resource.msg('button.next', 'common', null)}">
+                        <isif condition="${product.images['large'].length > 1}">
+                            <ol class="carousel-indicators" aria-hidden="true">
+                                <isloop items="${product.images['large']}" var="image" status="loopStatus">
+                                    <li data-target="${"#"}pdpCarousel-${product.id}" data-slide-to="${loopStatus.index}" class='<isif condition="${loopStatus.index == 0}">active</isif>'>
+                                    </li>
+                                </isloop>
+                            </ol>
+                        </isif>
+                        <div class="slider imageContainer slider-nav">
+                            <isloop items="${product.images['large']}" var="image" status="loopStatus">
+                                <div class='imagess'>
+                                    <img src="${image.url}" class="d-block img-fluid" alt="${image.alt} image number ${image.index}" itemprop="image" width="100%"/>
+                                </div>
+                            </isloop>
+                        </div>
+                    </div>
+                </div>
+                <div class="contentP col-12 col-sm-6">
+                
+                    <!--Breadcrumbs-->
+                    <iscomment> <div class="row">
+                        <div class="product-breadcrumb col ">
+                            <div class="row ">
+                                <div class="col" role="navigation" aria-label="Breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <isloop items="${pdict.breadcrumbs}" var="breadcrumbValue" status="loopState">
+                                            <li class="breadcrumb-item">
+                                                <isif condition="${loopState.last}">
+                                                    <a href="${breadcrumbValue.url}" aria-current="page">
+                                                        ${breadcrumbValue.htmlValue}
+                                                    </a>
+                                                <iselse>
+                                                    <a href="${breadcrumbValue.url}">
+                                                        ${breadcrumbValue.htmlValue}
+                                                    </a>
+                                                </isif>
+                                            </li>
+                                        </isloop>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div> </iscomment>
+
+                    <!-- Product Name -->
+                    <div class="row nameWidth">
+                        <div class="col">
+                            <h1 class="product-name HelveticaNeueLTStd-Roman">${product.productName}</h1>
+                        </div>
+                        <iscomment> <span class="fa fa-heart-o wishlistIcon"></span> </iscomment>
+
+                    </div>
+                    <div class="descriptionn HelveticaNeueLTStd-Roman">
+                        <isif condition="${product.shortDescription}">
+                        <div class="col-sm-12 col-md-12 col-lg-9 value content accContent pro-desc" id="collapsible-description-${loopState && loopState.count ? loopState.count : '1'}">
+                            <isprint value="${product.shortDescription}" encoding="off" />
+                        </div>
+                    </isif>
+                    </div>
+                    <isinclude template="bv/display/pdpSummary"/>
+
+                    <iscomment> <isinclude template="product/components/descriptionAndDetails" /> </iscomment>
+
+
+                    <div class="attributes">
+
+                      <div class="prices-add-to-cart-actions">
+                            <div class="row">
+                                <!-- Prices -->
+                                <div class="prices">
+                                    <isset name="price" value="${product.price}" scope="page" />
+                                    <isinclude template="product/components/pricing/main" />
+                                </div>                                   
+                            </div>
+                        </div>
+
+                        <isinclude template="product/components/mainAttributes" />
+
+                    <div class="product-qty-addtocart">
+                        <div class="product-qty-ui number">
+                            <span class="qty  changequantity minus" onclick="btnMinus(this)" data-change='minus' rel="item-910" data-id="${product.ID}" >-</span>
+                            <input id="product-quantity" class="quantity-select quantity-selected ${product.ID} "  name="item[910]" type="text" value="1">
+                            <span class="qty changequantity plus" onclick="btnPlus(this)" data-change='plus' rel="item-910" data-id="${product.ID}" >+</span>
+                        </div>
+                        <iscomment> <div class="atc primary-btn primary-btn-border add-to-cart-global"  data-model="910" data-category="Skin Care + Beauty - Facial Brushes" data-image="910-smoothwrap-infinitipro-by-conair-dryer-main.png" data-price="59.99" data-title="Smoothwrap™ InfinitiPRO by Conair®" value="ADD TO CART" data-pid="${product.ID}" >ADD TO CART</div> </iscomment>
+                        <input type="hidden" class="add-to-cart-url" value="${pdict.addToCartUrl}">
+                        <button class="add-to-cart btn add-to-cart-globall HelveticaNeueLTStd-Roman"
+                                data-toggle="modal" data-target="#chooseBonusProductModal"
+                                data-pid="${product.id}"
+                                ${!product.readyToOrder || !product.available ? "disabled" : ""}>
+                            ${Resource.msg('button.addtocart', 'common', null)}
+                        </button>
+                    </div>
+
+                 <iscomment> <isif condition="${!product.variationAttributes}">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="simple-quantity">
+                                        <isinclude template="product/components/quantity" />
+                                    </div>
+                                </div>
+                            </div>
+                        </isif> </iscomment>
+
+                        <iscomment> <div class="product-options">
+                            <isif condition="${product.options && product.options.length > 0}">
+                                <isinclude template="product/components/options" />
+                            </isif>
+                        </div> </iscomment>
+
+                        <!-- Applicable Promotions -->
+                        <div class="row">
+                            <div class="col-12 promotions">
+                                <isinclude template="product/components/promotions" />
+                            </div>
+                        </div>
+
+                            <iscomment> <div class="descriptionn HelveticaNeueLTStd-Roman">
+                                <isif condition="${product.shortDescription}">
+                                <div class="col-sm-12 col-md-8 col-lg-9 value content accContent" id="collapsible-description-${loopState && loopState.count ? loopState.count : '1'}">
+                                    <isprint value="${product.shortDescription}" encoding="off" />
+                                </div>
+                            </isif>
+                            </div> </iscomment>
+                            <iscomment> <div class="Product_Details">
+                                <div class="aaa">
+                                    <div class="pp">Product Details</div>
+                                    <button class="accordion btn1"></button>
+                                    <button class="accordion btn2"></button>
+
+                                </div>
+                                <div class="panel">
+                                    <isif condition="${product.longDescription}">
+                                        <div class="col-sm-12 col-md-8 col-lg-9 value content accContent" id="collapsible-details-${loopState && loopState.count ? loopState.count : '1'}">
+                                            <isprint value="${product.longDescription}" encoding="off" />
+                                        </div>
+                                    </isif>
+                                </div>
+                            </div> </iscomment>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <isinclude template="bv/display/rr/reviews" />
+
+
+    </isobject>
+
+
+    <script>
+
+        
+        
+        // var acc = document.getElementsByClassName("accordion");
+        // var i;
+        // for (i = 0; i < acc.length; i++) {
+
+        // acc[i].addEventListener("click", function() {
+        //     if(screen.width>1025){
+        //         var panel = document.getElementsByClassName("panel")[0];
+        //         var btn1 = document.getElementsByClassName("btn1")[0];
+        //         var btn2 = document.getElementsByClassName("btn2")[0];
+    
+        //     }
+        //     else if(screen.width>960 && screen.width<1025){
+        //         var panel = document.getElementsByClassName("panel")[1];
+        //         var btn1 = document.getElementsByClassName("btn1")[1];
+        //         var btn2 = document.getElementsByClassName("btn2")[1];
+        //     }
+        //     else if( screen.width<960){
+        //         var panel = document.getElementsByClassName("panel")[2];
+        //         var btn1 = document.getElementsByClassName("btn1")[2];
+        //         var btn2 = document.getElementsByClassName("btn2")[2];
+        //     }
+
+        //     this.classList.toggle("active");
+        //     if (panel.style.maxHeight) {
+        //         panel.style.maxHeight = null;
+        //     } else {
+        //     panel.style.maxHeight = panel.scrollHeight + "px";
+        //     } 
+                
+        //     if(btn1.style.display=='none'){
+        //         btn1.style.display  =   'inline-block';
+        //         btn2.style.display  =   'none';
+        //     }
+        //     else
+        //     {
+        //         btn2.style.display  =   'inline-block';
+        //         btn1.style.display  =   'none';   
+        //     }
+        // });
+        // }
+        function btnPlus(el) {
+            
+            var quanty = el.previousElementSibling;
+            console.log(quanty);
+            countp=Number(quanty.value) +1;
+            countp = countp > 9 ? 9:countp;
+            quanty.value=countp;
+
+        }
+         function btnMinus(el) {
+            
+            var quanty = el.nextElementSibling;
+            countm=Number(quanty.value) -1;
+            countm = countm < 1 ? 1 : countm;
+            quanty.value=countm;
+
+
+        }
+    </script>
+</isdecorate>

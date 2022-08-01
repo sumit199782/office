@@ -1,0 +1,22 @@
+<isscript>
+
+    var assets = require('*/cartridge/scripts/assets.js');
+         assets.addCss('/css/bottomBanner.css')
+
+    </isscript>
+<div class="main5">
+    <div class="first1">
+        <img class="img123" src="${pdict.bottomImg.file.absURL}">
+    </div>
+    <div class="second2">
+        <div class="para123">
+
+            <p>${pdict.bottomparagraph}</p>
+        </div>
+        <div>
+            <p class="but123"><a class="link123" href="${pdict.bottomshop}">Shop Now</a></p>
+        </div>
+
+    </div>
+
+</div>

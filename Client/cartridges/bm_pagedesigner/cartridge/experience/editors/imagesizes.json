@@ -1,0 +1,12 @@
+{
+    "name": "imagesizes",
+    "description": "Define width and height for image",
+    "resources": {
+        "scripts": [
+            "/experience/editors/imagesizes.js"
+        ],
+        "styles": [
+            "https://cdnjs.cloudflare.com/ajax/libs/design-system/2.8.3/styles/salesforce-lightning-design-system.min.css"
+        ]
+    }
+}

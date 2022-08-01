@@ -1,0 +1,19 @@
+.full-width-img{
+    width: 100%;
+    max-width: 1920px;
+    height: 725px;
+
+    margin: auto;
+    margin-bottom: 80px;
+}
+@media screen and (min-width:768px)and (max-width:1259px){
+    .full-width-img{
+        height: 500px;
+    }
+}
+@media screen and (min-width:0px)and (max-width:767px){
+    .full-width-img{
+        height: 350px;
+        max-width: 375px;
+    }
+}

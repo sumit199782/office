@@ -1,0 +1,109 @@
+{
+    "name": "heroBanner",
+    "description": "Component for banner.",
+    "group": "Custom",
+    "attribute_definition_groups": [
+      {
+        "id": "banner",
+        "name": "heroBanner",
+        "description": "This component is for homepage.",
+        "attribute_definitions": [
+          {
+            "id": "image1",
+            "name": "Image1",
+            "description": "Image",
+            "type": "image",
+            "required": false
+          },
+          {
+            "id": "image2",
+            "name": "Image2",
+            "description": "Imagee",
+            "type": "image",
+            "required": false
+          },
+          {
+            "id": "image3",
+            "name": "Image3",
+            "description": "Imagee",
+            "type": "image",
+            "required": false
+          },
+          {
+            "id": "heading1",
+            "name": "Heading1",
+            "description": "Write the heading.",
+            "type": "text",
+            "required": false
+          },
+          {
+            "id": "heading2",
+            "name": "Heading2",
+            "description": "Write the heading.",
+            "type": "text",
+            "required": false
+          },
+          {
+            "id": "heading3",
+            "name": "heading3",
+            "description": "Write the paragraph.",
+            "type": "text",
+            "required": false
+          },
+          {
+            "id": "heading4",
+            "name": "heading4",
+            "description": "Write the paragraph.",
+            "type": "text",
+            "required": false
+          },
+          {
+            "id": "btnText",
+            "name": "Button Text",
+            "description": "Write the text of the button.",
+            "type": "text",
+            "required": false
+          },
+          {
+            "id": "titleTagName",
+            "name": "Heading for Title",
+            "type": "enum",
+            "required": false,
+            "values": [
+                "paragraph",
+                "Heading 1",
+                "Heading 2",
+                "Heading 3",
+                "Heading 4",
+                "Heading 5",
+                "Heading 6"
+            ],
+            "default_value": "Heading 2"
+        },
+        {
+            "id": "checkbox",
+            "name": "checkbox",
+            "description": "Select this checkbox if you would like to make whole banner clickable. (CTA URL if DEPRECATED CTA URL used)",
+            "type": "boolean",
+            "required": false,
+            "default_value": false
+        },
+        {
+            "id": "heading5",
+            "name": "heading5",
+            "description": "Write the text of the button.",
+            "type": "text",
+            "required": false
+        },
+        {
+            "id": "ctaUrl",
+            "name": "Primary CTA URL (deprecated, use Hero Content region instead)",
+            "description": "[DEPRECATED] The URL used for the CTA",
+            "type": "url",
+            "required": false
+        }
+        ]
+      }
+    ],
+    "region_definitions": []
+  }

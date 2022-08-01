@@ -1,0 +1,50 @@
+
+    <div class="js_paypal_payment_fields">
+        <h2 class="paypal_new_transaction_title">${Resource.msg('transaction.newtransaction.payment.title', 'paypalbm', null)}</h2>
+        <button class="js_paypal_toggle_button" data-hide="true" data-text-hide="Hide" data-text-show="Show">Hide</button>
+        <table class="paypalbm_transaction_detail_table infobox w e s n" id="paymentInfo">
+            <tr>
+                <td class="infobox_title top">${Resource.msg('transaction.newtransaction.payment.baid', 'paypalbm', null)}</td>
+                <td class="infobox_item top">
+                    <input class="biginput" type="text" data-general-validation="general" name="referenceid" data-validation="required" autocomplete="off" id="referenceInput"/>
+                </td>
+            </tr>
+            <tr class="paypalbm_gray">
+                <td class="infobox_title top">${Resource.msg('transaction.newtransaction.payment.itemamount', 'paypalbm', null)}</td>
+                <td class="infobox_item top">
+                    <input type="text" name="itemamt" class="totalCount" data-validation="required,float,greaterzero" />
+                    <span class="js_paypa_currency"><isprint value="${pdict.defaultCurrency}"/></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="infobox_title top">${Resource.msg('transaction.newtransaction.payment.tax', 'paypalbm', null)}</td>
+                <td class="infobox_item top">
+                    <input type="text" name="taxamt" class="totalCount" value="0" data-validation="float" />
+                    <span class="js_paypa_currency"><isprint value="${pdict.defaultCurrency}"/></span>
+                </td>
+            </tr>
+            <tr class="paypalbm_gray">
+                <td class="infobox_title top">${Resource.msg('transaction.newtransaction.paymentaction', 'paypalbm', null)}</td>
+                <td class="infobox_item top">
+                    <select name='paymentAction'>
+                        <option ${pdict.isCapture ? "selected" : ''} value='Sale'>${Resource.msg('transaction.newtransaction.paymentaction.sale', 'paypalbm', null)}</option>
+                        <option ${!pdict.isCapture ? "selected" : ''} value='Authorization'>${Resource.msg('transaction.newtransaction.paymentaction.authorization', 'paypalbm', null)}</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="infobox_title top">${Resource.msg('transaction.newtransaction.type', 'paypalbm', null)}</td>
+                <td class="infobox_item top">
+                    <select  class="js_paypal_transaction_type">
+                        <option selected value='ba'>${Resource.msg('transaction.newtransaction.type.ba', 'paypalbm', null)}</option>
+                    </select>
+                </td>
+            </tr>
+            <tr class="paypalbm_gray">
+                <td class="infobox_title top">${Resource.msg('transaction.newtransaction.payment.totalamount', 'paypalbm', null)}</td>
+                <td class="infobox_item top">
+                    <div><b id="totalAmount">0</b> <span class="js_paypa_currency"><isprint value="${pdict.defaultCurrency}"/></span></div>
+                </td>
+            </tr>
+        </table>
+    </div>

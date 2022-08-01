@@ -1,0 +1,27 @@
+<isscript>
+  var PowerReviews = require('*/cartridge/scripts/lib/libPowerReviews');
+  var libPR = PowerReviews(request.locale);
+  var orderNo = pdict.order.orderNumber;
+</isscript>
+
+<isif condition="${libPR.getOnlineStatus() && !empty(libPR.getSellerRatingWidgetType())}">
+  <div id="pr-srw"></div>
+  
+  <script src="${URLUtils.httpsStatic('/js/powerreviews/js/loader.js')}"></script>
+  
+  <script type="text/javascript">
+		window.PWR_INCLUDE = true;
+		POWERREVIEWS.display.render({
+			merchant_group_id: "${libPR.getSellerRatingGroupId()}",
+			merchant_id: "${libPR.getSellerMerchantId()}",
+			page_id: "${libPR.getSellerRatingPageId()}",
+			locale: "${pdict.CurrentRequest.locale}",
+			srwVariant: "${libPR.getSellerRatingWidgetType()}",
+			api_key: "${libPR.getSellerRatingApiKey()}",
+			style_sheet: '${URLUtils.staticURL('/css/powerreviews.css')}',
+			components: {
+				SellerRatings: 'pr-srw'
+			}
+		});
+	</script>
+</isif>

@@ -1,0 +1,21 @@
+<isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/powwerreviews.js');
+        assets.addJs('/js/popup.js');
+    </isscript>
+
+
+
+<div id="${dw.util.UUIDUtils.createUUID()}" data-pwr-itemid="${pdict.product.id}"></div>
+
+
+    <isinclude template="product/components/productRating" />
+
+<iscomment> <script> </iscomment>
+        <iscomment> // console.log(typeof PWR_RENDER ); </iscomment>
+        <iscomment> // console.log('ggggggggggggg' ); </iscomment>
+      
+<iscomment> // if(typeof PWR_RENDER === 'function') </iscomment>
+<iscomment> //     { </iscomment>
+<iscomment> //     } </iscomment>
+<iscomment> </script> </iscomment>

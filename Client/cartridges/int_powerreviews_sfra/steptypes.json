@@ -1,0 +1,74 @@
+{
+  "step-types": {
+    "chunk-script-module-step": [
+      {
+        "@type-id":"custom.powerreviews.ExportProducts",
+        "@supports-organization-context": false,
+        "@timeout-in-ceconds": 3600,
+        "chunk-size": 100,
+        "description": "Exports Products from configured catalogs to PowerReviews",
+        "module": "int_powerreviews_sfra/cartridge/scripts/jobs/exportProducts",
+        "before-step-function":"beforeStep",
+        "total-count-function":"getTotalCount",
+        "read-function":"read",
+        "process-function":"process",
+        "write-function":"write",
+        "after-chunk-function":"afterChunk",
+        "after-step-function":"afterStep",
+        "parameters": {
+          "parameters": [
+            {
+              "@name": "locale",
+              "@description": "Locale for product attributes (default: site default locale)",
+              "@type": "string",
+              "@required": false
+            }
+          ]
+        },
+        "status-codes": {
+          "status": [
+            {
+              "@code": "ERROR",
+              "description": "Used when an error occurred."
+            },
+            {
+              "@code": "OK",
+              "description": "Used when everything went well."
+            }
+          ]
+        }
+      },
+      {
+        "@type-id":"custom.powerreviews.ExportOrders",
+        "@supports-organization-context": false,
+        "@timeout-in-ceconds": 3600,
+        "chunk-size": 100,
+        "description": "Exports Orders from site to PowerReviews",
+        "module": "int_powerreviews_sfra/cartridge/scripts/jobs/exportOrders",
+        "before-step-function":"beforeStep",
+        "total-count-function":"getTotalCount",
+        "read-function":"read",
+        "process-function":"process",
+        "write-function":"write",
+        "after-chunk-function":"afterChunk",
+        "after-step-function":"afterStep",
+        "parameters": {
+          "parameters": [
+          ]
+        },
+        "status-codes": {
+          "status": [
+            {
+              "@code": "ERROR",
+              "description": "Used when an error occurred."
+            },
+            {
+              "@code": "OK",
+              "description": "Used when everything went well."
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

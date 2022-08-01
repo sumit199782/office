@@ -1,0 +1,41 @@
+<isset name="isSessionAccount" value="${!!pdict.paypal.paypalEmail}" scope="page" />
+<isset name="customerPaypalPaymentInstruments" value="${pdict.paypal.customerPaypalPaymentInstruments}" scope="page" />
+<isset name="showDropdown" value="${isSessionAccount || (customer.authenticated && !empty(customerPaypalPaymentInstruments))}" scope="page" />
+<isset name="isBAEnabled" value="${pdict.paypal.prefs.billingAgreementEnabled}" scope="page" />
+<isset name="isAccountAlreadyExist" value="${pdict.paypal.isAccountAlreadyExist}" scope="page" />
+
+<div id="paypalAccountsDropdown" class="${showDropdown ? 'block' : 'none'}" >
+    <label class="form-control-label"
+        for="restPaypalAccountsList">${Resource.msg('paypal.checkout.paypalaccountlist.label', 'locale', null)}
+    </label>
+
+    <select name="restPaypalAccountsList" id="restPaypalAccountsList"
+        data-has-default-account="${pdict.paypal.hasDefaultPaymentMethod}" class="form-control"
+        data-has-saved-account="${!empty(customerPaypalPaymentInstruments)}"
+        data-ba-limit-reached="${pdict.paypal.isBALimitReached}">
+        <option value="newaccount" ${isSessionAccount ? '' : 'selected'}>
+            ${Resource.msg('paypal.checkout.paypalaccountlist.newaccount', 'locale', null)}
+        </option>
+
+        <isif condition="${customer.authenticated && !empty(customerPaypalPaymentInstruments)}">
+            <isloop items="${customerPaypalPaymentInstruments}" var="instrument">
+                <option value="${instrument.email}"
+                    data-default="${instrument.default}"
+                    data-ba-id="${instrument.baID}"
+                    ${(instrument.default) ? 'selected' : ''} >
+                        ${instrument.email} ${instrument.default ? Resource.msg('paypal.checkout.default', 'locale', null) : ''}
+                </option>
+            </isloop>
+        </isif>
+            <option id="sessionPaypalAccount"
+                data-is-session="true"
+                ${(isSessionAccount && !isAccountAlreadyExist) ? 'selected' : ''}
+                data-append="${isSessionAccount && !isAccountAlreadyExist}"
+                value="${pdict.paypal.paypalEmail || ''}"
+                data-ba-id="${pdict.paypal.activeBAID || ''}"
+                class="${pdict.paypal.paypalEmail && !isAccountAlreadyExist ? 'block' : 'none'}"
+            >
+                <isprint value="${pdict.paypal.paypalEmail || ''}" encoding="on" />
+            </option>
+    </select>
+</div>

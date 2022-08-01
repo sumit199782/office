@@ -1,0 +1,27 @@
+<isset name="paypalConfig" value="${pdict.paypal.buttonConfig}" scope="page" />
+<isset name="billingFormFields" value="${pdict.paypal.billingFormFields}" scope="page" />
+<isset name="isUpdateRequired" value="${pdict.paypal.isPaypalInstrumentExist}" scope="page" />
+<isset name="isBAEnabled" value="${pdict.paypal.billingAgreementEnabled}" scope="page" />
+<isset name="defaultBAemail" value="${pdict.paypal.defaultBAemail}" scope="page" />
+
+<div class="row">
+    <div class="paypal-content js_paypal-content col-12" id="paypal-content"
+        data-paypal-urls="${pdict.paypal.paypalUrls}">
+        <div class="js_paypal_error"></div>
+
+        <div class="position-relative text-center mb-1" id="cart-paypal-button-container">
+            <div class="paypalLoader paypal-loader-container">
+                <i class="paypal-loader"></i>
+            </div>
+            <isif condition="${pdict.paypal.showStaticImage}">
+                <isinclude template="paypal/cart/staticImage" />
+                <iselse>
+                    <div class="paypal-cart-button js_paypal_button_on_cart_page"
+                        data-paypal-ba-enabled="${isBAEnabled}"
+                        data-paypal-button-config="${JSON.stringify(paypalConfig)}"
+                        data-paypal-billing-form-fields="${JSON.stringify(billingFormFields)}">
+                    </div>
+            </isif>
+        </div>
+    </div>
+</div>

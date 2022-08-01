@@ -1,0 +1,21 @@
+{
+  "main": {
+    "en-TZ": {
+      "identity": {
+        "version": {
+          "_number": "$Revision: 13133 $",
+          "_cldrVersion": "32"
+        },
+        "language": "en",
+        "territory": "TZ"
+      },
+      "localeDisplayNames": {
+        "measurementSystemNames": {
+          "metric": "Metric",
+          "UK": "UK",
+          "US": "US"
+        }
+      }
+    }
+  }
+}

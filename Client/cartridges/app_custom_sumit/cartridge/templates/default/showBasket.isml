@@ -1,0 +1,13 @@
+<h2>Everything's on Sale</h2>
+
+<iscomment>display the contents of the basket using isloop and pdict</iscomment>
+
+
+<isloop items="${pdict.Basket.allProductLineItems}" var="productLineItem">
+
+   <p>${productLineItem.productName}</p>
+
+
+   <iscomment>close the loop</iscomment>
+
+</isloop>

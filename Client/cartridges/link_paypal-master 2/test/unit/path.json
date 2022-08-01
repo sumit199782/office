@@ -1,0 +1,10 @@
+{
+    "paypalRestServicePath": "../../cartridges/int_paypal/cartridge/scripts/service/paypalRestService",
+    "paypalPreferencesPath" : "../../cartridges/int_paypal/cartridge/config/paypalPreferences",
+    "paypalHelperPath" : "../../cartridges/int_paypal/cartridge/scripts/paypal/helpers/paypalHelper",
+    "paymentInstrumentHelperPath" : "../../cartridges/int_paypal/cartridge/scripts/paypal/helpers/paymentInstrumentHelper",
+    "paypalUtilsPath" : "../../cartridges/int_paypal/cartridge/scripts/paypal/paypalUtils",
+    "addressHelperPath" : "../../cartridges/int_paypal/cartridge/scripts/paypal/helpers/addressHelper",
+    "billingAgreementHelperPath" : "../../cartridges/int_paypal/cartridge/scripts/paypal/helpers/billingAgreementHelper",
+    "billingAgreementModelPath" : "../../cartridges/int_paypal/cartridge/models/billingAgreement"
+}

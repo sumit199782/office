@@ -1,0 +1,29 @@
+{
+    "name": "blocks",
+    "description": "blocks",
+    "group": "Custom",
+    "attribute_definition_groups": [
+      {
+        "id": "blocks",
+        "name": "blocks",
+        "description": "This component will be used insert blocks.",
+        "attribute_definitions": [
+          {
+            "id": "BlockImageID",
+            "name": "Block Image",
+            "description": "Block Image.",
+            "type": "image",
+            "required": true
+          },
+          {
+            "id": "BlockHeading",
+            "name": "Heading",
+            "description": "block Heading",
+            "type": "text",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "region_definitions": []
+  }

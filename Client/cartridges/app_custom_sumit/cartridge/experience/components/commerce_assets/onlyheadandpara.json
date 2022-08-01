@@ -1,0 +1,36 @@
+{
+    "name": "Heading Paragraph Text",
+    "description": "Heading Paragraph Text",
+    "group": "Custom",
+    "attribute_definition_groups": [
+        {
+            "id": "headingParagraphTextAttributes",
+            "name": "HeadingParagraphTextConfigurations",
+            "description": "Heading Paragraph Text",
+            "attribute_definitions": [
+                {
+                    "id": "heading_text_ID",
+                    "name": "Heading Text",
+                    "description": "Heading Text",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "id": "paragraph1_text_ID",
+                    "name": "Paragraph Text",
+                    "description": "Paragraph Text",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "id": "paragraph2_text_ID",
+                    "name": "Paragraph Text",
+                    "description": "Paragraph Text",
+                    "type": "text",
+                    "required": true
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

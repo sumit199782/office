@@ -1,0 +1,63 @@
+<isdecorate template="paypalbm/util/pt_paypal">
+
+<isinclude template="inc/Modules">
+<isinclude template="paypalbm/util/modules">
+
+<div class="paypalbm_header">
+    <isset name="ordersUrl" value="${URLUtils.url('SiteNavigationBar-ShowMenuitemOverview', 'CurrentMenuItemId', 'orders')}" scope="page">
+    <isset name="transactionsUrl" value="${URLUtils.url('PaypalAdmin-Orders')}" scope="page">
+    <isbreadcrumb
+        name1="Ordering" url1="${ordersUrl}"
+        name2="PayPal Transactions" url2="${transactionsUrl}" />
+</div>
+
+<h2>${Resource.msgf('transaction.newtransaction.title', 'paypalbm', null)}</h2>
+
+<form class="paypal_action_form paypal_new_transaction_form" action="${URLUtils.url('PaypalAdmin-Action')}">
+    <div class="paypal_error_msg_box paypal_error_msg_box_itemamt_required"><p>${Resource.msg('forms.error.amt.required', 'paypalbm', null)}</p></div>
+    <div class="paypal_error_msg_box paypal_error_msg_box_itemamt_greaterzero"><p>${Resource.msg('forms.error.amt.greaterzero', 'paypalbm', null)}</p></div>
+    <div class="paypal_error_msg_box paypal_error_msg_box_itemamt_float"><p>${Resource.msg('forms.error.amt.float', 'paypalbm', null)}</p></div>
+    <div class="paypal_error_msg_box paypal_error_msg_box_shippingamt_required"><p>${Resource.msg('forms.error.shippingamt.required', 'paypalbm', null)}</p></div>
+    <div class="paypal_error_msg_box paypal_error_msg_box_shippingamt_float"><p>${Resource.msg('forms.error.shippingamt.float', 'paypalbm', null)}</p></div>
+    <div class="paypal_error_msg_box paypal_error_msg_box_general_required"><p>${Resource.msg('forms.error.general.required', 'paypalbm', null)}</p></div>
+
+    <input type="hidden" name="methodName" value="CreateTransaction" />
+    <input type="hidden" name="amt"/>
+    <input type="hidden" name="shiptoName"/>
+    <input type="hidden" name="invnum" value="${pdict.invNum}"/>
+    <input type="hidden" name="recurring" id="recurringInput" value="Y" />
+    <input type="hidden" name="ipaddress" value="${pdict.CurrentRequest.getHttpRemoteAddress()}">
+
+    <isif condition="${pdict.allCurrencies.length > 1}">
+        <table class="paypalbm_transaction_detail_table infobox w e s n">
+            <tr>
+                <td class="infobox_title top">${Resource.msg('transaction.newtransaction.currency', 'paypalbm', null)}</td>
+                <td class="infobox_item top">
+                    <select name="currencycode" class="js_paypal_new_transaction_currency_select">
+                        <isloop items="${pdict.allCurrencies}" var="currency" >
+                            <isif condition="${currency === pdict.defaultCurrency}">
+                                <option value="${currency}" selected="selected">${currency}</option>
+                            <iselse>
+                                <option value="${currency}">${currency}</option>
+                            </isif>
+                         </isloop>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    <iselse>
+        <input type="hidden" name="currencycode" value="${pdict.defaultCurrency}">
+    </isif>
+
+    <isinclude template="paypalbm/components/newTransaction/paymentFields"/>
+    <isinclude template="paypalbm/components/newTransaction/transactionBilling"/>
+    <isinclude template="paypalbm/components/newTransaction/transactionShipping"/>
+    <isinclude template="paypalbm/components/newTransaction/transactionAddition"/>
+
+    <input type="hidden" name="${pdict.CSRFProtection.getTokenName()}" value="${pdict.CSRFProtection.generateToken()}"/>
+</form>
+
+<div class="paypalbm_footer">
+    <a class="button" href="${transactionsUrl}">&lt;&lt; ${Resource.msg('ordertransaction.backtolist', 'paypalbm', null)}</a>
+</div>
+</isdecorate>

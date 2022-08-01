@@ -1,0 +1,10 @@
+<!--- Payment information --->
+<div class="dFlex justify-space-bw">
+    <span class="summary-section-label billing-addr-label">${Resource.msg('label.order.payment.method', 'confirmation', null)}</span>
+    <a class="edit-button editButton" href="${URLUtils.url('Checkout-Begin','stage','payment')}"> Edit </a>
+    
+</div>
+<div class="summary-details" style="background-color: rgba(248, 248, 248, 0.5);color: #000000; padding: 10px;">
+    <iscomment> <span class="summary-section-label payment-info-label">${Resource.msg('label.order.payment.info', 'confirmation', null)}</span><br/> </iscomment>
+    <isinclude template="checkout/billing/paymentOptions/paymentOptionsSummary" />
+</div>

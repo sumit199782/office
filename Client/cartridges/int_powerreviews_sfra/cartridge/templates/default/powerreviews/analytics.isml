@@ -1,0 +1,23 @@
+<iscontent type="application/javascript" encoding="off" charset="utf-8"/>
+<isset name="profile" value="${pdict.CurrentCustomer.profile}" scope="page" />
+
+(function(){try{
+  var config = window.POWER_REVIEWS_CONFIG;
+  var tracker = POWERREVIEWS.tracker.createTracker({merchantGroupId: config.merchant_group_id});
+
+    var orderFeed = {
+        merchantGroupId: config.merchant_group_id,
+        merchantId: config.merchant_id,
+        locale: config.locale,
+        merchantUserId: "${pdict.Order.getCustomer().getID()}",
+        marketingOptIn: true,
+        userEmail: "${pdict.Order.getCustomerEmail()}",
+        userFirstName : "${!empty(profile) ? profile.getFirstName() : pdict.Order.getBillingAddress().getFirstName()}",
+        userLastName : "${!empty(profile) ? profile.getLastName() : pdict.Order.getBillingAddress().getLastName()}",
+        orderId: "${pdict.Order.orderNo}",
+        orderItems: JSON.parse('<isprint value="${JSON.stringify(pdict.OrderItems.toArray())}" encoding="jssource"/>')
+    }
+
+    tracker.trackCheckout(orderFeed);
+
+}catch(e){window.console && window.console.log(e)}}());

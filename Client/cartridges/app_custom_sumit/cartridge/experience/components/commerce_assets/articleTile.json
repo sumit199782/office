@@ -1,0 +1,118 @@
+{
+    "name": "Article Tile",
+    "group": "commerce_assets",
+    "attribute_definition_groups": [
+      {
+        "id": "bannerImage",
+        "name": "Banner Image",
+        "description": "Banner Image configuration",
+        "attribute_definitions": [
+          {
+            "id": "atcImageDesktop",
+            "name": "Article Image",
+            "type": "image",
+            "required": false
+          },
+          {
+            "id": "atcImageTablet",
+            "name": "Tablet Article Image",
+            "type": "image",
+            "required": false
+          },
+          {
+            "id": "imageMobile",
+            "name": "Mobile Article Image",
+            "type": "image",
+            "required": false
+          },
+          {
+            "id": "imageAlt",
+            "name": "Image Alt Text",
+            "type": "string",
+            "required": false
+          },
+          {
+            "id": "enableImageZoomOnHover",
+            "name": "Enable Image Zoom on Hover",
+            "description": "Enable Image Zoom on Hover and background color that is grey",
+            "type": "boolean",
+            "required": false
+          }
+        ]
+      },
+      {
+        "id": "contentBlock",
+        "name": "Article Block",
+        "description": "Article Block Configuration",
+        "attribute_definitions": [
+          {
+            "id": "descriptionHTML",
+            "name": "Article Description",
+            "type": "string",
+            "required": false
+          },
+          {
+            "id": "atcDecFonttype",
+            "name": "Article Description Font Type",
+            "type": "enum",
+            "values": ["primary-font","secondary-font"],
+            "default_value": "primary-font",
+            "required": false
+          },
+          {
+            "id": "atcDecFontsize",
+            "name": "Article Description Font Size",
+            "type": "enum",
+            "values": [11, 12, 14, 16, 20, 24, 32, 48, 72, 96, 120],
+            "default_value": 16,
+            "required": false
+          },
+          {
+            "id": "atcTitle",
+            "name": "Article Title",
+            "type": "string",
+            "required": false
+          },
+          {
+            "id": "tagName",
+            "name": "Article Title Heading",
+            "type": "enum",
+            "values": ["Heading 1", "Heading 2", "Heading 3", "Heading 4", "Heading 5", "Heading 6"],
+            "default_value": "Heading 3",
+            "required": false
+          },
+          {
+            "id": "atcTitleFonttype",
+            "name": "Article Title Font Type",
+            "type": "enum",
+            "values": ["primary-font","secondary-font"],
+            "default_value": "primary-font",
+            "required": false
+          },
+          {
+            "id": "atcTitleFontsize",
+            "name": "Article Title Font Size",
+            "type": "enum",
+            "values": [11, 12, 14, 16, 20, 24, 32, 48, 72, 96, 120],
+            "default_value": 16,
+            "required": false
+          },
+          {
+            "id": "linkLabel",
+            "name": "Link Label",
+            "type": "string",
+            "required": false
+          },
+          {
+            "id": "href",
+            "name": "URL",
+            "type": "url",
+            "required": false
+          }
+        ]
+      }
+    ],
+    "region_definitions": [
+    ]
+  }
+  

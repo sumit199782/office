@@ -1,0 +1,528 @@
+{
+    "name": "Hero",
+    "description": "Represents a hero image with optional callout, can be used in layouts such as a carousel or as standalone element.",
+    "group": "assets",
+    "attribute_definition_groups": [
+        {
+            "id": "BannerImage",
+            "name": "Banner Image",
+            "description": "Banner Image",
+            "attribute_definitions": [{
+                    "id": "image",
+                    "name": "Image",
+                    "description": "Please select full-sized banner image to display.",
+                    "type": "image",
+                    "required": false
+                },
+                {
+                    "id": "imageMobile",
+                    "name": "Mobile Image",
+                    "description": "Please select mobile specific image.",
+                    "type": "image",
+                    "required": false
+                },
+                {
+                    "id": "imagealt",
+                    "name": "Image Alt",
+                    "description": "Please specify image alt text.",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "imageConfig",
+                    "name": "Width & Height of image per Viewport (px)",
+                    "description": "Please specify the width & height of the image per viewport. The value is ignored if not defined or equal to 0.",
+                    "type": "custom",
+                    "required": false,
+                    "editor_definition": {
+                        "type": "imagesizes"
+                    }
+                },
+                {
+                    "id": "hideImage",
+                    "name": "Hide Image",
+                    "type": "boolean",
+                    "required": false
+                },
+                {
+                    "id": "disableLazy",
+                    "name": "Disable Image's lazy loading",
+                    "type": "boolean",
+                    "required": false
+                },
+                {
+                    "id": "roundedcorners",
+                    "name": "Rounded corners on the Image/Video",
+                    "type": "boolean",
+                    "required": false
+                },
+                {
+                    "id": "fullscreen",
+                    "name": "Full screen Image/Video",
+                    "description": "If enabled, the image or video will adjust to the device screen (warning: the image or video will be cropped if the aspect ratio does not match the device screen)",
+                    "type": "boolean",
+                    "required": false
+                },
+                {
+                    "id": "overlapOnScroll",
+                    "name": "Overlap on scroll effect",
+                    "description": "The effect when the image becomes sticky as the user scrolls, while content is scrolled over the image until disappears",
+                    "type": "boolean",
+                    "required": false
+                },
+                {
+                    "id": "zoomOutOnLoad",
+                    "name": "Image Zoom-Out effect on load",
+                    "type": "boolean",
+                    "required": false
+                }
+            ]
+        },
+        {
+            "id": "Overlay",
+            "name": "Image Overlay Gradient",
+            "attribute_definitions": [{
+                "id": "overlayColorHex",
+                "name": "Image Overlay Gradient Color",
+                "description": "Please select the color used for the gradient overlay",
+                "type": "custom",
+                "editor_definition": {
+                    "type": "input",
+                    "configuration": {
+                        "type": "color"
+                    }
+                },
+                "required": false
+            },
+            {
+                "id": "overlayHeight",
+                "name": "Image Overlay Gradient Height",
+                "description": "Please select the gradient overlay height in px",
+                "type": "string",
+                "required": false
+            },
+            {
+                "id": "overlayDevices",
+                "name": "Overlay Gradient Devices",
+                "description": "Please select on which type of devices to use the overlay",
+                "type": "enum",
+                "values": [
+                    "all",
+                    "desktop",
+                    "tablet_mobile"
+                ],
+                "required": false,
+                "default_value": "all"
+            }]
+        },
+        {
+            "id": "ContentBlock",
+            "name": "Content Block",
+            "description": "Content Block",
+            "attribute_definitions": [{
+                    "id": "title",
+                    "name": "Banner Title",
+                    "description": "Please specify the title copy to include in the banner display. The title is the most heavily emphasized copy in the banner display.",
+                    "type": "text",
+                    "required": false
+                },
+                {
+                    "id": "titleTagName",
+                    "name": "Heading for Title",
+                    "type": "enum",
+                    "required": false,
+                    "values": [
+                        "paragraph",
+                        "Heading 1",
+                        "Heading 2",
+                        "Heading 3",
+                        "Heading 4",
+                        "Heading 5",
+                        "Heading 6"
+                    ],
+                    "default_value": "Heading 2"
+                },
+                {
+                    "id": "description",
+                    "name": "Banner Description",
+                    "description": "Please specify the description copy to include beneath the banner title.",
+                    "type": "text",
+                    "required": false
+                },
+                {
+                    "id": "labelText",
+                    "name": "Label",
+                    "description": "Text of the label displayed above the title.",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "labelBackgroundColor",
+                    "name": "Label Background Color (HEX value)",
+                    "description": "Background color of the label displayed above the title. must be an HEX value.",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "fontColor",
+                    "name": "Font Color",
+                    "description": "Please select the font color to use for title and description. (desktop only)",
+                    "type": "enum",
+                    "values": [
+                        "light",
+                        "dark"
+                    ],
+                    "required": false
+                },
+                {
+                    "id": "fontColorAll",
+                    "name": "Font Color for All",
+                    "description": "Please select the font color to use for title and description. (all devices)",
+                    "type": "enum",
+                    "values": [
+                        "light",
+                        "dark"
+                    ],
+                    "required": false
+                },
+                {
+                    "id": "contentBackground",
+                    "name": "Content Background Color",
+                    "description": "Please select the content background color to use for hero content. (desktop only)",
+                    "type": "enum",
+                    "values": [
+                        "light",
+                        "dark"
+                    ],
+                    "required": false
+                },
+                {
+                    "id": "contentBackgroundAll",
+                    "name": "Content Background for All",
+                    "description": "Please select the content background color to use for hero content. (all devices)",
+                    "type": "enum",
+                    "values": [
+                        "light",
+                        "dark"
+                    ],
+                    "required": false
+                },
+                {
+                    "id": "wholeSlideClickable",
+                    "name": "Make the Whole Banner Clickable",
+                    "description": "Select this checkbox if you would like to make whole banner clickable. (CTA URL if DEPRECATED CTA URL used)",
+                    "type": "boolean",
+                    "required": false,
+                    "default_value": false
+                },
+                {
+                    "id": "slideLink",
+                    "name": "Slide URL (used when whole slide is clickable)",
+                    "description": "The url used when whole slide is clickable",
+                    "type": "url",
+                    "required": false
+                },
+                {
+                    "id": "bannerSlideAriaLabel",
+                    "name": "Banner Aria Label (used when the whole slide is clickable)",
+                    "description": "Aria label, which can be used for better informing of screen reader users (will be pronounced when the whole slide is focused). Should hold the title, which is better describing the hero tile content. If not configured, the Hero title is used as a fallback.",
+                    "type": "string",
+                    "required": false
+                }
+            ]
+        },
+        {
+            "id": "ArticleAuthor",
+            "name": "Article Author",
+            "attribute_definitions": [
+                {
+                    "id": "contentAuthor",
+                    "name": "Author Profile Description",
+                    "type": "markup",
+                    "required": false
+                },
+                {
+                    "id": "authorImage",
+                    "name": "Author Image",
+                    "type": "image",
+                    "required": false
+                },
+                {
+                    "id": "publishingDate",
+                    "name": "Article Published Date",
+                    "type": "string",
+                    "required": false
+                }
+            ]
+        },
+        {
+            "id": "ContentBlockControls",
+            "name": "Content Block Controls",
+            "description": "Content Block Controls",
+            "attribute_definitions": [{
+                    "id": "textAlignmentDesktop",
+                    "name": "Text Alignment on Desktop",
+                    "description": "Please select text alignment of the content block on Desktop.",
+                    "type": "enum",
+                    "values": [
+                        "left",
+                        "center",
+                        "right"
+                    ],
+                    "required": false,
+                    "default_value": "left"
+                },
+                {
+                    "id": "textAlignmentAll",
+                    "name": "Text Alignment on Mobile",
+                    "description": "Please select text alignment of the content block on Mobile.",
+                    "type": "enum",
+                    "values": [
+                        "left",
+                        "center",
+                        "right"
+                    ],
+                    "required": false,
+                    "default_value": "left"
+                },
+                {
+                    "id": "captionWidth",
+                    "name": "Content Block Width on Desktop",
+                    "description": "This configuration defines the width of title and description block on Desktop",
+                    "type": "enum",
+                    "values": [
+                        "default",
+                        "25%",
+                        "50%",
+                        "75%",
+                        "100%"
+                    ],
+                    "required": false,
+                    "default_value": "default"
+                },
+                {
+                    "id": "captionWidthAll",
+                    "name": "Content Block Width on Mobile",
+                    "description": "This configuration defines the width of title and description block on Mobile",
+                    "type": "enum",
+                    "values": [
+                        "default",
+                        "25%",
+                        "50%",
+                        "75%",
+                        "100%"
+                    ],
+                    "required": false,
+                    "default_value": "default"
+                },
+                {
+                    "id": "contentHorizontalAlignment",
+                    "name": "Content Block Horizontal Position on Desktop",
+                    "description": "This configuration defines the horizontal position of the title and description block on desktop (left, center, right).",
+                    "type": "enum",
+                    "values": [
+                        "left",
+                        "center",
+                        "right"
+                    ],
+                    "required": false,
+                    "default_value": "left"
+                },
+                {
+                    "id": "contentHorizontalAlignmentAll",
+                    "name": "Content Block Horizontal Position on Mobile",
+                    "description": "This configuration defines the horizontal position of the title and description block on mobile (left, center, right).",
+                    "type": "enum",
+                    "values": [
+                        "left",
+                        "center",
+                        "right"
+                    ],
+                    "required": false,
+                    "default_value": "left"
+                },
+                {
+                    "id": "contentVerticalAlignment",
+                    "name": "Content Block Vertical Position on Desktop.",
+                    "description": "This configuration defines the vertical position of the title and description block on desktop (top, center, bottom)",
+                    "type": "enum",
+                    "values": [
+                        "top",
+                        "center",
+                        "bottom"
+                    ],
+                    "required": false,
+                    "default_value": "center"
+                },
+                {
+                    "id": "contentVerticalAlignmentAll",
+                    "name": "Content Block Vertical Position on Mobile.",
+                    "description": "This configuration defines the vertical position of the title and description block on mobile (top, center, bottom)",
+                    "type": "enum",
+                    "values": [
+                        "top",
+                        "center",
+                        "bottom"
+                    ],
+                    "required": false,
+                    "default_value": "center"
+                },
+                {
+                    "id": "overlayText",
+                    "name": "Content Block position vs Image on Mobile",
+                    "description": "Please select the position of the content block vs Image on mobile. Content block for tablet and mobile is below the image by default.",
+                    "type": "enum",
+                    "values": [
+                        "Text is below the image",
+                        "Text is over the image"
+                    ],
+                    "required": false,
+                    "default_value": "Text is below the image"
+                },
+                {
+                    "id": "overlayTextDesktop",
+                    "name": "Content Block Position vs Image on Desktop",
+                    "description": "Please select the position of the content block vs Image. Content block for desktop is over the image by default.",
+                    "type": "enum",
+                    "values": [
+                        "Text is over the image",
+                        "Text is below the image"
+                    ],
+                    "required": false,
+                    "default_value": "Text is over the image"
+                }
+            ]
+        },
+        {
+            "id": "productList",
+            "name": "Dynamic Settings",
+            "description": "Dynamic Product List Settings",
+            "attribute_definitions": [
+                {
+                    "id": "category",
+                    "name": "Category",
+                    "type": "category",
+                    "required": false,
+                    "dynamic_lookup": {
+                        "aspect_attribute_alias": "category"
+                    }
+                },
+                {
+                    "id": "showCategoryTitle",
+                    "name": "Show Category Title",
+                    "type": "boolean",
+                    "required": false
+                },
+                {
+                    "id": "showCategoryDescription",
+                    "name": "Show Category Description",
+                    "type": "boolean",
+                    "required": false
+                }
+            ]
+        },
+        {
+            "id": "CountdownSection",
+            "name": "Countdown Section",
+            "description": "Hero Countdown Settings.",
+            "attribute_definitions": [{
+                    "id": "countdownMobilePosition",
+                    "name": "Countdown position vs Image on Mobile",
+                    "description": "Please select the position of the countdown vs Image on mobile. Countdown for tablet and mobile is below the image by default.",
+                    "type": "enum",
+                    "values": [
+                        "Countdown is below the image",
+                        "Countdown is over the image"
+                    ],
+                    "required": false,
+                    "default_value": "Countdown is below the image"
+                }, {
+                    "id": "countdownEndedImage",
+                    "name": "Countdown Ended Image",
+                    "description": "Please select full-sized banner image to display when countdown has ended.",
+                    "type": "image",
+                    "required": false
+                }, {
+                    "id": "countdownEndedImageMobile",
+                    "name": "Countdown Ended Mobile Image",
+                    "description": "Please select mobile specific image to display when countdown has ended.",
+                    "type": "image",
+                    "required": false
+                }
+            ]
+        },
+        {
+            "id": "AnalyticsSection",
+            "name": "Analytics",
+            "description": "Analytics Section",
+            "attribute_definitions": [
+                {
+                   "id": "contentType",
+                   "name": "Content Type",
+                   "description": "If this content tile describes, promotes or redirects to a blog or article then please select 'article' otherwise please select 'promotion'",
+                   "type": "enum",
+                   "default_value": "promotion",
+                   "values": [
+                      "promotion",
+                      "article"
+                   ],
+                   "required": false
+                },
+                {
+                    "id": "analytics",
+                    "name": "Analytics data",
+                    "description": "Used for analytics purpose",
+                    "type": "text",
+                    "required": false
+                }
+            ]
+        },
+        {
+            "id": "DeprecatedFields",
+            "name": "Deprecated fields",
+            "attribute_definitions": [
+                {
+                    "id": "ctaLabel",
+                    "name": "Primary CTA button text (deprecated, use Hero Content region instead)",
+                    "description": "[DEPRECATED] The text shown on the CTA",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "ctaUrl",
+                    "name": "Primary CTA URL (deprecated, use Hero Content region instead)",
+                    "description": "[DEPRECATED] The URL used for the CTA",
+                    "type": "url",
+                    "required": false
+                },
+                {
+                    "id": "overlayColor",
+                    "name": "Image Overlay Gradient Color (deprecated, use hex color input instead)",
+                    "description": "Please select the color used on the overlay gradient",
+                    "type": "enum",
+                    "values": [
+                        "light",
+                        "dark"
+                    ],
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": [{
+        "id": "heroCountdown",
+        "name": "Hero Countdown",
+        "max_components": 1,
+        "component_type_exclusions": []
+    }, {
+        "id": "heroButtons",
+        "name": "Hero Buttons",
+        "max_components": 2,
+        "component_type_exclusions": []
+    }, {
+        "id": "heroMedia",
+        "name": "Hero Media",
+        "max_components": 1,
+        "component_type_exclusions": []
+    }]
+}

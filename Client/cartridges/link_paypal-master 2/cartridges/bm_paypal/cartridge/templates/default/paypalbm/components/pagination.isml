@@ -1,0 +1,7 @@
+<isif condition="${!pdict.pagingmodel.empty}">
+    <isset name="pageURL" value="${pdict.pageurl}" scope="page"/>
+    <isset name="pagination" value="${pdict.orderPagingModelParameters}" scope="page"/>
+
+    <isinclude template="paypalbm/components/paginationForm" />
+
+</isif>

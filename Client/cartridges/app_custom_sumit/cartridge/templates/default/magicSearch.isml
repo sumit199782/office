@@ -1,0 +1,21 @@
+<iscontent type="text/html" charset="UTF-8" compact="true" />
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Magic Search!</title>
+</head>
+
+<body>
+    <div class="header">
+        <h1>🤓 Dad jokes matching the term ${pdict.term}:</h1>
+    </div>
+    <hr />
+    <div class="content">
+        <ul>
+            <isloop items="${pdict.jokes}" var="jokeObject">
+                <li>${jokeObject.joke}</li>
+            </isloop>
+        </ul>
+    </div>
+</body>

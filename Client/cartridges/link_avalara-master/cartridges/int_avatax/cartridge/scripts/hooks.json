@@ -1,0 +1,8 @@
+{
+	"hooks": [
+		{
+			"name": "dw.order.createOrderNo",
+			"script": "./hooks/avatax/avataxhooks.js"
+		}
+	]
+}

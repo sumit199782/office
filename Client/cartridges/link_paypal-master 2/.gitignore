@@ -1,0 +1,10 @@
+.vscode
+node_modules
+yarn.lock
+.nyc_output
+coverage
+test/acceptance/output
+dw.json
+cartridges/int_paypal/cartridge/static/default/js/*.js
+cartridges/int_paypal/cartridge/static/default/js/*.map
+.idea

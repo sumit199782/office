@@ -1,0 +1,16 @@
+{
+    "hooks": [
+        {
+            "name": "app.payment.form.processor.paypal",
+            "script": "./hooks/payment/processor/paypal"
+        },
+        {
+            "name": "app.payment.processor.paypal",
+            "script": "./hooks/payment/processor/paypal"
+        },
+        {
+            "name": "dw.order.createOrderNo",
+            "script": "./hooks/payment/processor/paypal"
+        }
+    ]
+}

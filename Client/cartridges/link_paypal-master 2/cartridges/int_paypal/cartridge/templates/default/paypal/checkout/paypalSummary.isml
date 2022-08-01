@@ -1,0 +1,10 @@
+<isset name="isVenmoUsed" value="${payment.isVenmoUsed || (pdict.paypal && pdict.paypal.isVenmoUsed)}" scope="page" />
+
+<div>
+    <div>
+        <span>
+            ${payment.paypalEmail} <br />
+            ${(isVenmoUsed ? Resource.msg('venmo.payment.method.name', 'locale', null) : payment.paymentMethod) + '/' + pdict.order.priceTotal}
+        </span>
+    </div>
+</div>

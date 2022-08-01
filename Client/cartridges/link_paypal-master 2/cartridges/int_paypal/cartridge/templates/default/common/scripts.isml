@@ -1,0 +1,15 @@
+<script>//common/scripts.isml</script>
+<script defer type="text/javascript" src="${URLUtils.staticURL('/js/main.js')}"></script>
+<isloop items="${require('*/cartridge/scripts/assets.js').scripts}" var="script">
+    <isif condition="${script.src.indexOf('paypal.com/sdk') !== -1}">
+        <script defer type="text/javascript" src="${script.src}" data-partner-attribution-id="${pdict.paypal.partnerAttributionId}"
+            <isif condition="${script.integrity != null}">integrity="${script.integrity}" crossorigin="anonymous"></isif>
+            >
+        </script>
+    <iselse/>
+        <script defer type="text/javascript" src="${script.src}"
+            <isif condition="${script.integrity != null}">integrity="${script.integrity}" crossorigin="anonymous"></isif>
+            >
+        </script>
+    </isif>
+</isloop>

@@ -1,0 +1,149 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/cart.css');
+        assets.addCss('/css/myCartPage.css');
+    </isscript>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
+        <isinclude template="reporting/reportingUrls" />
+    </isif>
+
+    <div class="cart-error-messaging cart-error">
+        <isif condition="${pdict.valid.error && pdict.items.length !== 0}">
+            <div class="alert alert-danger alert-dismissible valid-cart-error fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                ${pdict.valid.message}
+            </div>
+        </isif>
+    </div>
+
+    <div class="container">
+        <h1 class="page-title">${Resource.msg('title.cart','cart',null)}</h1>
+        <iscomment> <div class="row cart-header">
+            <div class="col-sm-4 hidden-xs-down">
+                <a class="continue-shopping-link" href="${URLUtils.url('Home-Show')}" title="${Resource.msg('link.continue.shopping','cart',null)}">
+                    ${Resource.msg('link.continue.shopping','cart',null)}
+                </a>
+            </div>
+            <div class="col-sm-3 text-center">
+                <h2 class="number-of-items">${Resource.msgf('label.number.items.in.cart','cart', null, pdict.numItems)}</h2>
+            </div>
+            <div class="col-sm-5 text-right hidden-xs-down">
+                <div>
+                    <span>${Resource.msg('info.need.help','cart',null)}</span>
+                    <span><a class="help-phone-number" href="tel:${Resource.msg('info.phone.number','common',null)}">${Resource.msg('info.phone.number','common',null)}</a></span>
+                </div>
+            </div>
+        </div>
+        <hr class="no-margin-top"> </iscomment>
+    </div>
+
+    <isif condition="${pdict.items.length === 0}">
+        <div class="container cart-empty">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1>${Resource.msg('info.cart.empty.msg','cart',null)}</h1>
+                </div>
+            </div>
+        </div>
+    <iselse/>
+        <div class="container cart cart-page">
+            <div class="row">
+                <!---product cards--->
+                <div class="col-sm-7 col-md-8">
+                <div class="details-heading">
+                    <div class="product-tag">
+                    Product
+                    </div>
+                    <div class="qty-tag">
+                    Qty
+                    </div>
+                    <div class="Price-tag">
+                    Price
+                    </div>
+                </div>
+                <div class="card product-info ${bonusproductlineitem} uuid-${lineItem.UUID}">
+
+                    <isloop items="${pdict.items}" var="lineItem">
+                        <isif condition="${lineItem.productType === 'bundle'}">
+                            <isinclude template="cart/productCard/cartBundleCard" />
+                        <iselse/>
+                            <isif condition="${lineItem.noProduct === true}">
+                                <isinclude template="cart/productCard/uncategorizedCartProductCard" />
+                            <iselse/>
+                                <isinclude template="cart/productCard/cartProductCard" />
+                            </isif>
+                        </isif>
+                    </isloop>
+                    </div>
+                    <isinclude template="cart/cartApproachingDiscount" />
+                </div>
+                <!---totals, and checkout actions--->
+                <div class="col-sm-5 col-md-4 totals">
+                    <a class="continue-shopping-link" href="${URLUtils.url('Home-Show')}" title="${Resource.msg('link.continue.shopping','cart',null)}">
+                        <button class="continue-shopping btn btn-primary btn-block promo-code-btn">${Resource.msg('link.continue.shopping','cart',null)}</button>
+                    </a>
+                    <isinclude template="cart/cartPromoCode" />
+                    <div class="coupons-and-promos">
+                        <isinclude template="cart/cartCouponDisplay" />
+                    </div>
+                    <div class="row">
+                        <isinclude template="cart/cartShippingMethodSelection" />
+                    </div>
+                    <isinclude template="cart/cartTotals" />
+                    <div class="row">
+                        <div class="col-12 btn-block">
+                            <isinclude template="cart/checkoutButtons" />
+                        </div>
+                         <div class="b-cart__actions b-cart__actions-paypal l-grid__col-12 l-grid__col-4-t l-grid__col-4-d">
+                            <div class="b-cart__paypal">
+                                <isinclude template="paypal/expressbutton" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <isinclude template="cart/cartRemoveProductModal"/>
+        </div>
+
+        <isinclude template="cart/cartRemoveCouponModal"/>
+    </isif>
+    <div class="container">
+        <isslot id="cart-recommendations-m" description="Recommended products" context="global" />
+    </div>
+    <input type="hidden" value="${dw.web.URLUtils.https('Paypal-GetRedirectUrl')}" id="paypal_redirect"/>
+</isdecorate>
+<script>
+    var rurl=document.getElementById('paypal_redirect').value;
+            function callpaypal(){
+                $.spinner().start();
+                $.ajax({
+                        url:rurl,
+                        method: 'GET',
+                        success: function (data) {
+                            $.spinner().stop();
+                            if (data.error) {
+                                console.log(data.message);
+                            } else if (data.redirectUrl) {
+                                window.location.href = data.redirectUrl;
+                            }
+                        },
+                        error: function (data) {
+                            $.spinner().stop();
+                            console.log("Error-:"+JSON.stringify(data));
+                        }
+                    });
+        }
+</script>
+<script>
+    function RefreshPage(){
+        location.reload();
+    }
+    $(".cart-delete-confirmation-btn").on('click', function () {
+        setTimeout(RefreshPage, 2000);
+    });
+</script>

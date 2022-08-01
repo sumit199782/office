@@ -1,0 +1,36 @@
+{
+    "name": "newbottomBanner",
+    "description": "Bottom Banner",
+    "group": "Custom",
+    "attribute_definition_groups": [
+        {
+            "id": "bottomBanner",
+            "name": "Bottom Banner",
+            "description": "Bottom Banner",
+            "attribute_definitions": [
+                {
+                    "id": "bottomImg",
+                    "name": "Bottom Banner",
+                    "description": "Bottom Banner",
+                    "type": "image",
+                    "required": true
+                },
+                {
+                    "id": "bottomparagraph",
+                    "name": "Bottom Banner Paragraph Text",
+                    "description": "Bottom Banner Paragraph Text",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "id": "bottomshop",
+                    "name": "Bottom Banner Show Now",
+                    "description": "Bottom Banner Show Now",
+                    "type": "text",
+                    "required": true
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

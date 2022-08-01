@@ -1,0 +1,28 @@
+{
+    "name":"Low Carb Page",
+    "description":"Low carb page",
+    "group": "custom",
+    "attribute_definition_groups": [
+      {
+          "id": "pageDetail",
+          "name": "Page Detail Settings",
+          "description": "Page Detail Settings",
+          "attribute_definitions": [
+            {
+              "id": "Heading",
+              "name": "Heading",
+              "type": "String",
+              "required": true
+            },
+            {
+              "id": "image",
+              "name": "Image",
+              "type": "image",
+              "required": true
+            }
+            
+          ]
+        }
+    ],
+     "region_definitions": []
+}

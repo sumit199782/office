@@ -1,0 +1,16 @@
+<div class="b-header-minicart__total minicart-total">
+    <a class="b-header-minicart__link minicart-link" href="${URLUtils.https('Cart-Show')}" title="${Resource.msgf('minicart.count','common',null, pdict.quantityTotal)}" aria-label="${Resource.msgf('minicart.count','common',null, pdict.quantityTotal)}" aria-haspopup="true">
+        <iscomment> <i class="b-header-minicart__icon minicart-icon fa fa-shopping-bag"></i> </iscomment>
+        <iscomment> <svg id="Layer_1" class="" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 119.71 23.83" style="height: 27px; margin-bottom: -33px; margin-left: -100px;"><defs><style>.cls-1{fill:#0e0b08;}</style></defs><path class="cls-1" d="M238.55,186.47H226.27a2.27,2.27,0,0,1-2-1c-.5-1.1.54-2.29.88-2.68h0l.72-.8L221,170.27l-3.37-.33a.8.8,0,0,1-.71-.88.79.79,0,0,1,.87-.71l3.84.38a.82.82,0,0,1,.66.49l5.26,12.57a.81.81,0,0,1-.15.84l-1,1.17a2.4,2.4,0,0,0-.61,1,1.43,1.43,0,0,0,.53.11h12.28a.8.8,0,0,1,0,1.6Z" transform="translate(-120.33 -167.94)"/><path class="cls-1" d="M226.8,182.9a.8.8,0,0,1-.79-.72.78.78,0,0,1,.71-.87l10.81-1.12.81-6.25-15.43-.52a.8.8,0,0,1,.05-1.59l16.31.54a.79.79,0,0,1,.76.9L239,181a.8.8,0,0,1-.71.69l-11.44,1.18Z" transform="translate(-120.33 -167.94)"/><path class="cls-1" d="M236.85,191.76a2.39,2.39,0,1,1,2.39-2.39A2.39,2.39,0,0,1,236.85,191.76Z" transform="translate(-120.33 -167.94)"/><path class="cls-1" d="M226.59,191.76a2.39,2.39,0,1,1,2.39-2.39A2.39,2.39,0,0,1,226.59,191.76Z" transform="translate(-120.33 -167.94)"/><polygon class="cls-1" points="102.58 5.49 118.91 5.49 117.2 12.25 105.68 14.24 102.58 5.49"/></svg> </iscomment>
+        <img src="${URLUtils.webRoot() + '/image/cart.png'}" alt="cart" id="Layer_1" style="width: 28px; margin-bottom: -33px; margin-left: 12px;" />
+
+        <span class="b-header-minicart__quantity minicart-quantity d-block d-md-none" style="top: -17px; left: 24px;">
+            <isprint value="${pdict.quantityTotal}" formatter="##" />
+        </span>
+        <span class="b-header-minicart__quantity minicart-quantity d-none d-md-block" style="left: 27px; top: -17px;">
+            <isprint value="${pdict.quantityTotal}" formatter="##" />
+        </span>
+        
+    </a>
+</div>
+<div class="popover popover-bottom"></div>

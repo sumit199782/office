@@ -1,0 +1,35 @@
+<form action="${pdict.actionUrl}" class="b-login-form__login login" method="POST" name="login-form">
+    <div class="b-field form-group m-required mb-4 required">
+        <input type="email" id="login-form-email" required aria-required="true" placeholder="Email" class="b-textinput form-control required" aria-describedby="form-email-error" name="loginEmail" value="${pdict.userName}">
+        <div class="invalid-feedback" id="form-email-error"></div>
+    </div>
+
+    <div class="b-field form-group m-required mb-4 required">
+        <input type="password" id="login-form-password" required aria-required="true" placeholder="Password" class="b-textinput form-control required" aria-describedby="form-password-error" name="loginPassword">
+        <div class="invalid-feedback" id="form-password-error"></div>
+    </div>
+
+    <div class="l-grid">
+        <div class="b-login-form__remember text-center l-grid__row">
+
+            <div class="forgot-password mb-4 l-grid__col-12 l-grid__col-6-t">
+                <a class="d-sm-none forgot-password" href="${URLUtils.url('Account-PasswordReset')}" title="${Resource.msg('link.login.forgotpassword', 'login', null)}">
+                    ${Resource.msg('link.login.forgotpassword', 'login', null)}
+                </a>
+                <a
+                    id="password-reset"
+                    class="hidden-xs-down forgot-password"
+                    title="${Resource.msg('link.login.forgotpassword', 'login', null)}"
+                    data-toggle="modal"
+                    href="${URLUtils.url('Account-PasswordResetDialogForm')}"
+                    data-target="#requestPasswordResetModal">
+                    ${Resource.msg('link.login.forgotpassword', 'login', null)}
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
+
+    <button type="submit" class="b-login-form__submit mb-5 b-btn login-btn login-btn-blue">${Resource.msg('button.text.loginform', 'login', null)}</button>
+</form>

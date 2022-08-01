@@ -1,0 +1,34 @@
+<isscript>
+
+    var assets = require('*/cartridge/scripts/assets.js');
+         assets.addCss('/css/cards.css');
+
+    </isscript>
+<div class="miancards">
+    <div class="paddingHeading">
+        <p class="head1">${pdict.cardheading}</p>
+        <p class="head3">${pdict.cardpara}</p>
+    </div>
+    <div style="display: flex;">
+        <div class="card1" style="margin-left: 150px;">
+            <img class="imgclass1" src="${pdict.cardImg1.file.absURL}">
+            <p class="parat1">${pdict.producttitle1}
+            </p>
+
+            <a href="#" class="packinfo">view pack info</a>
+            <p class="rate">${pdict.productrate1}</p>
+            <p class="butcard"><a class="cardlink" href="${pdict.buyButton}">Grab a Pack</a></p>
+
+        </div>
+        <div class="card1" style="margin-left: 30px;">
+            <img class="imgclass1" src="${pdict.cardImg2.file.absURL}">
+            <p class="parat">${pdict.producttitle2}
+            </p>
+            <a href="#" class="packinfo">view pack info</a>
+            <p class="rate">${pdict.productrate2}</p>
+            <p class="butcard"><a class="cardlink" href="${pdict.buyButton}">Grab a Pack</a></p>
+
+        </div>
+    </div>
+
+</div>

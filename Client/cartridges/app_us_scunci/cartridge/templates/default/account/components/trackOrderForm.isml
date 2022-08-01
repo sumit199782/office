@@ -1,0 +1,24 @@
+    <div class="b-card__body">
+        <h2 class="form-title-login pt-2 pb-3">Sign up</h2>
+        <p class="track-order-header-text form-descr grey-text text-center h-spacing">Don’t have an account? Sign up
+            now.</p>
+            <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
+                                    <button class="cont-btn mb-5 cont-btn-pink ttu" type="submit"><a href="${URLUtils.https('Login-Show', 'action', 'register')}" class="anchor-text">Continue</a></button>
+        <hr>
+        <isif condition="${pdict.userLoggedIn === false}">
+             <h2 class="form-title-login pt-2 pb-3">Guests or New Customers</h2>
+            <p class="track-order-header-text form-descr grey-text text-center h-spacing">You can check out without creating an account and later create one.</p>
+            <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
+            <button class="guest-btn-pink mb-3 cont-btn-pink" type="submit" name="submit" value="submit"><a href="${URLUtils.https('Checkout-Begin')}" class="anchor-text">Checkout as guest</a>
+            </button>
+        <iselse/>
+        <h2 class="form-title-login pt-2 pb-3">Contact Support</h2>
+            <p class="track-order-header-text form-descr grey-text text-center h-spacing">Problems signing in? Contact
+                us.</p>
+                <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
+            <a href="${URLUtils.url('ContactForm-Show')}"><button class="guest-btn-pink mb-3 cont-btn-pink" type="submit" name="submit" value="submit">
+                contact
+            </button></a>
+        </isif>
+
+    </div>

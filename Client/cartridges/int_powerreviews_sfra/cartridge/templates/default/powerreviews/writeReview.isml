@@ -1,0 +1,32 @@
+<isdecorate template="common/layout/page">
+  <isscript>
+    var assets = require('*/cartridge/scripts/assets');
+    var libPR = pdict.libPR;
+    var productId = pdict.Product.ID;
+  </isscript>
+  <div class="row pr-displaywrite">
+    <div class="col-sm-12">
+      <div id="pr-write">
+      </div>
+    </div>
+  </div>
+
+  <script src="${URLUtils.httpsStatic('/js/powerreviews/js/loader.js')}"></script>
+
+  <script>
+    window.PWR_INCLUDE = true;
+    POWERREVIEWS.display.render({
+      api_key: "${libPR.getApiKey()}",
+      locale:"${pdict.CurrentRequest.locale}",
+      merchant_group_id: "${libPR.getGroupId()}",
+      merchant_id: "${libPR.getMerchantId()}",
+      page_id: "${productId}",
+      structured_data_product_id: "${productId}",
+      style_sheet: '${URLUtils.staticURL('/css/powerreviews.css')}',
+      components: {
+        Write: 'pr-write'
+      }
+    });
+  </script>
+
+</isdecorate>

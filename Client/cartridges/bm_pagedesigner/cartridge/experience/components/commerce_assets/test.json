@@ -1,0 +1,30 @@
+{
+    "name": "checkNew1",
+    "description": "Assigment 4",
+    "group": "newTest",
+    "attribute_definition_groups": [{
+        "id": "sumitpd",
+        "name": "Check New",
+        "description": "Image Attribute",
+        "attribute_definitions": [
+            {
+                "id": "image1",
+                "name": "Hero Banner Desktop Image",
+                "description": "Hero Banner Desktop Image",
+                "type": "image",
+                "required": false
+            },
+            {
+                "id": "imageConfig1",
+                "name": "Width & Height of image per Viewport (px)",
+                "description": "Please specify the width & height of the image per viewport. The value is ignored if not defined or equal to 0.",
+                "type": "custom",
+                "required": false,
+                "editor_definition": {
+                    "type": "imagesizes"
+                }
+            }
+        ]
+    }],
+    "region_definitions": []
+}

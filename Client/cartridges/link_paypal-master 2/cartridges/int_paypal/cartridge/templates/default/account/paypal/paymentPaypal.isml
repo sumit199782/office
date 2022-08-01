@@ -1,0 +1,57 @@
+<isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+
+        assets.addJs(pdict.paypal.sdkUrl);
+
+        assets.addJs('/js/int_paypal_account.min.js');
+        assets.addCss('/css/paypal.css');
+    </isscript>
+<div class="card paypal-block">
+    <div class="card-header clearfix">
+        <h2 class="pull-left">${Resource.msg('label.payment.paypal', 'account', null)}</h2>
+    </div>
+    <isif condition="${!empty(pdict.paypal.savedBA)}">
+        <div class="card-body card-info-group">
+            <isif condition="${!pdict.paypal.billingAgreementEnabled}">
+                <div class="alert alert-info" role="alert">
+                    <p>${Resource.msg('paypal.accountslist.usagedisabled', 'locale', null)}</p>
+                </div>
+            </isif>
+            <div class="alert alert-info limitMsg none" role="alert">
+                <p>${Resource.msg('paypal.accountslist.balimitreached', 'locale', null)}</p>
+            </div>
+
+            <isloop items="${pdict.paypal.savedBA}" var="savedBA">
+                <isif condition="${savedBA.default}">
+                    <div>
+                        <span><b>${savedBA.email} ${Resource.msg('paypal.accountslist.default', 'locale', null)}</b></span>
+                        <button class="card-link remove-paypal-button" aria-label="Remove payment"
+                            data-billing-agreement-email="${savedBA.email}">${Resource.msg('paypal.accountslist.remove', 'locale', null)}
+                        </button>
+                    </div>
+                    <iselse>
+                        <div>
+                            <span>${savedBA.email}</span>
+                            <button class="card-link remove-paypal-button" aria-label="Remove payment"
+                                data-billing-agreement-email="${savedBA.email}">${Resource.msg('paypal.accountslist.remove', 'locale', null)}
+                            </button>
+                        </div>
+                </isif>
+            </isloop>
+        </div>
+    </isif>
+
+    <div class="paypal-account-button" data-paypal-urls="${pdict.paypal.paypalUrls}"
+        data-paypal-is-ba-limit-reached="${pdict.paypal.isBaLimitReached}"></div>
+    <div class="paypalLoader paypal-loader-container">
+        <i class="paypal-loader"></i>
+    </div>
+    <isif condition="${pdict.paypal.billingAgreementEnabled}">
+        <div class="card-footer card-footer-border text-center">
+            <div class="card-link add-paypal-account"
+                aria-label="${Resource.msg('label.payment.addnewpayment', 'payment', null)}">
+                ${Resource.msg('link.addnew', 'account', null)}
+            </div>
+        </div>
+    </isif>
+</div>

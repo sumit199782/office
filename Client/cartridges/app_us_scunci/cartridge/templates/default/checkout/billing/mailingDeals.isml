@@ -1,0 +1,21 @@
+<!--- Payment information --->
+<div class="dFlex">
+    <span class="summary-section-label billing-addr-label w-90">Join our mailing list for deals!</span><br/>
+</div>
+<div class="newsletter-form">
+<form method="post" id="acoustic" onsubmit="acousticSubmit()" action="http://www.pages05.net/conaircorporation/oscill8-OptIn/Oscill8OptIn" pageid="17327039" siteid="778931" parentpageid="17327037" target="hiddenFrame">
+<div class="form-row">
+<label class="nws-email-label" for="nws-email">Email</label>
+<input class="nws-email" id="control_EMAIL" placeholder="johndoe@gmail.com" type="text" name="email">
+<iscomment> <label class="errorlabel wrongmail-1 nws-email-label" style="color:red">Please enter a valid email</label> </iscomment>
+</div>
+<div class="btn-holder">
+<input type="hidden" name="formSourceName" value="StandardForm">
+<!-- DO NOT REMOVE HIDDEN FIELD sp_exp --><input type="hidden" name="sp_exp" value="yes">
+<button class="button btn-blue" style="width: 100%; background-color: rgb(237,75,122) !important; color: white !important; font-size: 14px; border-radius: 20px;">Sign Up
+</button>
+</div>
+</form>
+<iframe name="hiddenFrame" style="border:none;display:none;" width="100" height="100" border="0"></iframe>
+<p class="bottom-text">Subscribe For Promotions</p>
+</div>

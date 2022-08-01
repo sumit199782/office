@@ -1,0 +1,64 @@
+<div class="js_paypal_billing_address paypal_hide">
+    <h2 class="paypal_new_transaction_title">${Resource.msg('transaction.newtransaction.billing.title', 'paypalbm', null)}</h2>
+    <button class="js_paypal_toggle_button" data-hide="true" data-text-hide="Hide" data-text-show="Show">Hide</button>
+    <table class="paypalbm_transaction_detail_table infobox w e s n">
+        <tr>
+            <td class="infobox_title top">${Resource.msg('transaction.newtransaction.billing.firstname', 'paypalbm', null)}</td>
+            <td class="infobox_item top">
+                <input type="text" class="biginput" data-general-validation="general" name="firstname" data-validation="required" disabled/>
+            </td>
+        </tr>
+        <tr class="paypalbm_gray">
+            <td class="infobox_title top">${Resource.msg('transaction.newtransaction.billing.lastname', 'paypalbm', null)}</td>
+            <td class="infobox_item top">
+                <input type="text" class="biginput" data-general-validation="general" name="lastname" data-validation="required" disabled/>
+            </td>
+        </tr>
+        <tr class="paypalbm_gray">
+            <td class="infobox_title top">${Resource.msg('transaction.newtransaction.billing.email', 'paypalbm', null)}</td>
+            <td class="infobox_item top">
+                <input type="text" class="biginput" data-general-validation="general" name="email" disabled/>
+            </td>
+        </tr>
+        <tr>
+            <td class="infobox_title top">${Resource.msg('transaction.newtransaction.billing.address1', 'paypalbm', null)}</td>
+            <td class="infobox_item top">
+                <input type="text" class="biginput" data-general-validation="general" name="street" data-validation="required" disabled/>
+            </td>
+        </tr>
+        <tr class="paypalbm_gray">
+            <td class="infobox_title top">${Resource.msg('transaction.newtransaction.billing.address2', 'paypalbm', null)}</td>
+            <td class="infobox_item top">
+                <input type="text" class="biginput" name="street2" disabled/>
+            </td>
+        </tr>
+        <tr>
+            <td class="infobox_title top">${Resource.msg('transaction.newtransaction.billing.city', 'paypalbm', null)}</td>
+            <td class="infobox_item top">
+                <input type="text" class="biginput" data-general-validation="general" name="city" data-validation="required" disabled/>
+            </td>
+        </tr>
+        <tr class="paypalbm_gray">
+            <td class="infobox_title top">${Resource.msg('transaction.newtransaction.billing.state', 'paypalbm', null)}</td>
+            <td class="infobox_item top">
+                <input type="text" name="state" data-general-validation="general" data-validation="required" disabled/>
+            </td>
+        </tr>
+        <tr>
+            <td class="infobox_title top">${Resource.msg('transaction.newtransaction.billing.zip', 'paypalbm', null)}</td>
+            <td class="infobox_item top">
+                <input type="text" name="zip" data-general-validation="general" data-validation="required" disabled/>
+            </td>
+        </tr>
+        <tr class="paypalbm_gray">
+            <td class="infobox_title top">${Resource.msg('transaction.newtransaction.billing.country', 'paypalbm', null)}</td>
+            <td class="infobox_item top">
+                <select name="countrycode" disabled>
+                    <isloop items="${pdict.countries}" var="country" >
+                        <option value="${country.value}">${country.label}</option>
+                        </isloop>
+                </select>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,21 @@
+{
+  "main": {
+    "ar-IQ": {
+      "identity": {
+        "version": {
+          "_number": "$Revision: 13632 $",
+          "_cldrVersion": "32"
+        },
+        "language": "ar",
+        "territory": "IQ"
+      },
+      "localeDisplayNames": {
+        "measurementSystemNames": {
+          "metric": "النظام المتري",
+          "UK": "المملكة المتحدة",
+          "US": "النظام الأمريكي"
+        }
+      }
+    }
+  }
+}

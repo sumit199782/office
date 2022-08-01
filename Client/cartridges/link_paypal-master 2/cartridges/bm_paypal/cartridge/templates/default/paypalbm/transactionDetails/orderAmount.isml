@@ -1,0 +1,34 @@
+<table class="paypalbm_transaction_detail_table infobox w e s n">
+    <tr>
+        <td class="infobox_title top">${Resource.msg('transaction.detail.amt', 'paypalbm', null)}:</td>
+        <td class="infobox_item top">
+            ${Resource.msgf('transaction.detail.moneyformat', 'paypalbm', null, transaction.amt, transaction.currencycode)}
+            <isif condition="${!empty(transaction.capturedAmount)}">
+                <span><i>${Resource.msg('capture.amount', 'paypalbm', null)}</i> ${transaction.capturedAmount}</span>
+            </isif>
+            <isif condition="${!empty(transaction.refundedAmount)}">
+                <span><i>${Resource.msg('capture.refund', 'paypalbm', null)}</i> ${transaction.refundedAmount}</span>
+            </isif>
+        </td>
+    </tr>
+    <isif condition="${transaction.paymentstatus !== 'REFUNDED'}">
+        <isif condition="${transaction.shippingAmount !== null}">
+            <tr class="paypalbm_gray">
+                <td class="infobox_title top">${Resource.msg('transaction.detail.shippingamt', 'paypalbm', null)}:</td>
+                <td class="infobox_item top">${Resource.msgf('transaction.detail.moneyformat', 'paypalbm', null, transaction.shippingAmount, transaction.currencycode)}</td>
+            </tr>
+        </isif>
+        <isif condition="${transaction.taxAmount !== null}">
+            <tr>
+                <td class="infobox_title top">${Resource.msg('transaction.detail.salestax', 'paypalbm', null)}:</td>
+                <td class="infobox_item top">${Resource.msgf('transaction.detail.moneyformat', 'paypalbm', null, transaction.taxAmount, transaction.currencycode)}</td>
+            </tr>
+        </isif>
+        <isif condition="${handleAmount !== null}">
+            <tr class="paypalbm_gray">
+                <td class="infobox_title top">${Resource.msg('transaction.detail.handlingamt', 'paypalbm', null)}:</td>
+                <td class="infobox_item top">${Resource.msgf('transaction.detail.moneyformat', 'paypalbm', null, handleAmount, transaction.currencycode)}</td>
+            </tr>
+        </isif>
+    </isif>
+</table>

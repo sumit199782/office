@@ -1,0 +1,12 @@
+<div class="menu-group" role="navigation">
+    <ul class="nav navbar-nav" role="menu">
+        <isif condition="${pdict.categories}">
+            <p class="m-shop-back-link back-link bolder-fonts heading"> &lt Back </p>
+            <h3 class="m-header-option-tag bolder-fonts heading"> SHOP </h3>
+            <isloop items="${pdict.categories}" var="category">
+                <isset name="cgid" value="${category.ID}" scope="page"/>
+                <p class="m-header-option bolder-fonts heading"><a href="${URLUtils.url('Search-Show','cgid', cgid)}" id="${category.id}" class="m-header-option bolder-fonts heading" role="link" tabindex="0">${category.ID}</a></p>
+            </isloop>
+        </isif>
+    </ul>
+</div>

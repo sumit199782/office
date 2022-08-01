@@ -1,0 +1,43 @@
+{
+    "name": "TopBanner",
+    "description": "Top Banner Configuration",
+    "group": "Custom",
+    "attribute_definition_groups": [
+      {
+        "id": "BannerAttributes",
+        "name": "Top Banner Configuration",
+        "description": "This component will be used top banner banner.",
+        "attribute_definitions": [
+          {
+            "id": "BannerImageID",
+            "name": "Banner Image",
+            "description": "Top Banner Image.",
+            "type": "image",
+            "required": true
+          },
+          {
+            "id": "BannerHeading",
+            "name": "Heading",
+            "description": "Top Banner Heading",
+            "type": "text",
+            "required": true
+          },
+          {
+            "id": "BannerSubHeading",
+            "name": "SubHeading",
+            "description": "Top Banner Subheading",
+            "type": "text",
+            "required": true
+          },
+          {
+            "id": "BannerButtonLink",
+            "name": "Button Link",
+            "description": "Top Banner Button Redirect Link",
+            "type": "text",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "region_definitions": []
+  }

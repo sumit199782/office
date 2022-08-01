@@ -1,0 +1,15 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/experience/components/commerceLayouts/layout.css');
+</isscript>
+${pdict.image}
+<div class="mobile-3r-1c">
+    <div class="row mx-n2">
+        <iscomment> <isloop items="[1,3,6]" var="indicator" status="loopState"> </iscomment>
+            <isprint value="${pdict.regions.column1.setClassName("region col-12 col-sm-4").render()}" encoding="off"/>
+            <isprint value="${pdict.regions.column2.setClassName("region col-12 col-sm-4").render()}" encoding="off"/>
+            <isprint value="${pdict.regions.column3.setClassName("region col-12 col-sm-4").render()}" encoding="off"/>
+
+        <iscomment> </isloop> </iscomment>
+    </div>
+</div>

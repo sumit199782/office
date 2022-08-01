@@ -1,0 +1,77 @@
+
+<isscript>
+  var PowerReviews = require('*/cartridge/scripts/lib/libPowerReviews');
+  var libPR = PowerReviews(request.locale);
+</isscript>
+
+<isif condition="${libPR.getOnlineStatus()}">
+  <div class="row reviews collapsable-xs">
+    <div class="col-sm-12 col-md-12 col-lg-12 value content">
+      <div class="pr-display">
+        <div id="pr-reviewdisplay"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row qanda collapsable-xs">
+    <div class="col-sm-12 col-md-12 col-lg-12 value content">
+      <div class="pr-display">
+        <div id="pr-questiondisplay"></div>
+      </div>
+    </div>
+  </div>
+
+  <isset name="productId" value="${product.id}" scope="page" />
+
+  <isscript>
+    var productId = product.id;
+    var apiProduct = dw.catalog.ProductMgr.getProduct(productId);
+    if (product.productType === 'variant') {
+      productId = apiProduct.masterProduct.ID;
+      apiProduct = apiProduct.masterProduct;
+    }
+  </isscript>
+
+  <script src="${URLUtils.httpsStatic('/js/powerreviews/js/loader.js')}"></script>
+  
+  <script>
+    window.PWR_INCLUDE = true;
+    POWERREVIEWS.display.render({
+      api_key: "${libPR.getApiKey()}",
+      locale:"${pdict.CurrentRequest.locale}",
+      merchant_group_id: "${libPR.getGroupId()}",
+      merchant_id: "${libPR.getMerchantId()}",
+      page_id: "${productId}",
+      review_wrapper_url: "${URLUtils.http('PowerReviews-WriteReviewPage')}?pr_page_id=${productId}",
+      <isif condition="${dw.system.System.instanceType !== dw.system.System.PRODUCTION_SYSTEM}">
+      on_render: function(config, data) {
+        console.log(config);
+        console.log(data);
+      },
+      </isif>
+      structured_data_product_id: "${productId}",
+      product:{
+        name: "${product.productName}", 
+        url: "${URLUtils.http('Product-Show')}?pid=${productId}",
+        <isif condition="${product.images.large && product.images.large.length > 0}">
+        image_url: "${encodeURI(product.images.large[0].absURL)}",
+        </isif>
+        description: "${product.shortDescription}",
+        category_name: "<isprint value="${libPR.getCategories(apiProduct)}" encoding="jssource"/>",
+        manufacturer_id: "${libPR.getManufacturerSKU(apiProduct)}",
+        upc: "${libPR.getUPC(apiProduct)}",
+        brand_name: "${libPR.getBrand(apiProduct)}",
+        price: "${libPR.getPrice(apiProduct)}",
+        in_stock: "${product.available}",
+        variants: JSON.parse('<isprint value="${JSON.stringify(libPR.getVariants(apiProduct))}" encoding="jssource"/>')
+      },
+      style_sheet: '${URLUtils.staticURL('/css/powerreviews.css')}',
+      components: {
+        ReviewSnippet: 'pr-reviewsnippet',
+        ReviewDisplay: 'pr-reviewdisplay',
+        QuestionSnippet: 'pr-questionsnippet',
+        QuestionDisplay: 'pr-questiondisplay'
+      }
+    });
+  </script>
+</isif>
+

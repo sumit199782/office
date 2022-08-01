@@ -1,0 +1,76 @@
+{
+  "step-types":
+  {
+    "script-module-step":
+    [
+      {
+        "@type-id":"custom.FacebookGraphApi",
+        "@supports-parallel-execution":"false",
+        "@supports-site-context":"true",
+        "@supports-organization-context":"true",
+        "description":"FaceBook Graph API",
+        "module":"app_us_scunci/cartridge/scripts/fbGraphApi.js",
+        "function":"fbGraphAPI",
+        "transactional":"true",
+        "timeout-in-seconds":"900",
+        "status-codes":
+        {
+          "status":
+          [
+              {
+                  "@code": "ERROR",
+                  "description": "Used when the step failed with an error."
+              },
+              {
+                  "@code": "FINISHED",
+                    "description": "Used when the step finished successfully."
+              },
+              {
+                  "@code": "FINISHED_WITH_WARNINGS",
+                    "description": "Used when the step finished with warnings."
+              }
+          ]
+        }
+      },
+      {
+        "@type-id":"custom.img",
+        "@supports-parallel-execution":"false",
+        "@supports-site-context":"true",
+        "@supports-organization-context":"true",
+        "description":"ImgUpload",
+        "module":"app_us_scunci/cartridge/scripts/imgUpload.js",
+        "function":"Upload",
+        "transactional":"true",
+        "timeout-in-seconds":"900",
+        "parameters": {
+					"parameters": [
+						{
+							"@name": "image",
+							"description": "ID of custom preference of page",
+							"@type": "string",
+							"@required": "true"
+						}
+					]
+				},
+        "status-codes":
+        {
+          "status":
+          [
+              {
+                  "@code": "ERROR",
+                  "description": "Used when the step failed with an error."
+              },
+              {
+                  "@code": "FINISHED",
+                    "description": "Used when the step finished successfully."
+              },
+              {
+                  "@code": "FINISHED_WITH_WARNINGS",
+                    "description": "Used when the step finished with warnings."
+              }
+          ]
+        }
+      }
+    ]
+  }
+}

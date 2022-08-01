@@ -1,0 +1,21 @@
+{
+  "main": {
+    "en-ZA": {
+      "identity": {
+        "version": {
+          "_number": "$Revision: 13701 $",
+          "_cldrVersion": "32"
+        },
+        "language": "en",
+        "territory": "ZA"
+      },
+      "localeDisplayNames": {
+        "measurementSystemNames": {
+          "metric": "Metric",
+          "UK": "UK",
+          "US": "US"
+        }
+      }
+    }
+  }
+}

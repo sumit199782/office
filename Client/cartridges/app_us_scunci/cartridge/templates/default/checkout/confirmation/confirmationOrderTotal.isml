@@ -1,0 +1,58 @@
+<div class="rates" style="width:50%; min-width:600px; margin:auto;">
+    <iscomment> <strong>${Resource.msg('label.order.totals', 'confirmation', null)}:</strong> <br/> </iscomment>
+    <!--- Subtotal --->
+    <div class="subtotal-price" style="display:flex;">
+        <div> <p style="width:60px"> <strong> ${Resource.msg('label.order.subtotal','confirmation', null)} </strong> </p></div>
+        <div style="border-top: 2px dashed black;width: 100%;margin-top: 21px;margin-right: 55px;margin-left: 60px;">
+        </div>
+        <div> <p style="width:40px"><strong> ${pdict.order.totals.subTotal} </strong> </p> </div>
+    </div>
+    <br/>
+
+    <isif condition="${pdict.order.totals.orderLevelDiscountTotal.value !== 0}">
+        <div class="discount-price" style="display:flex;">
+            <div> <p style="width:60px"> <strong>${Resource.msg('label.order.discount', 'common', null)} </strong></p> </div>
+            <div style="border-top: 2px dashed black;width: 100%;margin-top: 21px;margin-right: 55px;margin-left: 60px;">
+            </div>
+            <div> <p style="width:40px"><strong> - ${pdict.order.totals.orderLevelDiscountTotal.formatted} </strong></p> </div>
+        </div>
+    <br/>
+    </isif>
+
+    <!--- Shipping Cost --->
+    <div class="shipping-cost" style="display:flex;" >
+        <div> <p style="width:60px"><strong> ${Resource.msg('label.order.shipping.cost','confirmation', null)}</strong> </p> </div>
+        <div style="border-top: 2px dashed black;width: 100%;margin-top: 21px;margin-right: 55px;margin-left: 60px;">
+        </div>
+        <div> <p style="width:40px"><strong> ${pdict.order.totals.totalShippingCost}</strong> </p> </div>
+    </div>
+    <br/>
+
+    <isif condition="${pdict.order.totals.shippingLevelDiscountTotal.value !== 0}">
+        <div class="discount-price" style="display:flex;">
+            <div> <p style="width:60px"> <strong>${Resource.msg('label.shipping.discount', 'common', null)}</strong> </p> </div>
+            <div style="border-top: 2px dashed black;width: 100%;margin-top: 21px;margin-right: 55px;margin-left: 60px;">
+            </div>
+            <div> <p><strong style="width:40px"> - ${pdict.order.totals.shippingLevelDiscountTotal.formatted}</strong> </p> </div>
+        </div>
+        <br/>
+    </isif>
+
+    <!--- Sales Tax --->
+    <div class="sales-tax" style="display:flex;">
+        <div> <p style="width:60px"> <strong>${Resource.msg('label.order.sales.tax','confirmation', null)} </strong></p></div>
+        <div style="border-top: 2px dashed black;width: 100%;margin-top: 21px;margin-right: 55px;margin-left: 60px;">
+        </div>
+        <div> <p style="width:40px"><strong> ${pdict.order.totals.totalTax}</strong> </p> </div>
+    </div>
+    <br/>
+
+    
+    <!--- Grand Total --->
+    <div class="grand-total" style="display:flex;">
+        <div> <p style="width:60px"><strong> ${Resource.msg('label.order.grand.total','confirmation', null)}</strong> </p></div>
+        <div style="border-top: 2px dashed black;width: 100%;margin-top: 21px;margin-right: 55px;margin-left: 60px;">
+        </div>
+        <div> <p style="width:40px"><strong> ${pdict.order.totals.grandTotal}</strong> </p> </div>
+    </div>
+</div>

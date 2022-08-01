@@ -1,0 +1,11 @@
+{
+    "caches": [
+        {
+            "id": "paypalRestOauthToken",
+            "expireAfterSeconds": 32000
+        },
+        {
+            "id": "paypalPreferences"
+        }
+    ]
+}

@@ -1,0 +1,5 @@
+<div style="text-align:center; font-size: 1rem; width: 90%; margin:auto;">
+    <p>
+        <isprint value="${pdict.paragraph_text_ID}" encoding="off" />
+    </p>
+</div>

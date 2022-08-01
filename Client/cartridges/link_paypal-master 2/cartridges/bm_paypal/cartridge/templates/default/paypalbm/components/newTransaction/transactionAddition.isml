@@ -1,0 +1,20 @@
+<div class="js_paypal_add_info">
+    <h2 class="paypal_new_transaction_title">${Resource.msg('transaction.newtransaction.additioninfo.title', 'paypalbm', null)}</h2>
+    <button class="js_paypal_toggle_button" data-hide="true" data-text-hide="Hide" data-text-show="Show">Hide</button>
+    <table class="paypalbm_transaction_detail_table infobox w e s n">
+        <tr>
+            <td class="infobox_title top">${Resource.msg('transaction.newtransaction.additioninfo.description', 'paypalbm', null)}</td>
+            <td class="infobox_item top">
+                <textarea name="desc" cols="50" rows="3" data-maxcount="120"></textarea>
+                <p><b class="js_textarea_count">0</b> ${Resource.msg('forms.charectersleft', 'paypalbm', null)}</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="infobox_title top">${Resource.msg('transaction.newtransaction.additioninfo.custom', 'paypalbm', null)}</td>
+            <td class="infobox_item top">
+                <textarea name="custom" cols="50" rows="5" data-maxcount="256"></textarea>
+                <p><b class="js_textarea_count">0</b> ${Resource.msg('forms.charectersleft', 'paypalbm', null)}</p>
+            </td>
+        </tr>
+    </table>
+</div>

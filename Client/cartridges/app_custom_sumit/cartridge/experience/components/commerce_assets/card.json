@@ -1,0 +1,78 @@
+{
+    "name": "card",
+    "description": "card",
+    "group": "Custom",
+    "attribute_definition_groups": [
+      {
+        "id": "card",
+        "name": "card",
+        "description": "This component will be used insert cards.",
+        "attribute_definitions": [
+          {
+            "id": "cardheading",
+            "name": "Heading",
+            "description": "Card Heading.",
+            "type": "text",
+            "required": true
+          },
+          {
+            "id": "cardpara",
+            "name": "Paragraph",
+            "description": "card Paragraph",
+            "type": "text",
+            "required": true
+          },
+          {
+            "id": "cardImg1",
+            "name": "Card Image 1",
+            "description": "Card Image",
+            "type": "image",
+            "required": true
+          },
+          {
+            "id": "producttitle1",
+            "name": "Product Title",
+            "description": "Product Title",
+            "type": "text",
+            "required": true
+          },
+          {
+            "id": "productrate1",
+            "name": "Product Rate",
+            "description": "Product Rate",
+            "type": "text",
+            "required": true
+          },
+          {
+            "id": "buyButton",
+            "name": "Product Buy Button",
+            "description": "Product Buy Button",
+            "type": "text",
+            "required": true
+          },
+          {
+            "id": "cardImg2",
+            "name": "Card Image 2",
+            "description": "Card Image",
+            "type": "image",
+            "required": true
+          },
+          {
+            "id": "producttitle2",
+            "name": "Product Title",
+            "description": "Product Title",
+            "type": "text",
+            "required": true
+          },
+          {
+            "id": "productrate2",
+            "name": "Product Rate",
+            "description": "Product Rate",
+            "type": "text",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "region_definitions": []
+  }

@@ -1,0 +1,20 @@
+"use strict";
+var Template = require("dw/util/Template");
+var HashMap = require("dw/util/HashMap");
+var ImageTransformation = require('*/cartridge/experience/utilities/ImageTransformation.js');
+module.exports.render = function (context,modelIn) {
+  var content = context.content;
+  var model = new HashMap() || modelIn;
+  model.image1 = ImageTransformation.getScaledImage(content.image1);
+  model.image2=ImageTransformation.getScaledImage(content.image2);
+  model.image3=ImageTransformation.getScaledImage(content.image3);
+  model.heading1 = content.heading1;
+  model.heading2 = content.heading2;
+  model.heading3 = content.heading3;
+  model.heading4 = content.heading4;
+  model.btnText = content.btnText;
+  model.heading5 = content.heading5;
+  model.titleTagName = content.titleTagName;
+  model.checkbox = content.checkbox;
+  return new Template("experience/components/commerce_assets/heroBanner").render(model).text;
+};

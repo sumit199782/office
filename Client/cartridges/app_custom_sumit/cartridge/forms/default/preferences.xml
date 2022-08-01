@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<form>
+    <field formid="interestApparel" label="label.checkbox.apparel.preferences" type="boolean" />
+    <field formid="interestElectronics" label="label.checkbox.electronics.preferences"  type="boolean"   />
+    <field formid="newsletter" label="label.checkbox.newsletter.preferences" type="boolean"  />  
+	
+	<action formid="apply" valid-form="true"/>
+</form>

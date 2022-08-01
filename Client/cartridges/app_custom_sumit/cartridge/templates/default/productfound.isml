@@ -1,0 +1,5 @@
+<html>
+    <body>
+       <h1>Product name is ${pdict.myProduct.productName}</h1> 
+    </body>
+</html>

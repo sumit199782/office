@@ -1,0 +1,21 @@
+{
+  "main": {
+    "nl-CW": {
+      "identity": {
+        "version": {
+          "_number": "$Revision: 13133 $",
+          "_cldrVersion": "32"
+        },
+        "language": "nl",
+        "territory": "CW"
+      },
+      "localeDisplayNames": {
+        "measurementSystemNames": {
+          "metric": "metriek",
+          "UK": "Brits",
+          "US": "Amerikaans"
+        }
+      }
+    }
+  }
+}

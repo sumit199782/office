@@ -1,0 +1,28 @@
+<isscript>
+
+    var assets = require('*/cartridge/scripts/assets.js');
+         assets.addCss('/css/demoo.css')
+
+    </isscript>
+<div class="main">
+    <div class="first">
+        <div class"main-heading">
+            <h1 class="heading">
+                <isprint value="${pdict.BannerHeading}" encoding="off" />
+            </h1>
+        </div>
+
+        <div class="para">
+
+            <p class="pa">
+                <isprint value="${pdict.BannerSubHeading}" encoding="off" />
+            </p>
+        </div>
+        <div>
+            <p class="but"><a class="link" href="${pdict.BannerButtonLink}">Shop Now</a></p>
+        </div>
+    </div>
+    <div class="second">
+        <img class="topBannerImg" src="${pdict.BannerImageID.file.absURL}" alt="" width="100%">
+    </div>
+</div>

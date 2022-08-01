@@ -1,0 +1,64 @@
+<isscript>
+
+    var assets = require('*/cartridge/scripts/assets.js');
+         assets.addCss('/css/responsivecards.css');
+        assets.addJs('/js/responsive1.js');
+
+</isscript>
+<div class="main2">
+    <div class="imgblock">
+        <img class="imgclass" id="img1" src="${pdict.cardsImageID1.file.absURL}">
+        <img class="imgclass" style="display:none;" id="img2" src="${pdict.cardsImageID2.file.absURL}">
+        <img class="imgclass" style="display:none;" id="img3" src="${pdict.cardsImageID3.file.absURL}">
+        <img class="imgclass" style="display:none;" id="img4" src="${pdict.cardsImageID4.file.absURL}">
+        <img class="imgclass" style="display:none;" id="img5" src="${pdict.cardsImageID5.file.absURL}">
+        <img class="imgclass" style="display:none;" id="img6" src="${pdict.cardsImageID6.file.absURL}">
+    </div>
+    <div class="block">
+        <div class="headingblock">
+            <h1 class="heading1" style="color: red;">${pdict.topheadingred}</h1>
+            <h1 class="heading2" style="margin-left: 10px;">${pdict.topheading}</h1>
+        </div>
+        <div class="dot-class">
+            <span class="dot1"></span>
+            <span class="dot2"></span>
+            <span class="dot3"></span>
+            <span class="dot4"></span>
+            <span class="dot5"></span>
+            <span class="dot6"></span>
+
+
+        </div>
+        <div>
+            <p class="para1" style="margin-right: 268px;" id="h1">${pdict.heading1}</p>
+            <p class="para1" style="display:none; margin-top: 25px !important; margin-bottom: 30px;" id="h2">
+                ${pdict.heading2}</p>
+            <p class="para1" style="display:none; margin-right: 203px !important; margin-bottom: 20px;" id="h3">
+                ${pdict.heading3}</p>
+            <p class="para1" style="display:none; margin-top: 40px !important; margin-bottom: 20px;" id="h4">
+                ${pdict.heading4}</p>
+            <p class="para1" style="display:none; margin-top: 40px !important; margin-bottom: 20px;" id="h5">
+                ${pdict.heading5}</p>
+            <p class="para1" style="display:none; margin-top: 20px !important; margin-bottom: 30px;" id="h6">
+                ${pdict.heading6}</p>
+
+        </div>
+        <div>
+            <p class="separa" style="margin-right: 30px;" id="p1">${pdict.para1}</p>
+            <p class="separa" style="display:none; margin-bottom:30px; margin-right: 115px;" id="p2">${pdict.para2}</p>
+            <p class="separa" style="display:none; margin-bottom:20px; margin-right: 130px; !important" id="p3">
+                ${pdict.para3}</p>
+            <p class="separa" style="display:none; margin-bottom:20px; margin-right: 121px;" id="p4">${pdict.para4}</p>
+            <p class="separa" style="display:none; margin-bottom:20px; margin-right: 121px;" id="p5">${pdict.para5}</p>
+            <p class="separa" style="display:none; margin-bottom:35px; margin-right: 100px !important;" id="p6">
+                ${pdict.para6}</p>
+        </div>
+
+        <div>
+            <p class="butpadding"><a class="shopbut" href="${pdict.button1}">Shop Now</a>
+            </p>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,21 @@
+{
+  "main": {
+    "ar-KM": {
+      "identity": {
+        "version": {
+          "_number": "$Revision: 13571 $",
+          "_cldrVersion": "32"
+        },
+        "language": "ar",
+        "territory": "KM"
+      },
+      "localeDisplayNames": {
+        "measurementSystemNames": {
+          "metric": "النظام المتري",
+          "UK": "المملكة المتحدة",
+          "US": "النظام الأمريكي"
+        }
+      }
+    }
+  }
+}

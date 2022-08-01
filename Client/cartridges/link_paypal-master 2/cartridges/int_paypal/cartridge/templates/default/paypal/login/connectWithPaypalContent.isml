@@ -1,0 +1,17 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/paypal.css');
+</isscript>
+<div class="row">
+    <div class="connect-with-paypal-content col-12">
+        <div class= "d-flex justify-content-center connect-with-paypal-button-container">
+            <div class="connect-with-paypal-button" data-url = "${pdict.paypal.authUrl}" id='connect-with-paypal-button'>
+                <a href = "${pdict.paypal.connectWithPaypalButtonUrl}">
+                    <img class= "connect-with-paypal-img" src="${pdict.paypal.connectWithPaypalStaticImageLink}" alt="${pdict.paypal.connectWithPaypalStaticImageAlt}"/>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+

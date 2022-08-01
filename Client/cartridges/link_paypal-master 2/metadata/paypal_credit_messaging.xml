@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+    <type-extension type-id="SitePreferences">
+        <custom-attribute-definitions>
+              <attribute-definition attribute-id="PP_Show_On_Cart">
+                <display-name xml:lang="x-default">Show credit message on the cart page</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="PP_Show_On_PDP">
+                <display-name xml:lang="x-default">Show credit message on the PDP page</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
+                <attribute-definition attribute-id="PP_Show_On_Category">
+                <display-name xml:lang="x-default">Show credit message on the category page</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Paypal_Credit_Messaging">
+                <display-name xml:lang="x-default">PayPal Credit Messaging</display-name>
+                <attribute attribute-id="PP_Show_On_Cart"/>
+                <attribute attribute-id="PP_Show_On_PDP"/>
+                <attribute attribute-id="PP_Show_On_Category"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+</metadata>

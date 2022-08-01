@@ -1,0 +1,21 @@
+{
+  "main": {
+    "es-PY": {
+      "identity": {
+        "version": {
+          "_number": "$Revision: 13706 $",
+          "_cldrVersion": "32"
+        },
+        "language": "es",
+        "territory": "PY"
+      },
+      "localeDisplayNames": {
+        "measurementSystemNames": {
+          "metric": "métrico",
+          "UK": "anglosajón",
+          "US": "estadounidense"
+        }
+      }
+    }
+  }
+}

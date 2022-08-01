@@ -1,0 +1,21 @@
+{
+  "main": {
+    "bn-IN": {
+      "identity": {
+        "version": {
+          "_number": "$Revision: 13706 $",
+          "_cldrVersion": "32"
+        },
+        "language": "bn",
+        "territory": "IN"
+      },
+      "localeDisplayNames": {
+        "measurementSystemNames": {
+          "metric": "মেট্রিক",
+          "UK": "ইউকে",
+          "US": "ইউ এস"
+        }
+      }
+    }
+  }
+}

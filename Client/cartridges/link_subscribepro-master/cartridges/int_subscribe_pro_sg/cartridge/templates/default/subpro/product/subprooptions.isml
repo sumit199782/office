@@ -1,0 +1,46 @@
+<iscontent type="text/html" charset="UTF-8" compact="true" />
+
+<iscache type="relative" hour="24" />
+
+<div class="subpro-options ${pdict.page}">
+    <hr />
+    <strong>${Resource.msg('product.subscription.options', 'product', null)}</strong>
+
+    <iscomment> Display 'One-time delivery' option if available </iscomment>
+    <isif condition="${pdict.product.subscription_option_mode === 'subscription_and_onetime_purchase'}">
+    <label for="onetime-delivery">
+        <input type="radio" name="subproSubscriptionOptionMode${pdict.product.ID || ''}" id="onetime-delivery" value="onetime"
+        <isif condition="${pdict.product.selected_option_mode === 'onetime'}">checked</isif>>
+
+        ${Resource.msg('product.subscription.delivery.onetime', 'product', null)}
+    </label>
+    </isif>
+
+    <iscomment> Display 'Regular delivery' option with frequency dropdown </iscomment>
+    <label for="regular-delivery">
+    <input type="radio" name="subproSubscriptionOptionMode${pdict.product.ID || ''}" id="regular-delivery" value="regular"
+        <isif condition="${pdict.product.selected_option_mode === 'regular'}">checked</isif>
+        <isif condition="${pdict.product.subscription_option_mode === 'subscription_only'}">hidden</isif>>
+
+    ${Resource.msg('product.subscription.delivery.regular', 'product', null)}
+    <isif condition="${pdict.product.discount}"> - ${Resource.msgf('product.subscription.delivery.discount', 'product', null, pdict.product.is_discount_percentage ? pdict.product.discount * 100 + '%' : dw.util.Currency.getCurrency(session.currency).getSymbol() + pdict.product.discount)}</isif>
+    </label>
+    <div class="delivery-interval-group" <isif condition="${pdict.product.subscription_option_mode !== 'subscription_only' && pdict.product.selected_option_mode !== 'regular'}">hidden</isif>>
+    <label for="delivery-interval">${Resource.msg('product.subscription.delivery.every', 'product', null)}</label>
+    <select id="delivery-interval" name="subproSubscriptionInterval">
+            <isloop items="${pdict.product.intervals}" var="interval">
+                <option value="${interval}" <isif condition="${interval === pdict.product.selected_interval}">selected</isif>>${interval}</option>
+            </isloop>
+        </select>
+    </div>
+
+    <hr />
+    <br />
+
+    <iscomment> Hidden fields to pass subscription info to Product Line Item </iscomment>
+    <input type="hidden" name="subproProductLineItemID" value="${pdict.product.ID}" />
+    <input type="hidden" name="subproSubscriptionAvailableOptionMode" value="${pdict.product.subscription_option_mode.toString()}">
+    <input type="hidden" name="subproSubscriptionAvailableIntervals" value="${pdict.product.intervals.toString()}">
+    <input type="hidden" name="subproSubscriptionDiscount" value="${pdict.product.discount}">
+    <input type="hidden" name="subproSubscriptionIsDiscountPercentage" value="${pdict.product.is_discount_percentage}">
+</div>

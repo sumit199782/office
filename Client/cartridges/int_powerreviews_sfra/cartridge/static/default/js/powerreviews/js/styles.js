@@ -1,0 +1,5 @@
+/*!
+ * PowerReviews, Copyright 2020
+ * 956fe54ce | 2020-10-16
+ */
+(window.pwrJsonp=window.pwrJsonp||[]).push([[1],{178:function(n,o,i){},182:function(n,o,i){},188:function(n,o,i){},192:function(n,o,i){},193:function(n,o,i){},194:function(n,o,i){},207:function(n,o,i){},211:function(n,o,i){},212:function(n,o,i){},221:function(n,o,i){},222:function(n,o,i){},223:function(n,o,i){},224:function(n,o,i){},228:function(n,o,i){},229:function(n,o,i){},234:function(n,o,i){},244:function(n,o,i){},253:function(n,o,i){},254:function(n,o,i){},256:function(n,o,i){},257:function(n,o,i){},258:function(n,o,i){},273:function(n,o,i){},274:function(n,o,i){},275:function(n,o,i){},276:function(n,o,i){},277:function(n,o,i){},279:function(n,o,i){},281:function(n,o,i){},282:function(n,o,i){},285:function(n,o,i){},371:function(n,o,i){},382:function(n,o,i){},383:function(n,o,i){},384:function(n,o,i){},385:function(n,o,i){},386:function(n,o,i){}}]);

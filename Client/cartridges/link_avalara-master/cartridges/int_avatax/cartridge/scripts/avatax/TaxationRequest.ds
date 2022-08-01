@@ -1,0 +1,51 @@
+/**
+ *	TaxationRequest.ds
+ *	Sends a single taxation request to Avatax
+ *
+ *	@input  Basket : dw.order.Basket The basket whose tax is to be calculated
+ *	@input controller : Boolean
+ */
+ 
+var dwsvc = require("dw/svc");
+var dworder = require("dw/order");
+var dwutil = require("dw/util");
+var dwvalue = require("dw/value");
+var LOGGER = require("dw/system/Logger").getLogger("Avalara", "AvaTax");
+var guard = require('~/cartridge/scripts/guard');
+
+//script includes
+var AvaTax = require('*/cartridge/scripts/avatax/avautil/avaTax');
+
+function execute(pdict: PipelineDictionary): Number {
+    try {
+        var basket: dworder.Basket = pdict.Basket,
+            isController = pdict.controller;
+        session.custom.sitesource = "sgjc";
+        // send request
+        var result = AvaTax.calculateTax(basket);
+        if (!empty(result.OK) && result.OK) {
+            if (isController) {
+                return {
+                    OK: true
+                };
+            } else {
+                return PIPELET_NEXT;
+            }
+        } else {
+            if (isController) {
+                return {
+                    ERROR: true
+                };
+            } else {
+                return PIPELET_ERROR;
+            }
+        }
+    } catch (e) {
+        LOGGER.warn("[TaxationRequest.ds] Error in taxation request - {0}", e.message);
+        return PIPELET_ERROR;
+    }
+}
+
+if (typeof exports != 'undefined') {
+    exports.Execute = guard.ensure([], execute);
+}

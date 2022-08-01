@@ -1,0 +1,22 @@
+{
+    "name": "Paragraph Text",
+    "description": "Paragraph Text",
+    "group": "Custom",
+    "attribute_definition_groups": [
+        {
+            "id": "ParagraphTextAttributes",
+            "name": "ParagraphTextConfigurations",
+            "description": "Paragraph Text",
+            "attribute_definitions": [
+                {
+                    "id": "paragraph_text_ID",
+                    "name": "Paragraph Text",
+                    "description": "Paragraph Text",
+                    "type": "string",
+                    "required": true
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

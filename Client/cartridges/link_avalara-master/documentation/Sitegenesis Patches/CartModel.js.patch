@@ -1,0 +1,15 @@
+--- CartModel_original.js	2020-02-27 13:02:30.000000000 +0530
++++ CartModel.js	2020-02-27 13:02:31.000000000 +0530
+@@ -45,6 +45,12 @@
+      * @return {dw.system.Status} Returns OK if cart when the cart is recalculated.
+      */
+     calculate: function () {
++        // If Avalara is enabled
++        var avaconfig = JSON.parse(require('dw/system/Site').getCurrent().getCustomPreferenceValue('ATSettings'));
++        if (avaconfig.taxCalculation) {
++            require('*/cartridge/scripts/app').getController('Avatax').CalculateTaxes(this.object);
++        }
++
+         dw.system.HookMgr.callHook('dw.ocapi.shop.basket.calculate', 'calculate', this.object);
+     },
+ 

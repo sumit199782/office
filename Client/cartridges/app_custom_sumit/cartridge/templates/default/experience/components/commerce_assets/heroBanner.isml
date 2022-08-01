@@ -1,0 +1,49 @@
+<div class="hero-banner" style="background-color:#004EA8">
+         <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                <figure>
+                <figure class="photo-tile-figure">
+                <picture>
+                    <source srcset="${pdict.image1.src.mobile}" sizes="100vw" media="(min-width:1024px)" />
+                        <source srcset="${pdict.image2.src.mobile}" sizes="100vw" media="(min-width:768px)"  />
+                        <img alt="" src="${pdict.image3.src.desktop}" />
+                </picture>
+                </figure>
+                    <figcaption class="hero-caption w-100 text-white">
+                    <isif condition="${pdict.titleTagName == "Heading 1"}">
+
+                        <h1 class="gy-font-4xl w-100">Go With <span>Goodyear</span></h1>
+
+                    <iselseif condition="${pdict.titleTagName == "Heading 2"}">
+                        <h2 class="gy-font-4xl w-100">Go With <span>Goodyear</span></h2>
+                    </iselseif>
+
+                    <iselseif condition="${pdict.titleTagName == "Heading 3"}">
+                        <h3 class="gy-font-4xl w-100">Go With <span>Goodyear</span></h3>
+                    </iselseif>
+
+                    </isif>
+
+                    <isif condition="${pdict.checkbox == true}">
+                        <p>True</p>
+                        <iselseif condition="${pdict.checkbox == false}">
+
+                        <p>False</p>
+                        </iselseif>
+                    </isif>
+                            <iscomment> <h1 id="heading" class="gy-font-4xl w-100">Go With <span>Goodyear</span></h1> </iscomment>
+                            <div class="caption w-75">
+                                <span class="gy-font-xl">Introucing Assurance WeatherReady</span>
+                                <p class="p2">Our best all-weather traction, for Mother Nature’s worst.</p>
+                            </div>
+                            <div class="w-100 gy-pl-24">
+                                <button class="button-primary-yellow">Find Tires</button>
+                                <a href="#" class="hero-link text-white gy-p-24">Shop WeatherReady</a>
+                            </div>
+                    </figcaption>
+                </figure>
+                </div>
+            </div>
+        </div>
+    </div>

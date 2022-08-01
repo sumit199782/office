@@ -1,0 +1,154 @@
+<header>
+    <div class="page-header-part">
+        <div class="header-banner slide-up d-none" style="background-color: rgb(237,75,122);">
+            <div class="container">
+                <div class="d-flex justify-content-between">
+                    <div class="content" style="text-align: center;width: 100%;">
+                        <isslot id="header-banner-m" description="Slot above the site header" context="global" />
+                    </div>
+                    <div class="close-button">
+                        <button type="button" class="close" aria-label="Close" style="background-color: rgb(237,75,122);">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="my_header">
+            <iscomment>
+                <div class="login-link">
+                    <isinclude template="account/header" />
+                </div>
+            </iscomment>
+            <div class="header-part left">
+                <div class="options-bars">
+                    <div class="option-bars-icon">
+                        <i class="option-icon fas fa-bars"></i>
+                    </div>
+                    <div class="t-options">
+                        <isinclude template="components/header/tabMenu">
+                    </div>
+                    <div class="t-header-shop-options">
+                        <isinclude url="${URLUtils.url('category-ShowCategories')}" />
+                    </div>
+                    <div class="t-header-collabs-options">
+                        <p class="collabs-back-link back-link bolder-fonts heading"> &lt Back </p>
+                        <h3 class="t-header-option-tag bolder-fonts heading"> COLLABS </h3>
+                        <iscomment>
+                            <p class="t-header-option bolder-fonts heading"> Scunci x Ali Manno for Walgreens </p>
+                            <p class="t-header-option bolder-fonts heading"> Scunci x Morgan Simianer For CVS </p>
+                        </iscomment>
+                        <a href="${URLUtils.url('Page-Show', 'cid', 'scunci-manni')}">
+                            <p class="t-header-option bolder-fonts heading">Scunci x Ali Manno for Walgreens</p>
+                        </a>
+                        <a href="${URLUtils.url('Page-Show', 'cid', 'Scunci-morgan')}">
+                            <p class="t-header-option bolder-fonts heading">Scunci x Morgan Simianer For CVS</p>
+                        </a>
+                    </div>
+                    <div class="t-header-collections-options">
+                        <p class="collections-back-link back-link bolder-fonts heading"> &lt Back </p>
+                        <h3 class="t-header-option-tag bolder-fonts heading"> COLLECTIONS </h3>
+                        <iscomment> <p class="t-header-option bolder-fonts heading"> The Collective Consciously Minded </p> </iscomment>
+                        <a href="${URLUtils.url('Page-Show', 'cid', 'The-Curl-Collective')}">
+                            <p class="t-header-option bolder-fonts heading"> The Curl Collective </p>
+                        </a>
+                        <a href="${URLUtils.url('Page-Show', 'cid', 'The-Collective-Consciously-Minded')}">
+                            <p class="t-header-option bolder-fonts heading"> Consciously Minded </p>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="header-logo-div">
+                    <div class="space-div"></div>
+                    <div class="header-logo-img"><a href="${URLUtils.url('Home-Show')}">
+                            <img class="logo-img"
+                                src="https://images.squarespace-cdn.com/content/v1/5bcf00400cf57dca185434fe/1540549220438-3IKQ17ELL2HCETY5BV8L/logo.png?format=1500w"
+                                alt="sunchi logo">
+                            <span class="t-m-header-logo-text HelveticaNeueLTStd-Bd"> #1 HAIR ACCESSORY BRAND*</span>
+                        </a>
+                    </div>
+                    <div class="header-logo-tag">
+                        <span class="header-logo-text HelveticaNeueLTStd-Bd"> #1 HAIR ACCESSORY BRAND*</span>
+                    </div>
+                </div>
+            </div>
+            <div class="header-part right">
+                <div class="header-content-1">
+                    <div class="header-search-bar-div header-icons-row">
+                        <isinclude template="components/header/search" />
+                    </div>
+                    <div class="user-icon header-icons-row" style="position: relative;">
+                        <iscomment> <i class="header-icon far fa-user"></i> </iscomment>
+                        <isinclude url="${URLUtils.url('Account-Header')}" />
+                        <iscomment> <a href="${URLUtils.url('Account-Header')}" class="account-login"><i
+                                    class="header-icon far fa-user"></i></a> </iscomment>
+                    </div>
+                    <isif condition="${session.custom.userLoggedIn === true}">
+                        <div class="heart-icon header-icons-row">
+                            <i class="header-icon far fa-heart"></i>
+                        </div>
+                    </isif>
+                    <div class="bag-icon header-icons-row">
+                        <div class="minicart" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
+                            <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
+                        </div>
+                    </div>
+                </div>
+                <div class="header-content-2">
+                    <div class="header-tabs">
+                        <div class="header-tab"><a href="${URLUtils.url('Home-Show')}" class=" header-tab tab"> SHOP
+                            </a>
+                            <div class="header-options header-options">
+                                <isinclude url="${URLUtils.url('category-ShowDropDownCategories')}" />
+                            </div>
+                        </div>
+                        <div class="header-tab">
+                            <a href="${URLUtils.url('Home-Collabs')}" class=" header-tab tab"> COLLABS </a>
+                            <div class="header-options">
+                                <iscomment>
+                                    <p class="header-option"> Scunci x Ali Manno for Walgreens </p>
+                                    <p class="header-option"> Scunci x Morgan Simianer For CVS </p>
+                                </iscomment>
+                                <a href="${URLUtils.url('Page-Show', 'cid', 'scunci-manni')}">
+                                    <p class="header-option">Scunci x Ali Manno for Walgreens</p>
+                                </a>
+                                <a
+                                    href="${URLUtils.url('Page-Show', 'cid', 'Scunci-morgan')}">
+                                    <p class="header-option">Scunci x Morgan Simianer For CVS</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="header-tab">
+                            <a href="${URLUtils.url('Home-Collections')}" class=" header-tab tab"> COLLECTIONS </a>
+                            <div class="header-options">
+                                <iscomment>
+                                    <p class="header-option"> The Collective Consciously Minded </p>
+                                </iscomment>
+                               <a href="${URLUtils.url('Page-Show', 'cid', 'The-Curl-Collective')}">
+                                    <p class="header-option"> The Curl Collective </p>
+                                </a>
+                                <a href="${URLUtils.url('Page-Show', 'cid', 'The-Collective-Consciously-Minded')}">
+                                    <p class="header-option"> Consciously Minded </p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="header-tab">
+                            <a href="${URLUtils.url('Home-Exclusives')}" class=" header-tab tab"> EXCLUSIVES </a>
+                        </div>
+                        <div class="header-tab">
+                            <a href="${URLUtils.url('Home-Brand')}" class=" header-tab tab"> BRAND </a>
+                        </div>
+                        <div class="header-tab">
+                            <a href="${URLUtils.url('Home-Press')}" class=" header-tab tab"> PRESS </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="m-header">
+        <isinclude template="components/header/mHeader">
+    </div>
+    </div>
+</header>

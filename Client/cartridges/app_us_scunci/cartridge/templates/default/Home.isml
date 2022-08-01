@@ -1,0 +1,66 @@
+<isdecorate template="common/layout/page">
+  <script type="text/javascript">
+     var $jq = jQuery.noConflict();
+        $jq(document).ready(function(){
+
+            $jq('.slider-nav').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            infinite:true,
+            autoplaySpeed: 2000,
+            dots: true
+        });
+    });
+  </script>
+
+        <isinclude template="/components/modules" sf-toolkit="off" />
+        <isscript>
+                var assets = require('*/cartridge/scripts/assets.js');
+                assets.addCss('/css/homePage.css');
+                assets.addJs('/js/Home.js');
+                assets.addJs('/js/emailFooter.js');
+                assets.addJs('/js/owl.carousel.js');
+                assets.addJs('/js/carouselHome.js');
+                assets.addCss('/css/owl_carousel_min.css');
+                assets.addCss('/css/owl_theme_default_min.css');
+        </isscript>
+        <div class="home-page-container">
+                <div class="slider-asset">
+                        <iscontentasset aid="sunchi-slider-holiday-theme" />
+                </div>
+                <div class="gifts-container-asset">
+                        <iscontentasset aid="sunchi-gifts-rollover-items" />
+                </div>
+                <div class="m-gift-boxes-asset">
+                        <iscontentasset aid="m-gift-boxes" />
+                </div>
+                <div class="models-image-asset">
+                        <iscontentasset aid="sunchi-models-image-left" />
+                </div>
+                <div class="trending-contents">
+                        <iscontentasset aid="sunchi-trending-contents" />
+                </div>
+                <div class="models-image-asset">
+                        <iscontentasset aid="sunchi-models-image-right" />
+                </div>
+                <div class="elevated-basics">
+                        <iscontentasset aid="sunchi-trending-content" />
+                </div>
+                <div class="models-image-asset">
+                        <iscontentasset aid="sunchi-models-image-left-2" />
+                </div>
+                <div class="tween-must-haves">
+                        <iscontentasset aid="sunchi-tween-must-haves" />
+                </div>
+                <div class="tween-social">
+                </div>
+                <iscomment> <div class="social-meadia">
+                        <iscontentasset aid="sunchi-social-media" />
+                </div>
+                <div class="social-footer">
+                </div> </iscomment>
+        </div>
+        <input type="hidden" id="token" name="${pdict.igToken}" value="${require('dw/system/Site').current.getCustomPreferenceValue('instaToken')}"/>
+        <isslot id="home-instagram-feeds" description="Instagram feeds on the home page." context="global" />
+</isdecorate>

@@ -1,0 +1,17 @@
+
+<iscomment> <isif condition="${pdict.id}"> </iscomment>
+    <div class="article-tile-container ${pdict.enableImageZoomOnHover ? 'block-zoom' : ''}">
+         <div class="article-text-block">
+            <p class="atc-dec gy-mb-8 ${pdict.atcDecFontsize} ${pdict.atcDecFonttype}">${pdict.descriptionHTML}</p>
+            <${pdict.tagName} class="atc-title gy-font-${pdict.atcTitleFontsize} ${pdict.atcTitleFonttype}">${pdict.atcTitle}</${pdict.tagName}>
+        </div>
+        <div class="article-img-block">
+            <picture>
+                <source srcset="${pdict.atcImageTablet.src.mobile}" media="(min-width: 768px)"/>
+                <source srcset="${pdict.atcImageDesktop.src.mobile}" media="(min-width: 1024px)"/>
+                <img class="atc-image" src="${pdict.imageMobile.src.mobile}" alt="${pdict.imageAlt}" title="${pdict.imageAlt}" />
+            </picture>
+        </div>
+        <div class="atc-link display-f align-items-center"><a href="${pdict.href}" class="display-f align-items-center">${pdict.linkLabel}</a></div>
+    </div>
+<iscomment> </isif> </iscomment>

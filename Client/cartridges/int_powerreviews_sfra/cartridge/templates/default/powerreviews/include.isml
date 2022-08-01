@@ -1,0 +1,29 @@
+<isset name="libPR" value="${pdict.libPR}" scope="page">
+<iscache type="relative" hour="24">
+<script>
+  window.POWER_REVIEWS_CONFIG = {
+      locale: "${pdict.CurrentRequest.locale}",
+      merchant_group_id: "${libPR.getGroupId()}",
+      merchant_id: "${libPR.getMerchantId()}",
+      api_key: "${libPR.getApiKey()}",
+  };
+</script>
+
+<script>
+  (function() {
+    if (!window.PWR_INCLUDE) {
+        var d = document;
+        var t = 'script';
+        var i = function(src) {
+          var g = d.createElement(t),
+              ss = d.getElementsByTagName(t),
+              s = ss[ss.length - 1];
+          g.src = src;
+          s.parentNode.insertBefore(g, s);
+        }
+        i("${URLUtils.httpsStatic('/js/powerreviews/js/loader.js')}");
+        i("${URLUtils.httpsStatic('/js/powerreviews.js')}");
+        window.PWR_INCLUDE = true;
+    }
+  })();
+</script>

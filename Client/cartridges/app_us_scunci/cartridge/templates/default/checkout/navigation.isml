@@ -1,0 +1,24 @@
+<div class="navigation">
+    <div class="cart-navigator navigator">
+        <a class="cart-link navigator" href="${URLUtils.url('Cart-Show')}">CART</a>
+    </div>
+    <div class="arrow-icon navigator">
+        <i class="fa fa-caret-right navigator py-1"></i>
+    </div>
+    <div class="shipping-navigator navigator">
+        <a class="cart-link navigator" href="#">SHIPPING</a>
+    </div>
+    <div class="arrow-icon navigator">
+        <i class="fa fa-caret-right navigator py-1"></i>
+    </div>
+    <div class="shipping-navigator navigator">
+        <a class="cart-link navigator" href="#">BILLING</a>
+    </div>
+    <div class="arrow-icon navigator">
+        <i class="fa fa-caret-right navigator py-1"></i>
+    </div>
+    <div class="shipping-navigator navigator">
+        <a class="cart-link navigator" href="#">REVIEW</a>
+    </div>
+</div>
+<iscomment> <div class="test"><a class="cart-link" href="${URLUtils.url('Cart-Show')}">CART</a> <i style="color:black" class="fa fa-caret-right"></i> </div> </iscomment>

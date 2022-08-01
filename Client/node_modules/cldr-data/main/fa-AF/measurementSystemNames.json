@@ -1,0 +1,21 @@
+{
+  "main": {
+    "fa-AF": {
+      "identity": {
+        "version": {
+          "_number": "$Revision: 13706 $",
+          "_cldrVersion": "32"
+        },
+        "language": "fa",
+        "territory": "AF"
+      },
+      "localeDisplayNames": {
+        "measurementSystemNames": {
+          "metric": "متریک",
+          "UK": "بریتانیایی",
+          "US": "امریکایی"
+        }
+      }
+    }
+  }
+}

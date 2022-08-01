@@ -1,0 +1,68 @@
+{
+    "name": "Button",
+    "description": "Link (or button if link is on parent)",
+    "group": "assets",
+    "attribute_definition_groups": [
+        {
+            "id": "ButtonSettings",
+            "name": "Button Settings",
+            "description": "Button Settings",
+            "attribute_definitions": [
+                {
+                    "id": "buttonLabel",
+                    "name": "Button Label",
+                    "description": "The text shown on the button",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "buttonAriaLabel",
+                    "name": "Button Aria Label",
+                    "description": "Aria label, which can be used for better informing of screen reader users (will be pronounced when the focus enters to the button the first time).",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "buttonUrl",
+                    "name": "Button URL",
+                    "description": "URL for the button",
+                    "type": "url",
+                    "required": false
+                },
+                {
+                    "id": "openLinkInNewTab",
+                    "name": "Open link in new tab",
+                    "description": "Open link in new tab if checked",
+                    "type": "boolean",
+                    "default_value": false,
+                    "required": false
+                },
+                {
+                    "id": "buttonCssClass",
+                    "name": "Button Css Class",
+                    "description": "Css Class for button",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "disableAnalytics",
+                    "name": "Disable Analytics",
+                    "description": "This component will not send any analytics",
+                    "type": "boolean",
+                    "required": false
+                },
+                {
+                    "id": "jsonData",
+                    "name": "JSON data",
+                    "description": "json entry used to set additional customsation",
+                    "type": "custom",
+                    "required": false,
+                    "editor_definition": {
+                        "type": "json"
+                    }
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

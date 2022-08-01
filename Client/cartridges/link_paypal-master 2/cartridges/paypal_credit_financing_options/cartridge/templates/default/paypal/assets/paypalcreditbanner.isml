@@ -1,0 +1,14 @@
+<isset name="financialPreferences" value="${require('*/cartridge/config/financialPreferences')}" scope="page">
+<isif condition="${financialPreferences.isActive}">
+    <div>
+        <script type="text/javascript" data-pp-pubid="${financialPreferences.publisherID}" data-pp-placementtype="${financialPreferences.bannerSize}">
+        (function (d, t) {
+            "use strict";
+            var s = d.getElementsByTagName(t)[0],
+            n = d.createElement(t);
+            n.src = "//paypal.adtag.where.com/merchant.js";
+            s.parentNode.insertBefore(n, s);
+        }(document, "script"));
+    </script>
+    </div>
+</isif>

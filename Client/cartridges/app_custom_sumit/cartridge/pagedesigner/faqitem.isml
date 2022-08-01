@@ -1,0 +1,25 @@
+<isif condition="${pdict.disable_faq_item !== true}">
+
+<div class=faq-item-title>
+    <isif condition="${pdict.disable_faq_title !== true}">
+        <h3><span><isprint value="${pdict.text_faq_title}" encoding="off"/></span></h3>
+    </isif>
+</div>
+
+<ul style="list-style-type:none;">
+    <li>
+        <div class="faq-item-container">
+        <div class="faq-question-answer">
+
+            <iscomment>This renders the FAQ question</iscomment>
+            <p class="faq-item-question"><strong>
+                <span><isprint value="${pdict.text_faq_question}" encoding="off"/></span>
+            </strong></p>
+
+            <iscomment>Now, render the FAQ answer with your own code below</iscomment>
+
+        </div>
+        </div>
+    </li>
+</ul> 
+</isif>

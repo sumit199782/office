@@ -1,0 +1,60 @@
+<!--- TEMPLATENAME: newslettersignup.isml --->
+<isdecorate template="common/layout/page">
+
+    <form action="${URLUtils.url('SrvNewsletter-HandleForm')}" method="POST">
+        <div class="card-body">
+            <div class="form-group
+        <isif condition=" ${pdict.newsletterForm.fname.mandatory === true}">required</isif>">
+                <label class="form-control-label" for="fname">
+                    <isprint value="${pdict.newsletterForm.fname.label}" encoding="htmlcontent" />
+                </label>
+                <input type="text" class="form-control" id="fname" <isprint
+                    value="${pdict.newsletterForm.fname.attributes}" encoding="off" />>
+                <div class="invalid-feedback"></div>
+            </div>
+
+
+            <div class="form-group
+        <isif condition=" ${pdict.newsletterForm.lname.mandatory === true}">required</isif>">
+                <label class="form-control-label" for="lname">
+                    <isprint value="${pdict.newsletterForm.lname.label}" encoding="htmlcontent" />
+                </label>
+                <input type="text" class="form-control" id="lname" <isprint
+                    value="${pdict.newsletterForm.lname.attributes}" encoding="off" />>
+                <div class="invalid-feedback"></div>
+            </div>
+
+            <div class="form-group
+        <isif condition=" ${pdict.newsletterForm.email.mandatory === true}">required</isif>">
+                <label class="form-control-label" for="email">
+                    <isprint value="${pdict.newsletterForm.email.label}" encoding="htmlcontent" />
+                </label>
+
+                <iscomment> follow this example to complete your code </iscomment>
+                <input type="text" class="form-control" id="email" <isprint
+                    value="${pdict.newsletterForm.email.attributes}" encoding="off" />>
+                <div class="invalid-feedback"></div>
+                <isif condition="${pdict.emailerror != null}">
+                    <h3>${pdict.emailerror}</h3>
+                </isif>
+            </div>
+
+            <iscomment>Modify view to include promo opt-in. Use example above to write the code.</iscomment>
+            <div class="form-group notrequired">
+                <label class="form-control-label">
+                    <isprint value="${pdict.newsletterForm.promo.label}" encoding="htmlcontent" />
+                    <input type="checkbox" class="form-control" id="newsletter-form-promo" <isprint
+                        value="${pdict.newsletterForm.promo.attributes}" encoding="off" />>
+            </div>
+            <div class="row">
+
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button type="submit" name="subscribe"
+                        class="btn btn-save btn-block btn-primary">${Resource.msg('submit', 'locale', null)}</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</isdecorate>

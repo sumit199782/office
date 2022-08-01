@@ -1,0 +1,21 @@
+{
+  "main": {
+    "sw-KE": {
+      "identity": {
+        "version": {
+          "_number": "$Revision: 13706 $",
+          "_cldrVersion": "32"
+        },
+        "language": "sw",
+        "territory": "KE"
+      },
+      "localeDisplayNames": {
+        "measurementSystemNames": {
+          "metric": "Mfumo wa Mita",
+          "UK": "Uingereza",
+          "US": "Marekani"
+        }
+      }
+    }
+  }
+}

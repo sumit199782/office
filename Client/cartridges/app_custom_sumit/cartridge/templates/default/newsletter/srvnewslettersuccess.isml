@@ -1,0 +1,14 @@
+<isdecorate template="common/layout/page">
+
+	<h3>
+		${Resource.msgf("msg.newsletter.signup.thank.you_form", "newsletter", null, pdict.firstName, pdict.lastName)}
+	</h3>
+
+	<h3>
+		${Resource.msgf("msg.newsletter.signup.thank.you_object", "newsletter", null, pdict.newsletterObject.custom.firstName,
+	pdict.newsletterObject.custom.lastName)}
+	</h3>
+
+	Back to <a href="${URLUtils.url('SrvNewsletter-Start')}">Newsletter Subscription</a>.
+
+</isdecorate>

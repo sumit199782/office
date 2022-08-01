@@ -1,0 +1,12 @@
+{
+    "name": "viewportvalues",
+    "description": "This component allow merchandisers to define value for viewport",
+    "resources": {
+        "scripts": [
+            "/experience/editors/viewportvalues.js"
+        ],
+        "styles": [
+            "https://cdnjs.cloudflare.com/ajax/libs/design-system/2.8.3/styles/salesforce-lightning-design-system.min.css"
+        ]
+    }
+}

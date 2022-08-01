@@ -1,0 +1,20 @@
+{
+  "main": {
+    "id": {
+      "identity": {
+        "version": {
+          "_number": "$Revision: 13705 $",
+          "_cldrVersion": "32"
+        },
+        "language": "id"
+      },
+      "localeDisplayNames": {
+        "measurementSystemNames": {
+          "metric": "Metrik",
+          "UK": "BR",
+          "US": "AS"
+        }
+      }
+    }
+  }
+}

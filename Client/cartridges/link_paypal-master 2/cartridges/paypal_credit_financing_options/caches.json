@@ -1,0 +1,8 @@
+{
+    "caches": [
+        {
+            "id": "paypalCreditFinancingOptions",
+            "expireAfterSeconds": 300
+        }
+    ]
+}

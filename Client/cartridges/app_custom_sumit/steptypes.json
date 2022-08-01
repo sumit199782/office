@@ -1,0 +1,35 @@
+{
+	"step-types":{
+	   "script-module-step":[
+		  {
+			 "@type-id":"custom.rename",
+			 "@supports-parallel-execution":"false",
+			 "@supports-site-context":"true",
+			 "@supports-organization-context":"false",
+			 "description":"Export all product in a catalog",
+			 "module":"app_custom_sumit/cartridge/scripts/renamePageURL.js",
+			 "function":"execute",
+			 "transactional":"true",
+			 "timeout-in-seconds":"900",
+			 "parameters":{
+				
+			 },
+			 "status-codes":{
+				"status":[
+				   {
+					  "@code":"ERROR",
+					  "description":"An error occurs, please re-run the job"
+				   },
+				   {
+					  "@code":"FINISHED",
+					  "description":"CSV Exported Successfully"
+				   }
+				]
+			 }
+		  }
+	   ]
+	}
+ }
+
+
+

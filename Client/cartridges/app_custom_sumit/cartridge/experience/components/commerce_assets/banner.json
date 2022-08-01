@@ -1,0 +1,43 @@
+{
+    "name": "Banner",
+    "description": "Banner",
+    "group": "Custom",
+    "attribute_definition_groups": [
+        {
+            "id": "banner",
+            "name": "Banner",
+            "description": "Banner",
+            "attribute_definitions": [
+                {
+                    "id": "bannerImg",
+                    "name": "Banner Image",
+                    "description": "Banner Image",
+                    "type": "image",
+                    "required": true
+                },
+                {
+                    "id": "bannerparagraph",
+                    "name": "Banner Paragraph Text",
+                    "description": "Banner Paragraph Text",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "id": "bannerparagraph2",
+                    "name": "Banner Paragraph Text",
+                    "description": "Banner Paragraph Text",
+                    "type": "text",
+                    "required": true
+                },
+                {
+                    "id": "bannerImg2",
+                    "name": "Banner Image 2",
+                    "description": "Banner Image 2",
+                    "type": "image",
+                    "required": true
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

@@ -1,0 +1,62 @@
+<div class="col-lg-7 product-card-footer cart-pro-details">
+    <isif condition="${!lineItem.isBonusProductLineItem}"/>
+        <div class="row">
+            <!---item price--->
+            <iscomment> <div class="col-4 line-item-price-${lineItem.UUID}">
+                <p class="line-item-price-info">${Resource.msg('label.each.item.price','cart',null)}</p>
+                <isset name="price" value="${lineItem.price}" scope="page"/>
+                <div class="unit-price">
+                    <isinclude template="/product/components/pricing/main" />
+                </div>
+            </div> </iscomment>
+
+            <!--- quantity --->
+            <div class="col-4 col-lg-3 line-item-quantity">
+                <isinclude template="checkout/productCard/productCardQuantitySelector" />
+
+                <isif condition="${!lineItem.isBonusProductLineItem}"/>
+                    <div class="hidden-md-down tab-d-none" style="margin-top:20%; text-align:center;">
+                        <isinclude template="components/deleteButton" />
+                    </div>
+                </isif>
+            </div>
+
+            <!---item price--->
+            <div class="col-4 line-item-price-${lineItem.UUID}" style="text-align:center;">
+                <iscomment> <p class="line-item-price-info">${Resource.msg('label.each.item.price','cart',null)}</p>
+                <isset name="price" value="${lineItem.price}" scope="page"/>
+                <div class="unit-price">
+                    <isinclude template="/product/components/pricing/main" />
+                </div> </iscomment>
+                <isinclude template="cart/productCard/cartProductCardAvailability" />
+            </div>
+
+            <!--- line item total price --->
+            <div class="col-4 line-item-total-price">
+                <div style="display:flex; justify-content:space-between">
+                    <p class="line-item-price-info-text">${Resource.msg('label.each.item.price','cart',null)}</p>
+                    <isset name="price" value="${lineItem.price}" scope="page"/>
+                    <div class="unit-price" style="padding-left: 10px;">
+                        <isinclude template="/product/components/pricing/main" />
+                    </div>
+                </div>
+                <div style="display:flex; justify-content:space-between;">
+                    <p class="line-item-price-info-text">
+                        ${Resource.msg('label.total.price','cart',null)}
+                    </p>
+                    <div class="item-total-${lineItem.UUID} price">
+                        <isinclude template="checkout/productCard/productCardProductTotalPrice" />
+                    </div>
+                </div>
+            </div>
+
+            <!--- extra slot for spacing reasons due to large remove button --->
+            <div class="col-lg-1 hidden-md-down remove-line-item-lg"></div>
+        </div>
+
+        <!--- promotions --->
+        <div class="line-item-promo item-${lineItem.UUID}">
+            <isinclude template="checkout/productCard/productCardProductPromotions" />
+        </div>
+    </isif>
+</div>

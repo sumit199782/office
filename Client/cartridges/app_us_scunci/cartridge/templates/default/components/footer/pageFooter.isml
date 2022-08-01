@@ -1,0 +1,76 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/decorate.css');
+    assets.addJs('/js/components/footer.js');
+</isscript>
+<div class="footer">
+    <input type="hidden" id="call" name="" value="${URLUtils.url('FooterEmail-Subscribe')}">
+    <iscontentasset aid="sunchi-footer">
+<iscomment>   
+<script src="https://kit.fontawesome.com/23d8000cb7.js" crossorigin="anonymous"></script>
+    <div class="footer">
+        <div class="follow-us">
+            <h1 class="follow-us-text center"> FOLLOW US </h1>
+        </div>
+        <div class="social-icons">
+            <i class="footer-icon fab fa-facebook-f"></i>
+            <i class="footer-icon fab fa-instagram"></i>
+            <i class="footer-icon fab fa-pinterest"></i>
+            <i class="footer-icon fab fa-tiktok"></i>
+            <i class="footer-icon fab fa-youtube"></i>
+        </div>
+        <div class="quick-links">
+            <div class="all-footer-links">
+                <div class="footer-links left-links">
+                    <h5 class="footer-tab"> PRIVACY POLICY </h5>
+                    <h5 class="footer-tab"> TERMS OF USE </h5>
+                    <h5 class="footer-tab"> @2021 SCUNCI</h5>
+                </div>
+                <div class="footer-links right-links">
+                    <a href="$httpsUrl('ContactForm-Show')$" title="ContactUs"><h5 class="footer-tab">CONTACT US</h5></a>
+                    <h5 class="footer-tab"> WHERE TO BUY </h5>
+                    <a href="$httpsUrl('Page-Show','cid','scunci-faq')$"><h5 class="footer-tab"> FAQ </h5></a>
+                </div>
+            </div>
+            <div class="signup-email">
+                <div class="signup-email-content">
+                    <p class="signup-email-text"> SIGN UP FOR EMAIL </p>
+                    <div class="home-email-signup">
+                        <div class="container">
+                            <form role="form"
+    class="b-footer__form-form"
+    data-cmp="subscription"
+    data-action="${URLUtils.url('EmailSubscribe-Subscribe')}"
+    method="POST"
+    <isprint value="${pdict.subscribeForm.attributes}" encoding="off" />>
+                                <div class="row">
+                                    <div class="col-sm-5">
+                                        <div class="input-group subscribe-group">
+                                            <input type="text" id="email" class="form-control input-email" name="hpEmailSignUp" placeholder="Email" aria-label="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}"/>
+                                            <span class="input-group-append">
+                                                <button type="submit" data-href="${URLUtils.url('EmailSubscribe-Subscribe')}" class="btn subscribe-email subscribe-button">Subscribe</button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-7 email-description"></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="subscribe-model" id="popUpDisplay">
+            <div class="model-content" >
+                <div class="close-model-icon">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                </div>
+                <div class="model-text-content">
+                    <h1 class="first-row bolder-fonts">THANK YOU</h1>
+                    <h1 class="second-row bolder-fonts">FOR SINGING UP</h1>
+                    <h5 class="third-row bolder-fonts">GET READY FOR SPECIAL OFFERS</h5>
+                </div>
+            </div>
+        </div>
+    </div></iscomment>
+</div>

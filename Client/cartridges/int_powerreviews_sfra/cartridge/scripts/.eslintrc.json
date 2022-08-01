@@ -1,0 +1,7 @@
+{
+    "plugins": ["sitegenesis"],
+    "globals": {
+      "dw": true,
+      "empty": true
+    }
+}

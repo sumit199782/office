@@ -1,0 +1,75 @@
+<isset name="isBAEnabled" value="${pdict.paypal.prefs.billingAgreementEnabled}" scope="page" />
+<isset name="isVenmoUsed" value="${pdict.paypal.isVenmoUsed}" scope="page" />
+
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    if (!pdict.paypal.paypalEmail) {
+        assets.addJs(pdict.paypal.sdkUrl);
+    }
+    assets.addJs('/js/int_paypal_billing.min.js');
+    assets.addCss('/css/paypal.css');
+</isscript>
+
+<isset name="paypalConfig" value="${pdict.paypal.buttonConfig}" scope="page" />
+
+<div class="tab-pane paypal-content js_paypal-content" id="paypal-content" role="tabpanel" data-paypal-urls="${pdict.paypal.paypalUrls}">
+    <fieldset class="payment-form-fields">
+        <div class="js_paypal_error"></div>
+        <div class="alert alert-info" role="alert">
+            ${Resource.msg('paypal.checkout.billingaddressinfo', 'locale', null)}
+        </div>
+
+        <input type="hidden" class="form-control" name="${pdict.forms.billingForm.paymentMethod.htmlName}"
+            value="${pdict.paypal.prefs.paypalPaymentMethodId}" id='paypalMethodId'>
+
+        <div class="paypal_onApprove">
+            <input id="paypal_orderId" type="hidden" name="${pdict.forms.billingForm.paypal.paypalOrderID.htmlName}"
+                value="${pdict.paypal.paypalOrderID}" />
+            <input id="paypal_saveAccount" type="hidden"
+                name="${pdict.forms.billingForm.paypal.savePaypalAccount.htmlName}" value="" />
+            <input id="paypal_makeDefault" type="hidden"
+                name="${pdict.forms.billingForm.paypal.makeDefaultPaypalAccount.htmlName}" value="" />
+            <input id="paypal_activeAccount" type="hidden"
+                name="${pdict.forms.billingForm.paypal.paypalActiveAccount.htmlName}" value="" />
+            <input id="usedPaymentMethod" type="hidden" name="${pdict.forms.billingForm.paypal.usedPaymentMethod.htmlName}" value="${pdict.paypal.isVenmoUsed ? 'Venmo' : ''}" />
+        </div>
+
+        <div class="form-group">
+            <isinclude template="paypal/checkout/paypalAccountsDropdown" />
+        </div>
+        <div id="billing-paypal-button-container" data-is-ba-enabled="${isBAEnabled}">
+            <div class="paypalLoader paypal-loader-container">
+                <i class="paypal-loader"></i>
+            </div>
+            <isif condition="${isBAEnabled}">
+                <div class="paypal-checkout-ba-button"
+                    data-paypal-button-config="${JSON.stringify(paypalConfig)}">
+                </div>
+            <iselse>
+                <div class="paypal-checkout-button js_paypal_button_on_billing_form"
+                    data-paypal-button-config="${JSON.stringify(paypalConfig)}">
+                </div>
+            </isif>
+        </div>
+
+        <isif condition="${customer.authenticated && isBAEnabled}">
+            <div class="paypal-checkbox-container">
+                <div id="savePaypalAccountContainer" class="form-group custom-control custom-checkbox">
+                    <input class="custom-control-input" name="savePaypalAccount" id="savePaypalAccount"
+                        type="checkbox" />
+                    <label class="custom-control-label"
+                        for="savePaypalAccount"><span>${Resource.msg('paypal.checkout.saveaccount', 'locale', null)}</span></label>
+                </div>
+                <div id="paypalAccountMakeDefaultContainer" class="form-group custom-control custom-checkbox">
+                    <input class="custom-control-input" name="paypalAccountMakeDefault" id="paypalAccountMakeDefault"
+                        type="checkbox" />
+                    <label class="custom-control-label"
+                        for="paypalAccountMakeDefault"><span>${Resource.msg('paypal.checkout.makedefault', 'locale', null)}</span></label>
+                </div>
+            </div>
+        </isif>
+
+        <input id="billingAgreementID" type="hidden" name="${pdict.forms.billingForm.paypal.billingAgreementID.htmlName}" />
+        <input id="billingAgreementPayerEmail" type="hidden" name="${pdict.forms.billingForm.paypal.billingAgreementPayerEmail.htmlName}" />
+    </fieldset>
+</div>

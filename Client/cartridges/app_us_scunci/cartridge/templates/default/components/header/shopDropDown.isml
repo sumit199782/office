@@ -1,0 +1,10 @@
+<div class="menu-group" role="navigation">
+    <ul class="nav navbar-nav pt-2" role="menu">
+        <isif condition="${pdict.categories}">
+            <isloop items="${pdict.categories}" var="category">
+                <isset name="cgid" value="${category.ID}" scope="page"/>
+                <p class="header-option"><a href="${URLUtils.url('Search-Show','cgid', cgid)}" id="${category.id}" class="header-option" role="link" tabindex="0">${category.ID}</a></p>
+            </isloop>
+        </isif>
+    </ul>
+</div>

@@ -1,0 +1,17 @@
+<!--- TEMPLATENAME: reviews.isml
+Embeds the container that reviews are injected to and the javascript that accesses the review content.
+ --->
+
+<isif condition="${pdict.bvDisplay.rr.enabled}">
+	<!-- Reviews -->
+	<iscomment> <div class="col-sm-12 col-md-8 col-lg-9 value content"> </iscomment>
+	<div class="col-lg-5 col-md-8 col-sm-12 content ml-auto value mr-md-auto mr-sm-auto pt-4" style="margin-right: 6rem;">
+		<div data-bv-show="reviews" data-bv-productid="${pdict.bvDisplay.bvPid}">
+			<isif condition="${pdict.bvDisplay.rr.seo && pdict.bvDisplay.rr.seo.reviews}">
+		    	<isprint value="${pdict.bvDisplay.rr.seo.reviews}" encoding="on"/>
+		    </isif>
+		</div>
+	</div>
+	<!-- End Reviews -->
+</isif>
+

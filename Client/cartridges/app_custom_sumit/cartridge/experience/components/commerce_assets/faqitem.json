@@ -1,0 +1,64 @@
+{
+  "name": "FAQ Item",
+  "description": "Independent FAQ item with styling for supported questions and answers.",
+  "group": "Custom",
+  "attribute_definition_groups": [
+    {
+      "id": "faq_item_content",
+      "name": "Section Editorial Copy",
+      "description": "To configure this FAQ entry specify the question and answer content displayed below.",
+      "attribute_definitions": [
+        {
+          "id": "text_faq_title",
+          "name": "FAQ Title",
+          "description": "Represents the FAQ title content associated to this item.",
+          "type": "string",
+          "required": false,
+          "searching": {
+            "searchable": true,
+            "refinable": false,
+            "boost_factor": 1.5
+            }
+        },        
+        {
+          "id": "text_faq_question",
+          "name": "FAQ Question",
+          "description": "Represents the FAQ question content associated to this item.",
+          "type": "string",
+          "required": true      
+        },
+        {
+          "id": "text_faq_answer",
+          "name": "FAQ Answer",
+          "description": "Represents the FAQ Answer content associated to this item.",
+          "type": "markup",
+          "required": true      
+           
+        }
+      ]
+    },
+    {
+      "id": "faq_item_editorial_controls",
+      "name": "Editorial Controls",
+      "description": "You can use these editorial controls to toggle which component elements are rendered to the customer view.",
+      "attribute_definitions": [
+        {
+          "id": "disable_faq_title",
+          "name": "Hide the faq title",
+          "description": "Please check this checkbox to hide the faq title from customer view.",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "id": "disable_faq_item",
+          "name": "Hide the faq item",
+          "description": "Please check this checkbox to hide the faq item from customer view.",
+          "type": "boolean",
+          "required": false
+         
+        }
+      ]
+    }
+  ],
+  "region_definitions": []
+}

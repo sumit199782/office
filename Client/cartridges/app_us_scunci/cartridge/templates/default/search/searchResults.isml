@@ -1,0 +1,37 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets');
+        assets.addJs('/js/search.js');
+        assets.addJs('/js/addtocart.js');
+        assets.addCss('/css/search.css');
+        assets.addCss('/css/showProductTile.css');
+        assets.addCss('/css/showQuickView.css');
+    </isscript>
+    
+
+    <isinclude template="search/searchResultsNoDecorator" />
+    <script>
+        console.log('heello');
+        function btnPlus(el) {
+            var quanty = el.previousElementSibling;
+            console.log(quanty);
+            countp=Number(quanty.value) +1;
+            countp = countp > 9 ? 9:countp;
+            quanty.value=countp;
+
+        }
+        function btnMinus(el) {
+            var quanty = el.nextElementSibling;
+            countm=Number(quanty.value) -1;
+            countm = countm < 1 ? 1 : countm;
+            quanty.value=countm;
+        }
+        function setHeroImg(src){
+            // console.log(src);
+            // console.log(this.src);
+            document.getElementById('main-image').src=src;
+        }
+    
+</script>
+
+</isdecorate>

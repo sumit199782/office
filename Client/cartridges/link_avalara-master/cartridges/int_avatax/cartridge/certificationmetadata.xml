@@ -1,0 +1,44 @@
+<certification>
+	<cartridgeInfo>
+		<name>Avalara</name>
+		<version>2.0.0</version>
+		<implementer>PDS</implementer>
+	</cartridgeInfo>
+	<certificationInfo>
+		<certificationID>134</certificationID>
+		<certifiedby>
+			Brian LeBlanc
+		</certifiedby>
+		<date>
+			10/7/2013
+		</date>
+		<platform>
+			<version>13.5</version>
+			<storefront>13.4</storefront>
+		</platform>
+		<usecases>
+			<usecase>
+				<description>
+					Test Tax Calculation
+				</description>
+				<steps>
+					1.  Add items to the cart
+					2.  Proceed to checkout
+					3.  Choose a state and verify that the tax value on the tax table is applied correctly.
+				</steps>
+			</usecase>
+			<usecase>
+				<description>
+					Test Fraud Solution
+				</description>
+				<steps>
+					1.  Add items to the cart
+					2.  Proceed to checkout
+					3.  Provide billing or shipping information that will trigger a 'denied' response from Avalara.
+					4.  Verify that checkout cannot be completed with the current billing or shipping information.
+					5.  Update the billing or shipping information and verify that checkout can be completed.
+				</steps>
+			</usecase>
+		</usecases>
+	</certificationInfo>
+</certification>

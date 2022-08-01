@@ -1,0 +1,50 @@
+--- calculate_original.js	2020-02-27 13:00:19.000000000 +0530
++++ calculate.js	2020-02-27 13:00:22.000000000 +0530
+@@ -16,6 +16,10 @@
+ var Logger = require('dw/system/Logger');
+ var Status = require('dw/system/Status');
+ 
++
++// Avalara
++var avaconfig = JSON.parse(require('dw/system/Site').getCurrent().getCustomPreferenceValue('ATSettings'));
++
+ /**
+  * @function calculate
+  *
+@@ -45,10 +49,10 @@
+     // ===================================================
+ 
+     // ===================================================
+-    // =====   APPLY PROMOTION DISCOUNTS			 =====
++    // =====   APPLY PROMOTION DISCOUNTS             =====
+     // =====   Apply product and order promotions.   =====
+-    // =====   Must be done before shipping 		 =====
+-    // =====   calculation. 					     =====
++    // =====   Must be done before shipping          =====
++    // =====   calculation.                          =====
+     // ===================================================
+ 
+     PromotionMgr.applyDiscounts(basket);
+@@ -62,8 +66,8 @@
+     ShippingMgr.applyShippingCost(basket);
+ 
+     // ===================================================
+-    // =====   APPLY PROMOTION DISCOUNTS			 =====
+-    // =====   Apply product and order and 			 =====
++    // =====   APPLY PROMOTION DISCOUNTS             =====
++    // =====   Apply product and order and           =====
+     // =====   shipping promotions.                  =====
+     // ===================================================
+ 
+@@ -77,7 +81,10 @@
+     // =====         CALCULATE TAX                   =====
+     // ===================================================
+ 
+-    calculateTax(basket);
++    if (!avaconfig.taxCalculation) {
++        // Only if Avalara is disabled
++        calculateTax(basket);
++    }
+ 
+     // ===================================================
+     // =====         CALCULATE BASKET TOTALS         =====

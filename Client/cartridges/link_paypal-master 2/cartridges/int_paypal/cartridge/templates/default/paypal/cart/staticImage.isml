@@ -1,0 +1,17 @@
+<div>
+    <isif condition="${pdict.paypal.isVenmoUsed}">
+        <img id="venmo_image" class="w-100"
+            alt="Check out with Venmo"
+            src="${URLUtils.staticURL('/images/venmo_button.png')}"
+            data-is-update-required="${isUpdateRequired}"
+            data-paypal-default-ba-email="${defaultBAemail}"
+            data-paypal-billing-form-fields="${JSON.stringify(billingFormFields)}">
+        <iselse>
+            <img id="paypal_image" alt="Check out with PayPal"
+                src="${pdict.paypal.paypalStaticImageLink}"
+                data-is-update-required="${isUpdateRequired}"
+                data-paypal-default-ba-email="${defaultBAemail}"
+                data-paypal-billing-form-fields="${JSON.stringify(billingFormFields)}">
+        </iselse>
+    </isif>
+ </div>

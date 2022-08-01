@@ -1,0 +1,20 @@
+--- COShipping_original.js	2020-02-27 13:07:18.000000000 +0530
++++ COShipping.js	2020-02-27 13:07:13.000000000 +0530
+@@ -328,6 +328,8 @@
+     // Transaction controls are for fine tuning the performance of the data base interactions when calculating shipping methods
+     Transaction.begin();
+ 
++    session.privacy.NoCall = true; // Avalara - disable tax call
++
+     for (i = 0; i < applicableShippingMethods.length; i++) {
+         method = applicableShippingMethods[i];
+ 
+@@ -336,6 +338,8 @@
+         shippingCosts.put(method.getID(), cart.preCalculateShipping(method));
+     }
+ 
++    session.privacy.NoCall = false; // Avalara - enable tax call
++
+     Transaction.rollback();
+ 
+     Transaction.wrap(function () {

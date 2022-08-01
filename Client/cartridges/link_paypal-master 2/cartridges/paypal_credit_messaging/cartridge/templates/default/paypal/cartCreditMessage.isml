@@ -1,0 +1,20 @@
+<isif condition="${pdict.creditMessageAvaliable}">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets');
+        if (!pdict.paypal || !pdict.paypal.cartButtonEnabled || pdict.paypal.paypalEmail || pdict.paypal.showStaticImage){
+            assets.addJs(pdict.bannerSdkUrl);
+        }
+    </isscript>
+    <div class="row">
+        <div class="col-12">
+            <div data-pp-message data-pp-placement="cart" data-pp-amount="${pdict.paypalAmount}"
+                data-pp-style-layout="${pdict.bannerConfig.styleLayout}"
+                data-pp-style-color="${pdict.bannerConfig.styleColor || ''}"
+                data-pp-style-ratio="${pdict.bannerConfig.styleRatio || ''}"
+                data-pp-style-logo-type="${pdict.bannerConfig.styleLogoType || ''}"
+                data-pp-style-logo-position="${pdict.bannerConfig.styleLogoPosition || ''}"
+                data-pp-style-text-color="${pdict.bannerConfig.styleTextColor || ''}">
+            </div>
+        </div>
+    </div>
+</isif>

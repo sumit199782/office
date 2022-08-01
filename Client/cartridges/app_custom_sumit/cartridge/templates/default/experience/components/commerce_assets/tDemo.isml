@@ -1,0 +1,21 @@
+<isscript>
+
+    var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/banner.css');
+</isscript>
+
+<div class="bannermain">
+    <div class="bannerfirst">
+
+        <div class="bannerpara">
+            <img style="margin-top:50px" src="${pdict.bannerImg.file.absURL}">
+            <p class="p1">${pdict.bannerparagraph}</p>
+            <p class="p2">${pdict.bannerparagraph2}</p>
+        </div>
+
+
+    </div>
+    <div class="bannersecond">
+        <img class="bannerimg" src="${pdict.bannerImg2.file.absURL}">
+    </div>
+</div>

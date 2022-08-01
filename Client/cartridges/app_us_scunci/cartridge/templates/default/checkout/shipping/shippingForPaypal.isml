@@ -1,0 +1,59 @@
+<div class="shipping-section">
+    <div class="single-shipping">
+        <isset name="shippingModel" value="${pdict.order.shipping[0]}" scope="page" />
+        <isset name="shipmentLoopState" value="${null}" scope="page" />
+        <isset name="lineItem" value="${null}" scope="page" />
+        <div class="card" data-shipment-uuid="${shippingModel.UUID}">
+            <div class="card-header">
+                <h2 class="card-header-custom card-heading">${Resource.msg('heading.checkout.shipping', 'checkout', null)}</h2>
+            </div>
+
+            <div class="shipping-error"></div>
+
+            <iscomment> <isinclude template="checkout/shipping/multiShipCheckbox" /> </iscomment>
+
+            <isinclude template="checkout/shipping/shipmentCardForPaypal" />
+        </div>
+    </div>
+
+    <div class="multi-shipping d-none">
+        <isloop items="${pdict.order.shipping}" var="shippingModel" status="shipmentLoopState">
+            <isloop items="${shippingModel.productLineItems.items}" var="lineItem">
+                <div class="card" data-shipment-uuid="${shippingModel.UUID}">
+                    <div class="card-header">
+                        <isinclude template="checkout/productCard/productShippingCard" />
+                    </div>
+
+                    <isinclude template="checkout/shipping/shipmentCardForPaypal" />
+                </div>
+            </isloop>
+        </isloop>
+    </div>
+</div>
+
+<div class="d-md-none d-sm-block">
+    <div class="b-card card checkoutFormOuterDiv payment-form">
+        <isinclude template="checkout/orderProductSummary" />
+    </div>
+</div>
+<div class="d-md-none d-sm-block">
+    <div class="col-12 next-step-button">
+        <isif condition="${pdict.currentStage === 'shipping'}">
+            <button class="btn btn-primary btn-block mt-4 submit-shipping"
+                                                style="background-color: rgb(237,75,122); border-radius: 25px; margin-bottom: 12px; text-align: center;"
+                                                type="submit" name="submit" value="submit-shipping" <isif
+                                                condition="${pdict.order.usingMultiShipping && !pdict.order.shippable}">disabled
+        </isif>>
+        ${Resource.msg('button.next.payment', 'checkout', null)}
+            </button>
+        </isif>
+    </div>
+</div>
+<iscomment> <div class="d-md-none d-sm-block">
+    <div class="b-card card checkoutFormOuterDiv payment-form">
+        <isinclude template="checkout/orderProductSummary" />
+    </div>
+</div> </iscomment>
+
+
+

@@ -1,0 +1,44 @@
+{
+    "name": "3 Row x 1 Col (Mobile), 1 Row x 3 Col (Desktop)",
+    "description": "This is a layout component of 3 rows by 1 column for mobile and 1 row by 3 columns for desktop/tablet.",
+    "group": "commerce_layouts",
+    "attribute_definition_groups": [
+        {
+        "id": "column",
+        "name": "column",
+        "description": "column",
+        "attribute_definitions": [{
+                "id": "xyz",
+                "name": "Image",
+                "description": "Please select full-sized banner image to display.",
+                "type": "enum",
+                "required": false,
+                "values": [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                    "6"
+                ]
+            }
+            ]
+    }],
+    "region_definitions": [
+        {
+            "id":"column1",
+            "name":"Column 1",
+            "component_type_exclusions": []
+        },
+        {
+            "id":"column2",
+            "name":"Column 1",
+            "component_type_exclusions": []
+        },
+        {
+            "id":"column3",
+            "name":"Column 1",
+            "component_type_exclusions": []
+        }
+    ]
+}

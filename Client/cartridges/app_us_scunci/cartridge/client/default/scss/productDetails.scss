@@ -1,0 +1,360 @@
+// BV summary outline remove
+#ratings-summary{
+    outline: none !important;
+}
+// product added to cart popup msg
+.alert-success {
+    color:white !important;
+    background: rgb(237 , 75 , 122) !important;
+    box-shadow: 1px 1px 5px rgb(237 , 75 , 122) !important;
+    border-color: rgb(237 , 75 , 122) !important;
+}
+
+    //carousel-indicators display none
+    .carousel-indicators{
+        display: none !important;
+    }
+    // for PDP product desc
+    .pro-desc{
+        font-size: 12pt !important;
+    } 
+    // for Price Fonts
+    .price{
+        font-family: 'HelveticaNeueLTStd-Lt' !important;
+        // font-size: 19pt !important;
+    }
+    .align-items-start{
+        .line-item-unit-price{
+            .price{
+                font-size: 11pt !important;
+            }
+        }
+    }
+    .prices-add-to-cart-actions{
+        .row{
+            .prices{
+                .price{
+                    font-size: 19pt !important;
+                }
+            }
+        }
+    }
+    .product-wrapper{
+        max-width:100%;
+    }
+    pre{
+        font-family: 'HelveticaNeueLTStd-Roman' !important;
+    }
+    .imageContainer{
+        display:flex;
+        flex-wrap:wrap;
+    }
+    .imagess{
+        width:46%;
+        margin:auto;
+        margin-bottom: 3% !important;
+    }
+    .breadcrumb{
+        background-color:transparent ;
+        border:none !important;
+    }
+    .breadcrumb-item a {
+        color: black !important;
+    }
+    .product-qty-addtocart{
+        display:flex;
+        flex-wrap:wrap;
+    }
+    
+    .product-qty-ui{
+        border:1px solid black;
+        text-align: center;
+        border-radius:5px;
+        height: 40px;
+        vertical-align: middle;
+        width: 55px;
+    }
+    .quantity-selected{
+        width: 15px;
+        text-align: center;
+        border: none;
+        vertical-align:middle;
+    }
+  .price {
+    text-align: left !important;
+    font-family: 'Helvetica Neue LT W05 45 Light';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 29px;
+    line-height: 29px;
+    letter-spacing: -0.03em;
+    color: #000000;
+}
+.product-name{
+    font-family: 'Helvetica Neue';
+    font-size: 19pt !important;
+    font-weight: 500;
+
+    margin: 0;
+    text-transform: capitalize;
+
+    color: #000000;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+    .minus{
+        cursor: pointer;
+        margin-left: 6px;
+        font-size: 16px;
+        line-height: 40px;
+        vertical-align: middle;
+    }
+    .plus{
+     cursor: pointer;
+        font-size: 16px;
+        line-height: 40px;
+        vertical-align: middle;
+    }
+    .add-to-cart-globall{
+        margin-left:26px;
+        line-height:40px;
+        height: 40px;
+        border-radius: 100px;
+        opacity: 1 !important;
+        background-color: #000;
+        border: solid #000;
+        border-width: 0.0625rem;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 11pt;
+        font-family: 'Helvetica Neue';
+        letter-spacing: 0.0625rem;
+        padding: 0 15px;
+        text-align: center;
+        text-transform: capitalize;
+        transition: all 0.3s ease;
+    }
+    .add-to-cart-globall:hover{
+        color: #fff;
+        border-color: #686f6f;
+        background-color: #686f6f;
+    }
+    .wishlistIcon{
+        font-size:30px !important;
+        margin-left:28px;
+    }
+    .descriptionn{
+        margin-top:40px;
+        margin-bottom: 30px;
+        font-size: 12px;
+        font-family: 'Helvetica Neue';
+        color: #262626 !important;
+        line-height: 20px;
+    }
+    .aaa{
+        width: 80%;
+        display: inline-flex;
+    }
+    .pp{
+        
+        border: none;
+        border-bottom: 1px solid black;
+        text-align: left;
+        outline: none;
+        font-size: 24px;
+        width: 90%;
+    }
+    .accContent{
+        padding-left:0;
+    }
+    .accordion {
+        background-color: transparent;
+        // color: #444;
+        cursor: pointer;
+        // padding: 18px;
+        border: none;
+        outline: none;
+        width: 25px;
+        height:25px;
+        transition: 0.4s;
+    }
+    .btn1{
+        display: inline-block;
+        padding: 10px;
+        top: 24px;
+        left: 5px;
+        box-shadow: 1.5px -1.5px 0 0 #707070 inset;
+        transform: rotate( 135deg);
+        cursor: pointer;
+        /* left: 92%; */
+        position: relative;
+        outline:none ;
+
+    }
+    .btn2{
+        outline:none ;
+
+        display: none;
+        padding: 10px;
+        top: 24px;
+        left: 5px;
+        box-shadow: 1.5px -1.5px 0 0 #707070 inset;
+        transform: rotate( -45deg);
+        cursor: pointer;
+        /* left: 92%; */
+        position: relative;   
+    }
+    pre{
+        white-space: break-spaces !important;
+    }
+    .accordion:after {
+        // content: '\2227';
+        // color: rgb(172, 154, 154);
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+    }
+    
+    .active:after {
+        // content: "\2228";
+    }
+    
+    .panel {
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        
+        font-size: 12px;
+        font-family: 'Helvetica Neue';
+        color: #262626 !important;
+        line-height: 20px;
+    }
+    .desktopView{
+        max-width: 1150px;
+    }
+
+    // tablet view css
+    .tabletView{
+        display: none;
+    }
+    
+    //mobile view css
+    .mobileView{
+        display:none;
+    }
+
+@media only screen and (min-width: 960px) and (max-width: 1025px) { 
+    .desktopView{
+        display: none;
+    }
+    .tabletView{
+        display: block;
+    }
+    .mobileView{
+        display:none;
+    }
+    .product-breadcrumb {
+        padding: unset;
+    }
+    .add-to-cart-globall {
+        width: 66%;
+    }
+    .contentP{
+        min-width: 40%;
+        max-width: 40%;
+    }
+    .primary-images{
+        min-width: 60%;
+    }
+    .product-name{
+        font-size: 19pt;
+        font-family: 'Helvetica Neue LT W01_75 Bold';
+        color: #222222;
+        letter-spacing: 0px;
+        line-height: 25px;
+    }
+    .nameWidth{
+        width:85%;
+    }
+    .wishlistIcon {
+        font-size: 40px!important;
+        font-weight: 500 !important;
+    }
+    .product-qty-ui{
+        width: 23%;
+    }
+    .quantity-selected{
+        width: 30px;
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    .desktopView{
+        display: none;
+    }
+    .tabletView{
+        display: none;
+    }
+    .mobileView{
+        display:block;
+    }
+    .product-breadcrumb {
+        padding: unset;
+    }
+    .add-to-cart-globall {
+        margin: auto;
+        width: 70%;
+    }
+    .contentP{
+        min-width: 100%;
+        // max-width: 40%;
+    }
+    .primary-images{
+        min-width: 60%;
+        margin:auto;
+        margin-bottom: 50px;
+    }
+    .imagess{
+        width: 100%;
+        margin-bottom: 12px!important;
+    }
+    .imagess img {
+        width: 75%;
+        margin: auto;
+    }
+    .product-name{
+        font-size: 19pt;
+        font-family: 'Helvetica Neue LT W01_75 Bold';
+        color: #222222;
+        letter-spacing: 0px;
+        line-height: 25px;
+    }
+    .nameWidth{
+        width:100%;
+    }
+    .wishlistIcon {
+        font-size: 40px!important;
+        font-weight: 500 !important;
+    }
+    .mobileShow{
+        display: block;
+    }
+    .prices-add-to-cart-actions {
+        background-color: transparent;
+        box-shadow: none;
+        position: static;
+        padding-left: 15PX;
+
+    }
+    .product-qty-ui{
+        width: 23%;
+        max-width: 70px;
+        margin: auto;
+    }
+    .quantity-selected{
+        width: 30px;
+    }
+}

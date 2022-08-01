@@ -1,0 +1,13 @@
+<isscript>
+
+    var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/onlyheadandpara.css');
+     //   assets.addJs('/js/responsive1.js');
+
+</isscript>
+<div class="main-head-para">
+    <p class="onlyhead">${pdict.heading_text_ID}</p>
+    <p class="onlypara">${pdict.paragraph1_text_ID}</p>
+    <p class="onlypara">${pdict.paragraph2_text_ID}</p>
+
+</div>

@@ -1,0 +1,15 @@
+<isscript>
+
+    var assets = require('*/cartridge/scripts/assets.js');
+         assets.addCss('/css/blocks.css')
+
+    </isscript>
+
+<div class="main1">
+    <div class="box1">
+        <img class="bimg" src="${pdict.BlockImageID.file.absURL}">
+        <P class="para1">
+            <isprint value="${pdict.BlockHeading}" encoding="off" />
+        </P>
+    </div>
+</div>

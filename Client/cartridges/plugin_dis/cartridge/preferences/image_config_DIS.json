@@ -1,0 +1,23 @@
+{
+	"viewTypeMapping": {
+		"medium": "large",
+		"small": "large"
+	},
+	"large": {
+		"scaleWidth": 800,
+		"scaleHeight": 800
+	},
+	"medium": {
+		"scaleWidth": 400,
+		"scaleHeight": 400
+	},
+	"small": {
+		"scaleWidth": 140,
+		"scaleHeight": 140
+	},
+	"missingImages": {
+		"large": "large_missing.jpg",
+		"medium": "medium_missing.jpg",
+		"small": "small_missing.jpg"
+	}
+}

@@ -1,0 +1,19 @@
+<div class="dFlex justify-space-bw">
+    <span class="summary-section-label billing-addr-label">${Resource.msg('label.order.billing.address', 'confirmation', null)}</span>
+    <a class="edit-button editButton" href="${URLUtils.url('Checkout-Begin','stage','payment')}" > Edit </a>
+    <isif condition="${pdict.order.billing.billingAddress.address !== null}">
+        <isset name="address" value="${pdict.order.billing.billingAddress.address}" scope="page"/>
+        <iselse>
+        <isset name="address" value="{}" scope="page"/>
+    </isif>
+</div>
+<div class="summary-details billing" style="background-color: rgba(248, 248, 248, 0.5);color: #000000; padding: 10px;">
+     <isinclude template="checkout/addressSummary" />
+        <span class="order-summary-email">${pdict.order.orderEmail}</span>
+    <br/>
+    <isif condition="${pdict.order.billing.billingAddress.address !== null}">
+        <span class="order-summary-phone">${pdict.order.billing.billingAddress.address.phone}</span>
+        <iselse>
+        <span class="order-summary-phone"></span>
+    </isif>
+</div>

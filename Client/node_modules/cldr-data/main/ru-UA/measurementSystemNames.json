@@ -1,0 +1,21 @@
+{
+  "main": {
+    "ru-UA": {
+      "identity": {
+        "version": {
+          "_number": "$Revision: 13706 $",
+          "_cldrVersion": "32"
+        },
+        "language": "ru",
+        "territory": "UA"
+      },
+      "localeDisplayNames": {
+        "measurementSystemNames": {
+          "metric": "Метрическая",
+          "UK": "Английская",
+          "US": "Англо-американская"
+        }
+      }
+    }
+  }
+}

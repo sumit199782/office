@@ -1,0 +1,48 @@
+<isif condition="${pdict.PagingModel.count > 0}">
+    <table>
+        <tr>
+            <td class="table_header w e s">${Resource.msg('search.grid.number', 'paypalbm', null)}</td>
+            <td class="table_header e s" nowrap="nowrap">${Resource.msg('search.grid.date', 'paypalbm', null)}</td>
+            <td class="table_header e s" nowrap="nowrap">${Resource.msg('search.grid.created', 'paypalbm', null)}</td>
+            <td class="table_header e s" nowrap="nowrap">${Resource.msg('search.grid.registration', 'paypalbm', null)}</td>
+            <td class="table_header e s" nowrap="nowrap">${Resource.msg('search.grid.customer', 'paypalbm', null)}</td>
+            <td class="table_header e s" nowrap="nowrap">${Resource.msg('search.grid.email', 'paypalbm', null)}</td>
+            <td class="table_header e s left" nowrap="nowrap">${Resource.msg('search.grid.total', 'paypalbm', null)}</td>
+            <td class="table_header e s left" nowrap="nowrap">${Resource.msg('search.grid.paypalamount', 'paypalbm', null)}</td>
+            <td class="table_header e s left" nowrap="nowrap" colspan="2">${Resource.msg('search.grid.status', 'paypalbm', null)}</td>
+        </tr>
+
+        <isloop items="${pdict.PagingModel.pageElements}" var="order">
+            <tr>
+                <td class="table_detail w e s" nowrap="nowrap">
+                    <a class="js_paypal_show_detail" href="${URLUtils.url('PaypalAdmin-OrderTransaction', 'orderNo', order.orderNo, 'currencyCode', order.currencyCode)}" data-ordertoken="${order.orderToken ? order.orderToken: null}" data-iscustom='${order.isCustom}' data-orderno="${order.orderNo}" data-currencycode="${order.currencyCode}" title="${Resource.msgf('ordertransaction.title', 'paypalbm', null, order.orderNo)}">${order.orderNo}</a>
+                </td>
+                <td class="table_detail e s" nowrap="nowrap">
+                    <isprint value="${order.orderDate}"/>
+                </td>
+                <td class="table_detail e s" nowrap="nowrap"><isprint value="${order.createdBy}"/></td>
+                <isif condition="${typeof order.isRegestered === 'boolean'}">
+                    <td class="table_detail e s" nowrap="nowrap"><isprint value="${order.isRegestered ? Resource.msg('search.grid.registration.registered', 'paypalbm', null) : Resource.msg('search.grid.registration.unregistered', 'paypalbm', null)}"/></td>
+                <iselse>
+                    <td class="table_detail e s" nowrap="nowrap"><isprint value="${order.isRegestered}"/></td>
+                </isif>
+                <td class="table_detail e s" nowrap="nowrap"><isprint value="${order.customer}"/></td>
+                <td class="table_detail e s" nowrap="nowrap"><isprint value="${order.email}"/></td>
+                <td class="table_detail e s" nowrap="nowrap"><isprint value="${order.orderTotal}"/></td>
+                <td class="table_detail e s" nowrap="nowrap"><isprint value="${order.paypalAmount}"/></td>
+                <td class="table_detail e s" nowrap="nowrap"><isprint value="${order.status}"/></td>
+                <td class="table_detail e s" nowrap="nowrap">
+                    <a class="js_paypal_show_detail" href="${URLUtils.url('PaypalAdmin-OrderTransaction', 'orderNo', order.orderNo, 'currencyCode', order.currencyCode)}" data-ordertoken="${order.orderToken ? order.orderToken: null}" data-orderno="${order.orderNo}" data-iscustom='${order.isCustom}' data-currencycode="${order.currencyCode}" title="${Resource.msgf('ordertransaction.title', 'paypalbm', null, order.orderNo)}">${Resource.msg('search.grid.changestatus', 'paypalbm', null)}</a>
+                </td>
+            </tr>
+        </isloop>
+
+    </table>
+
+    <ispaypalpagination pageurl="${URLUtils.https('PaypalAdmin-Orders')}" pagingmodel="${pdict.PagingModel}"/>
+
+<iselse>
+
+    <div class="table_detail w e s">${Resource.msg('transactions.emptysearch', 'paypalbm', null)}</div>
+
+</isif>

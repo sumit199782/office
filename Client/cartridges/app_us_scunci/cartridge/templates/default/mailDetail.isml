@@ -1,0 +1,18 @@
+<iscontent type="text/html" charset="UTF-8" compact="false"/> 
+
+<strong>Here are the Details of Contact Us form</strong> <br>
+Firstname :-           ${pdict.fname}<br>
+Lastname :-           ${pdict.lname} <br>
+Email :-           ${pdict.email} <br>
+<isif condition="${pdict.phone}">     
+Phone :-           ${pdict.phone} <br>
+</isif>
+<isif condition="${pdict.my_question}">     
+Question :-     ${pdict.my_question} <br>
+ </isif>
+<isif condition="${pdict.order_number}">     
+Order Nunber :-           ${pdict.order_number} <br>
+ </isif>
+<isif condition="${pdict.comment}">     
+Comments :-           ${pdict.comment} <br>
+ </isif>

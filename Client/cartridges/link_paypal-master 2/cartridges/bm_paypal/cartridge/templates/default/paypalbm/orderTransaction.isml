@@ -1,0 +1,72 @@
+<isdecorate template="paypalbm/util/pt_paypal">
+
+<isinclude template="inc/Modules">
+<isinclude template="paypalbm/util/modules">
+
+<isset name="transaction" value="${pdict.transaction}" scope="page">
+<isset name="handleAmount" value="${pdict.handleAmount}" scope="page">
+
+<div class="js_paypalbm_order_detail" data-orderNo="${transaction.order.orderNo}" data-ordertoken="${transaction.order.orderToken}" data-iscustom="${transaction.isCustomOrder ? true : false}" data-currencycode="${transaction.order.currencyCode}"></div>
+
+<div class="paypalbm_header">
+    <isset name="ordersUrl" value="${URLUtils.url('SiteNavigationBar-ShowMenuitemOverview', 'CurrentMenuItemId', 'orders')}" scope="page">
+    <isset name="transactionsUrl" value="${URLUtils.url('PaypalAdmin-Orders')}" scope="page">
+    <isbreadcrumb
+        name1="Ordering" url1="${ordersUrl}"
+        name2="PayPal Transactions" url2="${transactionsUrl}"
+        name3="${Resource.msgf('ordertransaction.breadcrumb', 'paypalbm', null, transaction.order.orderNo)}">
+
+    <table>
+        <tr><td width="100%" class="table_title w e s n">${Resource.msgf('ordertransaction.title', 'paypalbm', null, transaction.order.orderNo)}</td></tr>
+        <tr><td class="w e s"></td></tr>
+        <iscomment><tr><td class="table_title_description e w s"><p>${Resource.msg('ordertransaction.description', 'paypalbm', null)}</p></td></tr></iscomment>
+    </table>
+</div>
+
+    <div class="paypalbm_selectother_transactions">
+        <span>${Resource.msg('ordertransaction.othertransactions', 'paypalbm', null)}:</span>
+        <select class="js_paypalbm_order_transactions_ids">
+            <option value="" >${transaction.mainTransactionId}</option>
+            <isif condition="${!empty(transaction.captures)}">
+                <isloop items="${transaction.captures}" var="captureTransaction">
+                    <option value="${captureTransaction.id}" ${captureTransaction.id === transaction.captureID ? 'selected="selected"' : ''}>${Resource.msg('capture.amount', 'paypalbm', null)} ${captureTransaction.id}</option>
+                </isloop>
+            </isif>
+        </select>
+    </div>
+
+<h2>${Resource.msgf('transaction.detail.title', 'paypalbm', null, transaction.transactionid)}</h2>
+
+<isif condition="${!empty(transaction.captureID)}">
+    <h2>${Resource.msgf('capture.detail.title', 'paypalbm', null, transaction.captureID)}</h2>
+</isif>
+
+<table class="paypalbm_transaction_detail_table infobox w e s n">
+    <tr>
+        <td class="infobox_title top">${Resource.msg('transaction.detail.customername', 'paypalbm', null)}:</td>
+        <td class="infobox_item top">
+            ${Resource.msgf('transaction.detail.customerformatwithstatus', 'paypalbm', null, transaction.firstname, transaction.lastname)}
+        </td>
+    </tr>
+    <tr class="paypalbm_gray">
+        <td class="infobox_title top">${Resource.msg('transaction.detail.customeremail', 'paypalbm', null)}:</td>
+        <td class="infobox_item top">${transaction.email}</td>
+    </tr>
+</table>
+
+<isinclude template="paypalbm/transactionDetails/orderAmount" />
+<isinclude template="paypalbm/transactionDetails/invoice" />
+<isinclude template="paypalbm/transactionDetails/orderShipping" />
+
+<div class="paypalbm_footer">
+    <a class="button" href="${transactionsUrl}">&lt;&lt; ${Resource.msg('ordertransaction.backtolist', 'paypalbm', null)}</a>
+</div>
+
+<isinclude template="paypalbm/components/actionCaptureForm"/>
+<isinclude template="paypalbm/components/actionRefundForm"/>
+<isinclude template="paypalbm/components/actionSaleForm"/>
+<isinclude template="paypalbm/components/actionAuthorizationForm"/>
+<isinclude template="paypalbm/components/actionReauthorizeForm"/>
+<isinclude template="paypalbm/components/actionVoidForm"/>
+
+</isdecorate>

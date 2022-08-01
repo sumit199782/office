@@ -1,0 +1,2 @@
+<h1>${pdict.imageconfig}</h1>
+<img alt="${pdict.imageAlt}" src="${pdict.image}"  />
