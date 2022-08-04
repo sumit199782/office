@@ -155,6 +155,18 @@ declare class FormShipping extends FormGroup {
 	 /** @source [definition](file:/Users/sumitkumawat/sumit/Commerce/office/Client/cartridges/app_storefront_base/cartridge/forms/default/shipping.xml#9) */
 	shippingAddress : FormShippingShippingAddress
 }
+/** @source [definition](file:/Users/sumitkumawat/sumit/Commerce/office/Client/cartridges/app_storefront_base/cartridge/forms/default/states.xml#2)*/
+declare class FormStates extends FormGroup {
+	 /** @source [definition](file:/Users/sumitkumawat/sumit/Commerce/office/Client/cartridges/app_storefront_base/cartridge/forms/default/states.xml#3) */
+	stateCode : FormField<string>
+}
+/** @source [definition](file:/Users/sumitkumawat/sumit/Commerce/office/Client/cartridges/app_storefront_base/cartridge/forms/default/coRegisteredCustomer.xml#2)*/
+declare class FormCoRegisteredCustomer extends FormGroup {
+	 /** @source [definition](file:/Users/sumitkumawat/sumit/Commerce/office/Client/cartridges/app_storefront_base/cartridge/forms/default/coRegisteredCustomer.xml#4) */
+	email : FormField<string>
+	 /** @source [definition](file:/Users/sumitkumawat/sumit/Commerce/office/Client/cartridges/app_storefront_base/cartridge/forms/default/coRegisteredCustomer.xml#16) */
+	password : FormField<string>
+}
 /** @source [definition](file:/Users/sumitkumawat/sumit/Commerce/office/Client/cartridges/app_custom_sumit/cartridge/forms/default/preferences.xml#2)*/
 declare class FormPreferences extends FormGroup {
 	 /** @source [definition](file:/Users/sumitkumawat/sumit/Commerce/office/Client/cartridges/app_custom_sumit/cartridge/forms/default/preferences.xml#3) */
@@ -182,8 +194,6 @@ declare class FormSrvnewsletter extends FormGroup {
 
 declare global {
 interface SFCCForms {
-	states: FormStates
-	coRegisteredCustomer: FormCoRegisteredCustomer
 	billing: FormBilling
 	profile: FormProfile
 	contactInfo: FormContactInfo
@@ -192,6 +202,8 @@ interface SFCCForms {
 	address: FormAddress
 	coCustomer: FormCoCustomer
 	shipping: FormShipping
+	states: FormStates
+	coRegisteredCustomer: FormCoRegisteredCustomer
 	preferences: FormPreferences
 	srvnewsletter: FormSrvnewsletter
 }
@@ -259,18 +271,6 @@ interface SfraFormBase<T> {
 	error: string | null,
 	attributes: string,
 	formType: 'formGroup'
-}
-/** @source [definition](file:/Users/sumitkumawat/sumit/Commerce/office/Client/cartridges/app_storefront_base/cartridge/forms/default/states.xml#2)*/
-interface SfraFormStates extends SfraFormBase<FormStates> {
-	 /** @source [definition](file:/Users/sumitkumawat/sumit/Commerce/office/Client/cartridges/app_storefront_base/cartridge/forms/default/states.xml#3) */
-	stateCode : SfraField<string> & SfraFieldString
-}
-/** @source [definition](file:/Users/sumitkumawat/sumit/Commerce/office/Client/cartridges/app_storefront_base/cartridge/forms/default/coRegisteredCustomer.xml#2)*/
-interface SfraFormCoRegisteredCustomer extends SfraFormBase<FormCoRegisteredCustomer> {
-	 /** @source [definition](file:/Users/sumitkumawat/sumit/Commerce/office/Client/cartridges/app_storefront_base/cartridge/forms/default/coRegisteredCustomer.xml#4) */
-	email : SfraField<string> & SfraFieldString
-	 /** @source [definition](file:/Users/sumitkumawat/sumit/Commerce/office/Client/cartridges/app_storefront_base/cartridge/forms/default/coRegisteredCustomer.xml#16) */
-	password : SfraField<string> & SfraFieldString
 }
 /** @source [definition](file:/Users/sumitkumawat/sumit/Commerce/office/Client/cartridges/app_storefront_base/cartridge/forms/default/billing.xml#2)*/
 interface SfraFormBilling extends SfraFormBase<FormBilling> {
@@ -411,6 +411,18 @@ interface SfraFormShipping extends SfraFormBase<FormShipping> {
 	 /** @source [definition](file:/Users/sumitkumawat/sumit/Commerce/office/Client/cartridges/app_storefront_base/cartridge/forms/default/shipping.xml#9) */
 	shippingAddress : SfraFormShippingShippingAddress
 }
+/** @source [definition](file:/Users/sumitkumawat/sumit/Commerce/office/Client/cartridges/app_storefront_base/cartridge/forms/default/states.xml#2)*/
+interface SfraFormStates extends SfraFormBase<FormStates> {
+	 /** @source [definition](file:/Users/sumitkumawat/sumit/Commerce/office/Client/cartridges/app_storefront_base/cartridge/forms/default/states.xml#3) */
+	stateCode : SfraField<string> & SfraFieldString
+}
+/** @source [definition](file:/Users/sumitkumawat/sumit/Commerce/office/Client/cartridges/app_storefront_base/cartridge/forms/default/coRegisteredCustomer.xml#2)*/
+interface SfraFormCoRegisteredCustomer extends SfraFormBase<FormCoRegisteredCustomer> {
+	 /** @source [definition](file:/Users/sumitkumawat/sumit/Commerce/office/Client/cartridges/app_storefront_base/cartridge/forms/default/coRegisteredCustomer.xml#4) */
+	email : SfraField<string> & SfraFieldString
+	 /** @source [definition](file:/Users/sumitkumawat/sumit/Commerce/office/Client/cartridges/app_storefront_base/cartridge/forms/default/coRegisteredCustomer.xml#16) */
+	password : SfraField<string> & SfraFieldString
+}
 /** @source [definition](file:/Users/sumitkumawat/sumit/Commerce/office/Client/cartridges/app_custom_sumit/cartridge/forms/default/preferences.xml#2)*/
 interface SfraFormPreferences extends SfraFormBase<FormPreferences> {
 	 /** @source [definition](file:/Users/sumitkumawat/sumit/Commerce/office/Client/cartridges/app_custom_sumit/cartridge/forms/default/preferences.xml#3) */
@@ -438,8 +450,6 @@ interface SfraFormSrvnewsletter extends SfraFormBase<FormSrvnewsletter> {
 
 declare global {
 interface SFRAServerForms {
-	getForm(name: 'states'): SfraFormStates
-	getForm(name: 'coRegisteredCustomer'): SfraFormCoRegisteredCustomer
 	getForm(name: 'billing'): SfraFormBilling
 	getForm(name: 'profile'): SfraFormProfile
 	getForm(name: 'contactInfo'): SfraFormContactInfo
@@ -448,6 +458,8 @@ interface SFRAServerForms {
 	getForm(name: 'address'): SfraFormAddress
 	getForm(name: 'coCustomer'): SfraFormCoCustomer
 	getForm(name: 'shipping'): SfraFormShipping
+	getForm(name: 'states'): SfraFormStates
+	getForm(name: 'coRegisteredCustomer'): SfraFormCoRegisteredCustomer
 	getForm(name: 'preferences'): SfraFormPreferences
 	getForm(name: 'srvnewsletter'): SfraFormSrvnewsletter
 }
@@ -455,8 +467,6 @@ interface SFRAServerForms {
 
 declare global {
 interface SRFAForms {
-	states: SfraFormStates
-	coRegisteredCustomer: SfraFormCoRegisteredCustomer
 	billing: SfraFormBilling
 	profile: SfraFormProfile
 	contactInfo: SfraFormContactInfo
@@ -465,6 +475,8 @@ interface SRFAForms {
 	address: SfraFormAddress
 	coCustomer: SfraFormCoCustomer
 	shipping: SfraFormShipping
+	states: SfraFormStates
+	coRegisteredCustomer: SfraFormCoRegisteredCustomer
 	preferences: SfraFormPreferences
 	srvnewsletter: SfraFormSrvnewsletter
 }
