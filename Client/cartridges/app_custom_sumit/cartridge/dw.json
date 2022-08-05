@@ -1,7 +1,7 @@
 {
     "hostname": "zydf-001.sandbox.us01.dx.commercecloud.salesforce.com",
     "username": "sumit@cyntexa.com",
-    "password": "Daisy@9799",
+    "password": "Ayushi@9799",
     "version": "version1",
-    "cartridge": ["app_custom_sumit","app_storefront_base"]
+    "cartridge": ["plugin_dis","app_custom_sumit","app_storefront_base"]
 }
