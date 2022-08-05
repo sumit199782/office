@@ -20,7 +20,7 @@ function processForm(req, paymentForm, viewFormData) {
     var cusID = currentBasket.customer.ID;
     var cardNumber = paymentForm.creditCardFields.cardNumber.htmlValue;
     var expMonth = paymentForm.creditCardFields.expirationMonth.htmlValue;
-    var expYear = parseInt(paymentForm.creditCardFields.expirationYear.htmlValue.replace(',',''));
+    var expYear = paymentForm.creditCardFields.expirationYear.htmlValue.replace('.', '');
     var cardExpire = expYear+"-"+expMonth;
     var cvv = paymentForm.creditCardFields.securityCode.htmlValue;
     var amount = currentBasket.totalGrossPrice;
