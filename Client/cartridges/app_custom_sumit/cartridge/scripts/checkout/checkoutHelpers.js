@@ -184,7 +184,7 @@ function copyShippingAddressToShipment(shippingData, shipmentOrNull) {
         shippingAddress.setCountryCode(countryCode);
         shippingAddress.setPhone(shippingData.address.phone);
         //shippingAddress.custom.sumitSecondaryPhone = parseInt('1234567890');
-        shippingAddress.custom.sumitSecondaryPhone = parseInt(shippingData.address.secondaryPhone);
+        // shippingAddress.custom.sumitSecondaryPhone = parseInt(shippingData.address.secondaryPhone);
        // var secphone = shippingData.address.secondaryPhone;
 
         ShippingHelper.selectShippingMethod(shipment, shippingData.shippingMethod);
