@@ -2,10 +2,10 @@
 'use strict';
 
 var server = require('server');
-var FileReader = require('dw/io/FileReader');
-var File = require("dw/io/File");
-var Encoding = require('dw/crypto/Encoding');
-var Logger = require('dw/system/Logger');
+// var FileReader = require('dw/io/FileReader');
+// var File = require("dw/io/File");
+// var Encoding = require('dw/crypto/Encoding');
+// var Logger = require('dw/system/Logger');
 
 
 
@@ -15,24 +15,22 @@ server.get('Start', function (req, res, next) {
     // var params = req.querystring.name;
     // res.render('hello',{param1:params})
     //execute the next function to notify the server that you're done with a step   
-    var src = "src";
-    var folderPath = File.IMPEX + "/" + src + "/sumitFolder/sumit.txt";
-    var file = new File(folderPath);
-	var fileReader = new FileReader(file);
-
-    var a = 0;
-    readFile(folderPath);
-   // sendMail();
+    // var src = "src";
+    // var folderPath = File.IMPEX + "/" + src + "/sumitFolder/sumit.txt";
+    // var file = new File(folderPath);
+	// var fileReader = new FileReader(file);
+    // readFile(folderPath);
+    sendMail();
     next();
 });
 
-function readFile(folderPath)
-{
-    var fReader = new FileReader(folderPath);
-    // Logger.debug(fReader);
-   // var result = Encoding.toBase64(fReader);
-    // getBase64(fReader)
-}
+// function readFile(folderPath)
+// {
+//     var fReader = new FileReader(folderPath);
+//     // Logger.debug(fReader);
+//    // var result = Encoding.toBase64(fReader);
+//     // getBase64(fReader)
+// }
 
 // function getBase64(fReader) {
 //    var reader = new FileReader();
@@ -45,7 +43,7 @@ function readFile(folderPath)
 //    };
 // }
 
-function sendMail() {
+function sendMail () {
     var Mail = require('dw/net/Mail');
     var mail = new Mail()
     mail.addTo("sumit@cyntexa.com");

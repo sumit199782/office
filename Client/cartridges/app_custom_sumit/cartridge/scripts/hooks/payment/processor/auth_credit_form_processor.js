@@ -15,26 +15,20 @@ function processForm(req, paymentForm, viewFormData) {
     var viewData = viewFormData;
     var creditCardErrors = {};
     var currentBasket = BasketMgr.getCurrentBasket();
-    var qty = currentBasket.productQuantityTotal;
+    // var qty = currentBasket.productQuantityTotal;
     var quantityTotal = currentBasket.productQuantityTotal;
-    var cusID = currentBasket.customer.ID;
-    var cardNumber = paymentForm.creditCardFields.cardNumber.htmlValue;
-    var expMonth = paymentForm.creditCardFields.expirationMonth.htmlValue;
-    var expYear = parseInt(paymentForm.creditCardFields.expirationYear.htmlValue.replace(',',''));
-    var cardExpire = expYear+"-"+expMonth;
+    // var cusID = currentBasket.customer.ID;
+    // var cardNumber = paymentForm.creditCardFields.cardNumber.htmlValue;
+    // var expMonth = paymentForm.creditCardFields.expirationMonth.htmlValue;
+    // var expYear = parseInt(paymentForm.creditCardFields.expirationYear.htmlValue.replace(',',''));
+    // var cardExpire = expYear+"-"+expMonth;
     var cvv = paymentForm.creditCardFields.securityCode.htmlValue;
-
-
     var postData =  "{\n    \"createTransactionRequest\": {\n        \"merchantAuthentication\": {\n            \"name\": \"8r9u6A7Fx\",\n            \"transactionKey\": \"2U3u64YBthCbY273\"\n        },\n        \"refId\": \"123478\",\n        \"transactionRequest\": {\n            \"transactionType\": \"authCaptureTransaction\",\n            \"amount\": "+quantityTotal+",\n            \"payment\": {\n                \"creditCard\": {\n                    \"cardNumber\": "+paymentForm.creditCardFields.cardNumber.htmlValue+",\n                    \"expirationDate\": \"2025-01\",\n                    \"cardCode\": "+cvv+"\n                }\n            },\n            \"transactionSettings\": {\n                \"setting\": {\n                    \"settingName\": \"testRequest\",\n                    \"settingValue\": \"false\"\n                }\n            },\n            \"userFields\": {\n                \"userField\": [\n                    {\n                        \"name\": \"MerchantDefinedFieldName1\",\n                        \"value\": \"MerchantDefinedFieldValue1\"\n                    }\n                ]\n            },\n        }\n    }\n}";
-
-
-
-
     var svcResult = service.authorizeAPIService.call(postData);
-    var obj = svcResult.object
+    // var obj = svcResult.object
     if (svcResult.status === 'OK') {
-        var resultfromservice
-        var k=0;
+        // var resultfromservice
+        // var k=0;
     }
     if (!req.form.storedPaymentUUID) {
         // verify credit card form data
