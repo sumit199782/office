@@ -1,6 +1,3 @@
-var Token = '';
-
-    // var service = require('*/cartridge/services/auth');
     var LocalServiceRegistry = require('dw/svc/LocalServiceRegistry');
     var StringUtils = require('dw/util/StringUtils');
     var komojuToken = LocalServiceRegistry.createService('komoju', {
