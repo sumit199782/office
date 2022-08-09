@@ -1,7 +1,6 @@
 'use strict';
+
 var COHelpers = require('*/cartridge/scripts/checkout/checkoutHelpers');
-var BasketMgr = require('dw/order/BasketMgr');
-var service = require('*/cartridge/services/auth');
 
 /**
  * Verifies the required information for billing form is provided.
@@ -12,51 +11,27 @@ var service = require('*/cartridge/services/auth');
  */
 function processForm(req, paymentForm, viewFormData) {
     var array = require('*/cartridge/scripts/util/array');
+
     var viewData = viewFormData;
     var creditCardErrors = {};
-    var currentBasket = BasketMgr.getCurrentBasket();
-    var qty = currentBasket.productQuantityTotal;
-    var quantityTotal = currentBasket.productQuantityTotal;
-    var cusID = currentBasket.customer.ID;
-    var cardNumber = paymentForm.creditCardFields.cardNumber.htmlValue;
-    var expMonth = paymentForm.creditCardFields.expirationMonth.htmlValue;
-    var expYear = paymentForm.creditCardFields.expirationYear.htmlValue.replace('.', '');
-    var cardExpire = expYear+"-"+expMonth;
-    var cvv = paymentForm.creditCardFields.securityCode.htmlValue;
-    var amount = currentBasket.totalGrossPrice;
-    var emailID = currentBasket.customerEmail;
 
-    var postData =  {
-        "amount": amount,
-        "currency": "JPY",
-        "metadata[foobar]": "hoge",
-        "payment_details[email]": emailID,
-        "payment_details[month]": expMonth,
-        "payment_details[number]": cardNumber,
-        "payment_details[type]": "credit_card",
-        "payment_details[verification_value]": cvv,
-        "payment_details[year]": expYear
-      }
-
-    var svcResult = service.komojuAPIService.call(postData);
-    var obj = svcResult.object
-    if (svcResult.status === 'OK') {
-        var k=0;
-    }
     if (!req.form.storedPaymentUUID) {
         // verify credit card form data
         creditCardErrors = COHelpers.validateCreditCard(paymentForm);
     }
+
     if (Object.keys(creditCardErrors).length) {
         return {
             fieldErrors: creditCardErrors,
             error: true
         };
     }
+
     viewData.paymentMethod = {
         value: paymentForm.paymentMethod.value,
         htmlName: paymentForm.paymentMethod.value
     };
+
     viewData.paymentInformation = {
         cardType: {
             value: paymentForm.creditCardFields.cardType.value,
@@ -82,10 +57,13 @@ function processForm(req, paymentForm, viewFormData) {
             htmlName: paymentForm.creditCardFields.expirationYear.htmlName
         }
     };
+
     if (req.form.storedPaymentUUID) {
         viewData.storedPaymentUUID = req.form.storedPaymentUUID;
     }
+
     viewData.saveCard = paymentForm.creditCardFields.saveCard.checked;
+
     // process payment information
     if (viewData.storedPaymentUUID
         && req.currentCustomer.raw.authenticated
@@ -95,6 +73,7 @@ function processForm(req, paymentForm, viewFormData) {
         var paymentInstrument = array.find(paymentInstruments, function (item) {
             return viewData.storedPaymentUUID === item.UUID;
         });
+
         viewData.paymentInformation.cardNumber.value = paymentInstrument.creditCardNumber;
         viewData.paymentInformation.cardType.value = paymentInstrument.creditCardType;
         viewData.paymentInformation.securityCode.value = req.form.securityCode;
@@ -102,11 +81,13 @@ function processForm(req, paymentForm, viewFormData) {
         viewData.paymentInformation.expirationYear.value = paymentInstrument.creditCardExpirationYear;
         viewData.paymentInformation.creditCardToken = paymentInstrument.raw.creditCardToken;
     }
+
     return {
         error: false,
         viewData: viewData
     };
 }
+
 /**
  * Save the credit card information to login account if save card option is selected
  * @param {Object} req - The request object
@@ -115,6 +96,7 @@ function processForm(req, paymentForm, viewFormData) {
  */
 function savePaymentInformation(req, basket, billingData) {
     var CustomerMgr = require('dw/customer/CustomerMgr');
+
     if (!billingData.storedPaymentUUID
         && req.currentCustomer.raw.authenticated
         && req.currentCustomer.raw.registered
@@ -124,11 +106,13 @@ function savePaymentInformation(req, basket, billingData) {
         var customer = CustomerMgr.getCustomerByCustomerNumber(
             req.currentCustomer.profile.customerNo
         );
+
         var saveCardResult = COHelpers.savePaymentInstrumentToWallet(
             billingData,
             basket,
             customer
         );
+
         req.currentCustomer.wallet.paymentInstruments.push({
             creditCardHolder: saveCardResult.creditCardHolder,
             maskedCreditCardNumber: saveCardResult.maskedCreditCardNumber,
@@ -146,5 +130,6 @@ function savePaymentInformation(req, basket, billingData) {
         });
     }
 }
+
 exports.processForm = processForm;
 exports.savePaymentInformation = savePaymentInformation;

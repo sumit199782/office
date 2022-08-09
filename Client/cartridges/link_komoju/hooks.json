@@ -3,10 +3,6 @@
         {
             "name": "app.payment.processor.komoju",
             "script": "./cartridge/scripts/hooks/payment/processor/auth_credit"
-        },
-        {
-            "name": "app.payment.form.processor.komoju",
-            "script": "./cartridge/scripts/hooks/payment/processor/auth_credit_form_processor"
         }
     ]
 }

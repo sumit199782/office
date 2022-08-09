@@ -1,0 +1,12 @@
+{
+    "hooks": [
+        {
+            "name": "app.payment.processor.stripe",
+            "script": "./cartridge/scripts/hooks/payment/processor/stripe_credit"
+        },
+        {
+            "name": "app.payment.form.processor.stripe",
+            "script": "./cartridge/scripts/hooks/payment/processor/stripe_credit_form_processor"
+        }
+    ]
+}

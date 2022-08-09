@@ -82,7 +82,7 @@ server.post(
 
 
         var reportingURLs = reportingUrlsHelper.getOrderReportingURLs(order);
-        var sumitSecondaryPhone  = order.defaultShipment.shippingAddress.custom.sumitSecondaryPhone.toString();
+        // var sumitSecondaryPhone  = order.defaultShipment.shippingAddress.custom.sumitSecondaryPhone.toString();
 
         if (!req.currentCustomer.profile) {
             passwordForm = server.forms.getForm('newPasswords');
@@ -93,7 +93,7 @@ server.post(
                 passwordForm: passwordForm,
                 reportingURLs: reportingURLs,
                 orderUUID: order.getUUID(),
-                sumitSecondaryPhone:sumitSecondaryPhone
+                // sumitSecondaryPhone:sumitSecondaryPhone
             });
         } else {
             res.render('checkout/confirmation/confirmation', {
@@ -101,7 +101,7 @@ server.post(
                 returningCustomer: true,
                 reportingURLs: reportingURLs,
                 orderUUID: order.getUUID(),
-                sumitSecondaryPhone:sumitSecondaryPhone
+                // sumitSecondaryPhone:sumitSecondaryPhone
             });
         }
         req.session.raw.custom.orderID = req.querystring.ID; // eslint-disable-line no-param-reassign
@@ -313,14 +313,14 @@ server.get(
                 URLUtils.https('Order-History', 'orderFilter', req.querystring.orderFilter);
             Logger.info(orderModel);
             Logger.info(JSON.stringify(orderModel))
-            var sumitSecondaryPhone  = order.defaultShipment.shippingAddress.custom.sumitSecondaryPhone;
+            // var sumitSecondaryPhone  = order.defaultShipment.shippingAddress.custom.sumitSecondaryPhone;
             var a=0;
             res.render('account/orderDetails', {
                 order: orderModel,
                 exitLinkText: exitLinkText,
                 exitLinkUrl: exitLinkUrl,
                 breadcrumbs: breadcrumbs,
-                sumitSecondaryPhone:sumitSecondaryPhone.toString()
+                // sumitSecondaryPhone:sumitSecondaryPhone.toString()
             });
         } else {
             res.redirect(URLUtils.url('Account-Show'));

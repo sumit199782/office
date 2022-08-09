@@ -8,7 +8,6 @@ var PaymentStatusCodes = require('dw/order/PaymentStatusCodes');
 var Resource = require('dw/web/Resource');
 var Transaction = require('dw/system/Transaction');
 
-
 /**
  * Creates a token. This should be replaced by utilizing a tokenization provider
  * @returns {string} a token
@@ -27,33 +26,19 @@ function createToken() {
  * @return {Object} returns an error object
  */
 function Handle(basket, paymentInformation, paymentMethodID, req) {
-    var customcall = require('../../../komoju.js');
     var currentBasket = basket;
     var cardErrors = {};
     var cardNumber = paymentInformation.cardNumber.value;
     var cardSecurityCode = paymentInformation.securityCode.value;
     var expirationMonth = paymentInformation.expirationMonth.value;
     var expirationYear = paymentInformation.expirationYear.value;
-    var cardType = paymentInformation.cardType.value;
-    var paymentCard = PaymentMgr.getPaymentCard(cardType);
     var serverErrors = [];
     var creditCardStatus;
 
-    var postData1 =  {
-        "payment_details[email]": currentBasket.customerEmail,
-        "payment_details[month]": expirationMonth,
-        "payment_details[number]": cardNumber,
-        "payment_details[type]": "credit_card",
-        "payment_details[verification_value]": cardSecurityCode,
-        "payment_details[year]": expirationYear
-    }
-    var paymentURL = customcall.komojuToken.getURL();
-    var tokenResult = customcall.komojuToken.setURL(paymentURL + 'tokens').call(postData1);
-    var tokenValue1 = JSON.parse(tokenResult.object).id;
-    if(tokenValue1){
-        session.custom.token = tokenValue1;
-    }
-    var sessiondata = req.session.raw.custom.token;
+
+    var cardType = paymentInformation.cardType.value;
+    var paymentCard = PaymentMgr.getPaymentCard(cardType);
+
 
     // Validate payment instrument
     if (paymentMethodID === PaymentInstrument.METHOD_CREDIT_CARD) {
@@ -155,35 +140,22 @@ function Handle(basket, paymentInformation, paymentMethodID, req) {
  *      payment method
  * @return {Object} returns an error object
  */
-function Authorize(orderNumber, paymentInstrument, paymentProcessor, req) {
+function Authorize(orderNumber, paymentInstrument, paymentProcessor) {
     var serverErrors = [];
     var fieldErrors = {};
     var error = false;
-    var customcall = require('../../../komoju.js');
-    var service = require('*/cartridge/services/auth');
-    var OrderMgr = require('dw/order/OrderMgr');
-    var orderDetails = OrderMgr.getOrder(orderNumber);
-   var tokendata = session.custom.token;
-    var postData =  {
-        "amount": orderDetails.totalGrossPrice,
-        "currency": "JPY",
-        "payment_details": tokendata
-      }
-    var paymentURL = customcall.komojuToken.getURL();
-    var result = customcall.komojuToken.setURL(paymentURL + 'payments').call(postData);
-        var k=0;
-        try {
-            Transaction.wrap(function () {
-                paymentInstrument.paymentTransaction.setTransactionID(orderNumber);
-                paymentInstrument.paymentTransaction.setPaymentProcessor(paymentProcessor);
-            });
-        }catch (e) {
-            error = true;
-            serverErrors.push(
-                Resource.msg('error.technical', 'checkout', null)
-            );
-        }
-    // }
+
+    try {
+        Transaction.wrap(function () {
+            paymentInstrument.paymentTransaction.setTransactionID(orderNumber);
+            paymentInstrument.paymentTransaction.setPaymentProcessor(paymentProcessor);
+        });
+    } catch (e) {
+        error = true;
+        serverErrors.push(
+            Resource.msg('error.technical', 'checkout', null)
+        );
+    }
 
     return { fieldErrors: fieldErrors, serverErrors: serverErrors, error: error };
 }
