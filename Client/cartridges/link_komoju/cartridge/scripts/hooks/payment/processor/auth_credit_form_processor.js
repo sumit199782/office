@@ -10,7 +10,7 @@ var COHelpers = require('*/cartridge/scripts/checkout/checkoutHelpers');
  * @returns {Object} an object that has error information or payment information
  */
 function processForm(req, paymentForm, viewFormData) {
-    var array = require('*/cartridge/scripts/util/array');
+    var array = require('../../../../scripts/util/array');
 
     var viewData = viewFormData;
     var creditCardErrors = {};
@@ -70,7 +70,7 @@ function processForm(req, paymentForm, viewFormData) {
         && req.currentCustomer.raw.registered
     ) {
         var paymentInstruments = req.currentCustomer.wallet.paymentInstruments;
-        var paymentInstrument = array.find(paymentInstruments, function (item) {
+        var paymentInstrument = array.find(paymentInstruments, function(item) {
             return viewData.storedPaymentUUID === item.UUID;
         });
 
