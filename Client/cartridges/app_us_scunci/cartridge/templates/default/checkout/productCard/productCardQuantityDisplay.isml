@@ -1,4 +1,0 @@
-<p class="line-item-pricing-info">
-    <br/>${Resource.msg('field.selectquantity','cart',null)}
-    <span class="pricing qty-card-quantity-count"><isprint value="${lineItem.quantity}" formatter="##" /></span>
-</p>

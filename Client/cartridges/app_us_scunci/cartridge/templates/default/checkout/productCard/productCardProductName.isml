@@ -1,3 +1,0 @@
-<div class="line-item-name" style="white-space: inherit !important;">
-    <span>${lineItem.productName}</span>
-</div>

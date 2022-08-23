@@ -1,3 +1,0 @@
-<div class="pdp-link">
-    <a class="link HelveticaNeueLTStd-Roman" href="${pdict.urls.product}">${product.productName}</a>
-</div>
